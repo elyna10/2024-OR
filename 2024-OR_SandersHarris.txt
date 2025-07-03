@@ -61208,7 +61208,7 @@
 				quotes = ["''The oligarchs run Russia. But guess what? Oligarchs run the United States as well.'' ~ Bernie Sanders", ]
 				customquote = quotes[Math.floor((Math.random() * quotes.length))]
 				corrr=`\n<h2>OUR REVOLUTION</h2><font id='wittyquote' size='3' color='white'><em>`+customquote+`</em></font>`
-				if ( ans == 22202 || ans == 22302 || ((ans==22201 || ans ==22301) &&(Math.ceil(Math.random() *100)>50) || !random_on) || ((ans==22203 || ans ==22303) &&(Math.ceil(Math.random() *100)>75 && random_on)) || ((ans==22204 || ans ==22304) &&(Math.ceil(Math.random() *100)>95 && random_on)) ) { //PRC can be intimidated from war depending on your choices.
+				if ( ans == 22202 || ans == 22302 || ((ans==22201 || ans ==22301) &&(Math.ceil(Math.random() *100)>50 || !random_on)) || ((ans==22203 || ans ==22303) &&(Math.ceil(Math.random() *100)>75 && random_on)) || ((ans==22204 || ans ==22304) &&(Math.ceil(Math.random() *100)>95 && random_on)) ) { //PRC can be intimidated from war depending on your choices.
 				//if randomness off: negotiating will never work, arming or sabre-rattling will always work
 					taiwan_war = 1
 					tiktok_early_ban=1
