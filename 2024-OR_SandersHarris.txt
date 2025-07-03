@@ -51140,7 +51140,7 @@
 			"fields": {
 				"answer": 27004,
 				"candidate": 300,
-				"answer_feedback": "You sign the deal, wondering if you've sold your soul to let them implement work requirements and means-testing. You feel the cuts like a knife in your skin - but for once, the corporations will bleed too, their tax rate clawed back up to 30%. It's a far cry from justice, a fraction of what they owe, but at least it's a crack in their fortress of greed. Perhaps that's worth it."
+				"answer_feedback": "You sign the deal, wondering if you've sold your soul to let them do work requirements and means-testing. You feel the cuts like a knife in your skin - but for once, the corporations will bleed too, their tax rate clawed back up to 30%. It's a far cry from justice, a fraction of what they owe, but at least it's a crack in their fortress of greed. Perhaps that's worth it."
 			}
 		},
 		{
@@ -61793,6 +61793,23 @@
 				applyDrift(301,0.01) //January 6 slowly forgotten
 				if (israel_embargo==0) { //if you armed Israel at ANY point, they have significant numbers of American weapons.
 					e.questions_json[campaignTrail_temp.question_number+1] = tunnel(32000)
+					if (e.player_answers.includes(26003) || e.player_answers.includes(26004) || e.player_answers.includes(26103) || e.player_answers.includes(26104)) { //player disarmed Israel after October 7. Implication is that they did not disarm Israel at the start.
+						if (tooltips_on) {
+							ReplaceQuestion(32000,`The morning briefing makes for grim reading: <span class=\'mytooltip\' style=\'background-color:silver\'>Israel's continued advance into central Gaza<span class=\'mytooltiptext\'><img src=https://i.imgur.com/k7ivwCL.jpeg><br>They call it a military necessity to avoid civilian harm. In your gut, you know the truth: Netanyahu's never letting them back if he can help it, if you don't stop him. The worst part of the tragedy is, you understand how people get here, how the brutal alchemy of trauma and fear teaches the abused to become abusers, convinces the scarred that only by inflicting their own horrors can they prevent it from befalling them again. The Germans driven out from Eastern Europe after the horrors of Nazi occupation, the Serbs forced to flee the lands Milošević soaked in blood, and your own people who carried the scars of the Shoah built a nation in Israel by driving another nation to exile in the Nakba. <i>When will it end? When will it ever end?</i></span></span> has left devastation in its wake - thirty thousand Palestinian lives lost and half of Gaza's houses reduced to rubble. Many of their munitions are made in America - stockpiled from the first few years of your term. As protesters howl for an end to the violence, how will you make peace?`)
+						}
+						else {
+							ReplaceQuestion(32000,`The morning briefing makes for grim reading: Israel's continued advance into Central Gaza has left devastation in its wake - thirty thousand Palestinian lives lost and half of Gaza's houses reduced to rubble. Many of their munitions are made in America - stockpiled from before you disarmed them at the war. As protesters howl for an end to the violence, how will you make peace?`)
+						}
+					
+					}
+					else if (e.player_answers.includes(2001) || e.player_answers.includes(2003) || e.player_answers.includes(8102) ) { //player disarmed Israel at start of game. Implication is that they armed Israel after October 7.
+						if (tooltips_on) {
+							ReplaceQuestion(32000,`The morning briefing makes for grim reading: <span class=\'mytooltip\' style=\'background-color:silver\'>Israel's continued advance into central Gaza<span class=\'mytooltiptext\'><img src=https://i.imgur.com/k7ivwCL.jpeg><br>They call it a military necessity to avoid civilian harm. In your gut, you know the truth: Netanyahu's never letting them back if he can help it, if you don't stop him. The worst part of the tragedy is, you understand how people get here, how the brutal alchemy of trauma and fear teaches the abused to become abusers, convinces the scarred that only by inflicting their own horrors can they prevent it from befalling them again. The Germans driven out from Eastern Europe after the horrors of Nazi occupation, the Serbs forced to flee the lands Milošević soaked in blood, and your own people who carried the scars of the Shoah built a nation in Israel by driving another nation to exile in the Nakba. <i>When will it end? When will it ever end?</i></span></span> has left devastation in its wake - thirty thousand Palestinian lives lost and half of Gaza's houses reduced to rubble. Many of their munitions are made in America - recently shipped after you chose to rearm them. As protesters howl for an end to the violence, how will you make peace?`)
+						}
+						else {
+							ReplaceQuestion(32000,`The morning briefing makes for grim reading: Israel's continued advance into Central Gaza has left devastation in its wake - thirty thousand Palestinian lives lost and half of Gaza's houses reduced to rubble. Many of their munitions are made in America - recently shipped after you chose to rearm them. As protesters howl for an end to the violence, how will you make peace?`)
+						}
+					}
 				}
 				else { //if you consistently kept Israel disarmed
 					e.questions_json[campaignTrail_temp.question_number+1] = tunnel(32100)
@@ -61982,7 +61999,7 @@
 							campaignTrail_temp.candidate_state_multiplier_json.forEach((item) => { //all state multipliers
 								if (item.fields.candidate === 302) { //is RFK Jr
 									item.fields.state_multiplier -= boost_list[302][item.fields.state-1100]*0.2 //lose 20% of boost
-									boost_list[candidateId][item.fields.state-1100]*=0.8 //boost list adjusted too
+									boost_list[302][item.fields.state-1100]*=0.8 //boost list adjusted too
 									//this hurts Rs by not giving them their RFK votes back. That is the reason we're not using applyMinorBoost.
 								}
 							});
@@ -62009,7 +62026,7 @@
 							campaignTrail_temp.candidate_state_multiplier_json.forEach((item) => { //all state multipliers
 								if (item.fields.candidate === 302) { //is RFK Jr
 									item.fields.state_multiplier -= boost_list[302][item.fields.state-1100]*0.2 //lose 20% of boost
-									boost_list[candidateId][item.fields.state-1100]*=0.8 //boost list adjusted too
+									boost_list[302][item.fields.state-1100]*=0.8 //boost list adjusted too
 									//this hurts Rs by not giving them their RFK votes back. That is the reason we're not using applyMinorBoost.
 								}
 							});
