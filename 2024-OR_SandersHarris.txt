@@ -61305,7 +61305,7 @@
 				} //otherwise Ukraine feedback. Way too many different options, most of which are largely cosmetic (U.S. doesn't care very much.)
 				else if (ukraine_strength>=17) { //Ukraine ascendant
 					e.questions_json[campaignTrail_temp.question_number+1] = tunnel(24000)
-					if (Math.ceil(Math.random() *100)<=100 && random_on) {
+					if (Math.ceil(Math.random() *100)<=50 && random_on) {
 						var crimea_nuclear = 1
 					}
 					else {
