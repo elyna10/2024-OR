@@ -1338,7 +1338,7 @@ campaignTrail_temp.achievements = {
         "image" : "https://i.imgur.com/GtdTXvC.jpeg",
         "description" : "Have the election decided by faithless electors",
     },
-    "Who will count the votes" : {
+    "Who gets to count the vote?" : {
         "image" : "https://i.imgur.com/3t1IWR1.jpeg",
         "description" : "See a stolen 2024 election",
     },
