@@ -8725,7 +8725,7 @@
 				"state": 1155,
 				"issue": 112,
 				"state_issue_score": -0.85,
-				"weight": 1.5
+				"weight": 1
 			}
 		},
 		{
@@ -8735,7 +8735,7 @@
 				"state": 1155,
 				"issue": 113,
 				"state_issue_score": -0.9,
-				"weight": 1.5
+				"weight": 1
 			}
 		},
 		{
@@ -9528,7 +9528,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1155,
-				"state_multiplier": 0.88
+				"state_multiplier": 0.58
 			}
 		},
 		{
@@ -13677,7 +13677,7 @@
 				"answer": 20001,
 				"candidate": 300,
 				"affected_candidate": 300,
-				"global_multiplier": -0.005
+				"global_multiplier": -0.01
 			}
 		},
 		{
@@ -53890,13 +53890,13 @@
 					blame="the alleged incompetence of your campaign."
 				}
 			}
-			if ((e.final_overall_results.find(p=>p.candidate==300).popular_votes 
+			house_margin=(e.final_overall_results.find(p=>p.candidate==300).popular_votes 
 				+e.final_overall_results.find(p=>p.candidate==303).popular_votes *green_factor 
 				+e.final_overall_results.find(p=>p.candidate==305).popular_votes *centrist_factor 
 				-e.final_overall_results.find(p=>p.candidate==302).popular_votes *rfk_factor
 				-e.final_overall_results.find(p=>p.candidate==301).popular_votes)/168680000
-				+party_unity*0.0025 >0.007
-			) { //Real-world tipping point is R+0.6%. + Real-world party unity 4 -> D+0.4%. Add 3rd-party votes -> D+0.7%. So, win the popular vote by 0.7% or more (modified by party unity.)
+				+party_unity*0.0025-0.007
+			if (house_margin>0) { //Real-world tipping point is R+0.6%. + Real-world party unity 4 -> D+0.4%. Add 3rd-party votes -> D+0.7%. So, win the popular vote by 0.7% or more (modified by party unity.)
 				won_house=true //but not enough for a House contingent election ever. If you won by enough to get a majority of delegations, there's no way the EV is hung.
 			}
 			if (red_wave==1) {
@@ -54899,16 +54899,16 @@
 				ending=`<p>You sit in the White House, the air tight with tension, your eyes glued to the map bleeding more red than your worst fears. <i>2016 all over again</i>, you think in horror, as county after county trickles in with disappointment, your throat tightening with each flicker of bad news. But then the tide crests, and a surge of blue breaks across the map as one by one key states are called. And you know what it means. You squeeze Doug's hand, barely breathing as your lead solidifies. You close your eyes and whisper, "Thank you," to every soul who stood in line and believed in the promise. Believed in a better America, and that we are not going back.</p>`
 			}
 			if (won_house && senate_seats>=50) {
-				ending+=`<p>The days that follow are a blur of updates - the slow drip of votes in the West Coast as absentee ballots are counted, solidifying the reality that you'd hoped for. The House of Representatives is yours, Republicans swept out by your coattails. And not only that - you've won a ${senate_seats}-seat majority in the Senate as well.` 
+				ending+=`<p>The days that follow are a blur of updates - the slow drip of votes in the West Coast as absentee ballots are counted, solidifying the reality that you'd hoped for. The House of Representatives is yours, Republicans swept out by your coattails; analysts say you won the tipping point seat by ${roundToDecimals(house_margin*100,2)}%. And not only that - you've won a ${senate_seats}-seat majority in the Senate as well.` 
 			}
 			else if (won_house) {
-				ending+=`<p>The days that follow are a blur of updates - the slow drip of votes in the West Coast as absentee ballots are counted, solidifying part of the reality that you'd hoped for. The House of Representatives is yours, Republicans swept out by your coattails. Yet you've fallen short in the Senate with only ${senate_seats} seats, the fly in the ointment.` 
+				ending+=`<p>The days that follow are a blur of updates - the slow drip of votes in the West Coast as absentee ballots are counted, solidifying part of the reality that you'd hoped for. The House of Representatives is yours, Republicans swept out by your coattails; analysts say you won the tipping point seat by ${roundToDecimals(house_margin*100,2)}%. Yet you've fallen short in the Senate with only ${senate_seats} seats, the fly in the ointment.` 
 			}
 			else if (senate_seats>=50) {
-				ending+=`<p>The days that follow are a blur of updates - the slow drip of votes in the West Coast as absentee ballots are counted, solidifying part of the reality that you'd hoped for. No one expected it - they thought the Senate would be a far harder slog than the House. Yet it seems Republicans have won a majority in the House of Representatives, even while Democrats won a ${senate_seats}-seat majority in the Senate.` 
+				ending+=`<p>The days that follow are a blur of updates - the slow drip of votes in the West Coast as absentee ballots are counted, solidifying part of the reality that you'd hoped for. It seems Republicans have won a majority in the House of Representatives; analysts say they won the tipping point seat by ${roundToDecimals(-1*house_margin*100,2)}%. Yet to the utter shock of analysts - none of whom expected Congress to be split in this manner - Democrats won a ${senate_seats}-seat majority in the Senate.` 
 			}
 			else {
-				ending+=`<p>The days that follow are a blur of updates - the slow drip of votes in the West Coast as absentee ballots are counted, solidifying the fact that your victory has fallen short of your highest hopes, as Republicans secure both the House of Representatives and a ${100-senate_seats}-seat majority in the Senate.` 
+				ending+=`<p>The days that follow are a blur of updates - the slow drip of votes in the West Coast as absentee ballots are counted, solidifying the fact that your victory has fallen short of your highest hopes, as Republicans secure both the House of Representatives (analysts say they won the tipping point seat by ${roundToDecimals(-1*house_margin*100,2)}%) and a ${100-senate_seats}-seat majority in the Senate.` 
 			}
 			ending=applySenateChanges(ending,senate_gains,senate_losses);
 			
@@ -56583,7 +56583,7 @@
 		if (Object.keys(senate_gains).length==0) {
 			ending+=` Democrats failed to flip any Republican-held seats in the Senate`
 			if (osborn_win && !Object.keys(senate_gains).includes("NE")) { //I have to guess on Osborn, and voting an R for Senate control is frankly the politically expedient option. This also simplifies things a lot.
-				ending+=`. While Independent Dan Osborn managed to pull an upset win by ${Math.round((senate_results["NE"])*1000)/10}% in Nebraska, he refused to caucus with Democrats - expressing anger over ${party_econ_progressive<3 ? "the insufficiently working-class nature of the party" : party_social_progressive>5 ? "the coastal elite nature of the party, which slams him him for common-sense proposals like a border wall and gun rights" : "the overly-cautious temporizing nature of the party"} - and will vote for a Republican Majority Leader. Additionally, you`
+				ending+=`. While Independent Dan Osborn managed to pull an upset win by ${roundToDecimals(senate_results["NE"]*100,2)}% in Nebraska, he refused to caucus with Democrats - expressing anger over ${party_econ_progressive<3 ? "the insufficiently working-class nature of the party" : party_social_progressive>5 ? "the coastal elite nature of the party, which slams him him for common-sense proposals like a border wall and gun rights" : "the overly-cautious temporizing nature of the party"} - and will vote for a Republican Majority Leader. Additionally, you`
 			}
 			else if(Object.keys(senate_gains).length<=2) {
 				ending+=`, but they`
@@ -56603,22 +56603,22 @@
 			Object.keys(senate_gains).forEach((item,index)=>{
 				if (item=="AZ") { //technically this condition checks for AZ SoS loss, not AZ governors loss (which should occur more often.) But Kari Lake is only mentioned as Governor if Mark Finchem is SoS, and mentioning either is mutually exclusive.
 					ending+=` Ruben Gallego defeated ${maga_trifecta.includes(1102) ? "Blake Masters" : "Kari Lake"} by ${
-					Math.round((senate_gains["AZ"])*1000)/10}% in the traitor Sinema's open Arizona seat`
+					roundToDecimals(senate_gains["AZ"]*100,2)}% in the traitor Sinema's open Arizona seat`
 				}
 				else if(item=="FL") { 
-					ending+=` Debbie Mucarsel-Powell unseated Rick Scott by ${Math.round((senate_gains["FL"])*1000)/10}% in Florida`
+					ending+=` Debbie Mucarsel-Powell unseated Rick Scott by ${roundToDecimals(senate_gains["FL"]*100,2)}% in Florida`
 				}
 				else if(item=="IN"){
-					ending+=` Valerie McCray managed a stunning ${Math.round((senate_gains["IN"])*1000)/10}% upset over Jim Banks in Indiana`
+					ending+=` Valerie McCray managed a stunning ${roundToDecimals(senate_gains["IN"]*100,2)}% upset over Jim Banks in Indiana`
 				}
 				else if (item=="MO"){
-					ending+=` Lucas Kunce shockingly ${opponent !=7 && opponent !=17 ? "unseated Josh Hawley" : "defeated Andrew Bailey for Hawley's former seat"} by ${Math.round((senate_gains["MO"])*1000)/10}% in Missouri`
+					ending+=` Lucas Kunce shockingly ${opponent !=7 && opponent !=17 ? "unseated Josh Hawley" : "defeated Andrew Bailey for Hawley's former seat"} by ${roundToDecimals(senate_gains["MO"]*100,2)}% in Missouri`
 				}
 				else if (item=="NE") {
-					ending+=` Dan Osborn managed to upset Deb Fischer by ${Math.round((senate_gains["NE"])*1000)/10}% in Nebraska and indicates that he will caucus with Democrats`
+					ending+=` Dan Osborn managed to upset Deb Fischer by ${roundToDecimals(senate_gains["NE"]*100,2)}% in Nebraska and indicates that he will caucus with Democrats`
 				}
 				else if (item=="TX") {
-					ending+=` Colin Allred defeated Ted Cruz by ${Math.round((senate_gains["TX"])*1000)/10}% in Texas`
+					ending+=` Colin Allred defeated Ted Cruz by ${roundToDecimals(senate_gains["TX"]*100,2)}% in Texas`
 				}
 				if(Object.keys(senate_gains).length>=3 && index<Object.keys(senate_gains).length-1) {
 					ending+=`,`
@@ -56629,7 +56629,7 @@
 				if (index==Object.keys(senate_gains).length-1) {
 					ending+='.'
 					if (osborn_win && !Object.keys(senate_gains).includes("NE")) { //I have to guess on Osborn, and voting an R for Senate control is frankly the politically expedient option.
-						ending+=` While Independent Dan Osborn managed to pull an upset win by ${Math.round((senate_results["NE"])*1000)/10}% in Nebraska, he refused to caucus with Democrats - expressing anger over ${party_econ_progressive<3 ? "the insufficiently working-class nature of the party" : party_social_progressive>5 ? "the coastal elite nature of the party, which slams him for common-sense proposals like a border wall and gun rights" : "the overly-cautious temporizing nature of the party"} - and will vote for a Republican Majority Leader.`
+						ending+=` While Independent Dan Osborn managed to pull an upset win by ${roundToDecimals(senate_results["NE"]*100,2)}% in Nebraska, he refused to caucus with Democrats - expressing anger over ${party_econ_progressive<3 ? "the insufficiently working-class nature of the party" : party_social_progressive>5 ? "the coastal elite nature of the party, which slams him for common-sense proposals like a border wall and gun rights" : "the overly-cautious temporizing nature of the party"} - and will vote for a Republican Majority Leader.`
 					}
 					if(Object.keys(senate_losses).length<=2) {
 						ending+=` And you`
@@ -56660,70 +56660,75 @@
 			Object.keys(senate_losses).forEach((item,index)=>{
 				if (Object.keys(senate_losses).length<8) { //adding fluff would make the list too long if 8 or more.
 					if(item=="AZ") {//technically this condition checks for AZ SoS loss, not AZ governors loss (which should occur more often.) But Kari Lake is only mentioned as Governor if Mark Finchem is SoS, and mentioning either is mutually exclusive.
-						ending+=` ${maga_trifecta.includes(1102) ? "Blake Masters" : "Kari Lake"} defeated Ruben Gallego by ${Math.round((-1*senate_losses["AZ"])*1000)/10}% in Sinema's open Arizona seat`
+						ending+=` ${maga_trifecta.includes(1102) ? "Blake Masters" : "Kari Lake"} defeated Ruben Gallego by ${roundToDecimals(-1*senate_losses["AZ"]*100,2)}% in Sinema's open Arizona seat`
 					}
 					else if(item=="CA"){
-						ending+=` Steve Garvey managed a stunning upset over Adam Schiff by ${Math.round((-1*senate_losses["CA"])*1000)/10}% in California`
+						ending+=` Steve Garvey managed a stunning upset over Adam Schiff by ${roundToDecimals(-1*senate_losses["CA"]*100,2)}% in California`
 					}
 					else if(item=="CT"){
-						ending+=` Chris Murphy was stunningly defeated by ${Math.round((-1*senate_losses["CT"])*1000)/10}% in his quest for a third term in Connecticut`
+						ending+=` Chris Murphy was stunningly defeated by ${roundToDecimals(-1*senate_losses["CT"]*100,2)}% in his quest for a third term in Connecticut`
 					}
 					else if(item=="DE"){
-						ending+=` Lisa Blunt Rochester somehow failed to hold on to Tom Carper's open seat and lost by ${Math.round((-1*senate_losses["DE"])*1000)/10}% in Delaware`
+						ending+=` Lisa Blunt Rochester somehow failed to hold on to Tom Carper's open seat and lost by ${roundToDecimals(-1*senate_losses["DE"]*100,2)}% in Delaware`
 					}
 					else if(item=="HI"){
-						ending+=` Mazie Hirono shockingly failed to win a third term and lost by ${Math.round((-1*senate_losses["HI"])*1000)/10}% in Hawaii`
+						ending+=` Mazie Hirono shockingly failed to win a third term and lost by ${roundToDecimals(-1*senate_losses["HI"]*100,2)}% in Hawaii`
 					}
 					else if (item=="ME") {
-						ending+=` Angus King was shockingly unseated by ${Math.round((-1*senate_losses["ME"])*1000)/10}% in Maine`
+						ending+=` Angus King was shockingly unseated by ${roundToDecimals(-1*senate_losses["ME"]*100,2)}% in Maine`
 					}
 					else if (item=="MD") {
-						ending+=` Larry Hogan managed to overcome Maryland's deep-blue lean to win Cardin's open seat by ${Math.round((-1*senate_losses["MD"])*1000)/10}%`
+						ending+=` Larry Hogan managed to overcome Maryland's deep-blue lean to win Cardin's open seat by ${roundToDecimals(-1*senate_losses["MD"]*100,2)}%`
 					}
 					else if (item=="MA") {
-						ending+=` Elizabeth Warren somehow failed to win re-election and lost by ${Math.round((-1*senate_losses["MA"])*1000)/10}% in Massachusetts`
+						ending+=` Elizabeth Warren somehow failed to win re-election and lost by ${roundToDecimals(-1*senate_losses["MA"]*100,2)}% in Massachusetts`
 					}
 					else if (item=="MI") {
-						ending+=` Mike Rogers defeated Elissa Slotkin by ${Math.round((-1*senate_losses["MI"])*1000)/10}% to win Stabenow's open Michigan seat`
+						ending+=` Mike Rogers defeated Elissa Slotkin by ${roundToDecimals(-1*senate_losses["MI"]*100,2)}% to win Stabenow's open Michigan seat`
 					}
 					else if (item=="MN") {
-						ending+=` Royce White somehow managed to unseat Amy Klobuchar by ${Math.round((-1*senate_losses["MN"])*1000)/10}% in Minnesota`
+						ending+=` Royce White somehow managed to unseat Amy Klobuchar by ${roundToDecimals(-1*senate_losses["MN"]*100,2)}% in Minnesota`
 					}
 					else if (item=="MT") {
-						ending+=` Montana's red lean finally caught up to Jon Tester for a  ${Math.round((-1*senate_losses["MT"])*1000)/10}% defeat`
+						ending+=` Montana's red lean finally caught up to Jon Tester for a  ${roundToDecimals(-1*senate_losses["MT"]*100,2)}% defeat`
 					}
 					else if (item=="NV") {
-						ending+=` Jacky Rosen met defeat in Nevada by ${Math.round((-1*senate_losses["NV"])*1000)/10}% at the hands of army veteran Sam Brown`
+						ending+=` Jacky Rosen met defeat in Nevada by ${roundToDecimals(-1*senate_losses["NV"]*100,2)}% at the hands of army veteran Sam Brown`
 					}
 					else if (item=="NJ") {
-						ending+=` Curtis Bashaw somehow managed to defeat Andy Kim by ${Math.round((-1*senate_losses["NJ"])*1000)/10}% in scandal-plagued Menendez's NJ open seat`
+						ending+=` Curtis Bashaw somehow managed to defeat Andy Kim by ${roundToDecimals(-1*senate_losses["NJ"]*100,2)}% in scandal-plagued Menendez's NJ open seat`
 					}
 					else if (item=="NM") {
-						ending+=` Martin Heinreich saw defeat by ${Math.round((-1*senate_losses["NM"])*1000)/10}% in New Mexico`
+						ending+=` Martin Heinreich saw defeat by ${roundToDecimals(-1*senate_losses["NM"]*100,2)}% in New Mexico`
 					}
 					else if (item=="NY") {
-						ending+=` Kirsten Gillibrand shockingly lost re-election by ${Math.round((-1*senate_losses["NY"])*1000)/10}% in New York`
+						ending+=` Kirsten Gillibrand shockingly lost re-election by ${roundToDecimals(-1*senate_losses["NY"]*100,2)}% in New York`
 					}
 					else if (item=="OH") {
-						ending+=` Sherrod Brown tragically lost his Ohio seat by ${Math.round((-1*senate_losses["OH"])*1000)/10}% to auto dealer Bernie Moreno`
+						ending+=` Sherrod Brown tragically lost his Ohio seat by ${roundToDecimals(-1*senate_losses["OH"]*100,2)}% to auto dealer Bernie Moreno`
 					}
 					else if (item=="PA") {
-						ending+=` Bob Casey Jr met defeat by ${Math.round((-1*senate_losses["PA"])*1000)/10}% in Pennsylvania`
+						ending+=` Bob Casey Jr met defeat by ${roundToDecimals(-1*senate_losses["PA"]*100,2)}% in Pennsylvania`
 					}
 					else if (item=="RI") {
-						ending+=` Sheldon Whitehouse met a stunning upset by ${Math.round((-1*senate_losses["RI"])*1000)/10}% in Rhode Island`
+						ending+=` Sheldon Whitehouse met a stunning upset by ${roundToDecimals(-1*senate_losses["RI"]*100,2)}% in Rhode Island`
 					}
 					else if (item=="VA") {
-						ending+=` Hung Cao defeated Tim Kaine by ${Math.round((-1*senate_losses["VA"])*1000)/10}% in Virginia`
+						ending+=` Hung Cao defeated Tim Kaine by ${roundToDecimals(-1*senate_losses["VA"]*100,2)}% in Virginia`
 					}
 					else if (item=="WA") {
-						ending+=` Maria Cantwell shockingly failed by ${Math.round((-1*senate_losses["WA"])*1000)/10}% to win a fifth term in Washington state`
+						ending+=` Maria Cantwell shockingly failed by ${roundToDecimals(-1*senate_losses["WA"]*100,2)}% to win a fifth term in Washington state`
 					}
 					else if (item=="WV") {
-						ending+=` Jim Justice won Manchin's open West Virginia seat by ${Math.round((-1*senate_losses["WV"])*1000)/10}% as expected`
+						if (senate_losses["WV"]<-0.05) { //lose by 5% or more 
+							ending+=` Jim Justice won Manchin's open West Virginia seat by ${roundToDecimals(-1*senate_losses["WV"]*100,2)}% as expected`
+						}
+						else {
+							ending+=` Jim Justice won Manchin's open West Virginia seat by ${roundToDecimals(-1*senate_losses["WV"]*100,2)}% in a shockingly close race`
+						}
 					}
 					else if (item=="WI") {
-						ending+=` Tammy Baldwin lost re-election by ${Math.round((-1*senate_losses["WI"])*1000)/10}% in Wisconsin`
+						ending+=` Tammy Baldwin lost re-election by ${roundToDecimals(-1*senate_losses["WI"]*100,2)}% in Wisconsin`
 					}
 				}
 				else {
@@ -56745,7 +56750,7 @@
 			ending+=` Unusually, no seats that remained with the same party were decided by 5% or less.`
 		}
 		else {
-			ending+=` In addition, ${Object.keys(senate_close).length} `
+			ending+=`<p>In addition, ${Object.keys(senate_close).length} `
 			if (Object.keys(senate_close).length==1) {
 				ending+=` seat`
 			}
@@ -56755,88 +56760,88 @@
 			ending+=` that did not change parties were decided by 5% or less:`
 			Object.keys(senate_close).forEach((item,index)=>{
 				if(item=="AZ" && !senate_lost) {//technically this condition checks for AZ SoS loss, not AZ governors loss (which should occur more often.) But Kari Lake is only mentioned as Governor if Mark Finchem is SoS, and mentioning either is mutually exclusive.
-					ending+=` Ruben Gallego barely defeated ${maga_trifecta.includes(1102) ? "Blake Masters" : "Kari Lake"} by ${Math.round((senate_close["AZ"])*1000)/10}% in Sinema's open Arizona seat`
+					ending+=` Ruben Gallego barely defeated ${maga_trifecta.includes(1102) ? "Blake Masters" : "Kari Lake"} by ${roundToDecimals(senate_close["AZ"]*100,2)}% in Sinema's open Arizona seat`
 				}
 				else if(item=="AZ") {
-					ending+=` ${maga_trifecta.includes(1102) ? "Blake Masters" : "Kari Lake"} narrowly defeated Ruben Gallego by ${Math.round((-1*senate_close["AZ"])*1000)/10}% in the traitor Sinema's open Arizona seat`
+					ending+=` ${maga_trifecta.includes(1102) ? "Blake Masters" : "Kari Lake"} narrowly defeated Ruben Gallego by ${roundToDecimals(-1*senate_close["AZ"]*100,2)}% in the traitor Sinema's open Arizona seat`
 				}
 				else if(item=="CA"){
-					ending+=` Adam Schiff barely held off Steve Garvey by ${Math.round((senate_close["CA"])*1000)/10}% in California`
+					ending+=` Adam Schiff barely held off Steve Garvey by ${roundToDecimals(senate_close["CA"]*100,2)}% in California`
 				}
 				else if(item=="CT"){
-					ending+=` Chris Murphy won re-election by only ${Math.round((senate_close["CT"])*1000)/10}% for a third term in Connecticut`
+					ending+=` Chris Murphy won re-election by only ${roundToDecimals(senate_close["CT"]*100,2)}% for a third term in Connecticut`
 				}
 				else if(item=="DE"){
-					ending+=` Lisa Blunt Rochester won re-election by only ${Math.round((senate_close["DE"])*1000)/10}% in Delaware`
+					ending+=` Lisa Blunt Rochester won re-election by only ${roundToDecimals(senate_close["DE"]*100,2)}% in Delaware`
 				}
 				else if (item=="FL"){
-					ending+=` Rick Scott faced a shockingly close race to be re-elected by ${Math.round((-1*senate_close["FL"])*1000)/10}% in Florida`
+					ending+=` Rick Scott faced a shockingly close race to be re-elected by ${roundToDecimals(-1*senate_close["FL"]*100,2)}% in Florida`
 				}
 				else if(item=="HI"){
-					ending+=` Mazie Hirono was nearly upset, only winning by ${Math.round((senate_close["HI"])*1000)/10}% in Hawaii`
+					ending+=` Mazie Hirono was nearly upset, only winning by ${roundToDecimals(senate_close["HI"]*100,2)}% in Hawaii`
 				}
 				else if(item=="IN"){
-					ending+=` Jim Banks was nearly upset in a stunner, only winning by ${Math.round((-1*senate_close["IN"])*1000)/10}% in Indiana`
+					ending+=` Jim Banks was nearly upset in a stunner, only winning by ${roundToDecimals(-1*senate_close["IN"]*100,2)}% in Indiana`
 				}
 				else if (item=="ME") {
-					ending+=` Angus King won re-election by only ${Math.round((senate_close["ME"])*1000)/10}% in Maine`
+					ending+=` Angus King won re-election by only ${roundToDecimals(senate_close["ME"]*100,2)}% in Maine`
 				}
 				else if (item=="MD") {
-					ending+=` Angela Alsobrooks barely defeated Larry Hogan to win Cardin's open seat by ${Math.round((senate_close["MD"])*1000)/10}%`
+					ending+=` Angela Alsobrooks barely defeated Larry Hogan to win Cardin's open seat by ${roundToDecimals(senate_close["MD"]*100,2)}%`
 				}
 				else if (item=="MA") {
-					ending+=` Elizabeth Warren faced a shockingly close race to win re-election by ${Math.round((senate_close["MA"])*1000)/10}% in Massachusetts`
+					ending+=` Elizabeth Warren faced a shockingly close race to win re-election by ${roundToDecimals(senate_close["MA"]*100,2)}% in Massachusetts`
 				}
 				else if (item=="MI") {
-					ending+=` Elissa Slotkin barely defeated Mike Rogers by ${Math.round((senate_close["MI"])*1000)/10}% to win Stabenow's open Michigan seat`
+					ending+=` Elissa Slotkin barely defeated Mike Rogers by ${roundToDecimals(senate_close["MI"]*100,2)}% to win Stabenow's open Michigan seat`
 				}
 				else if (item=="MN") {
-					ending+=` Amy Klobuchar won re-election by only ${Math.round((senate_close["MN"])*1000)/10}% in Minnesota`
+					ending+=` Amy Klobuchar won re-election by only ${roundToDecimals(senate_close["MN"]*100,2)}% in Minnesota`
 				}
 				else if (item=="MO") {
-					ending+=` Josh Hawley was narrowly re-elected by ${Math.round((-1*senate_close["MO"])*1000)/10}% in Missouri`
+					ending+=` Josh Hawley was narrowly re-elected by ${roundToDecimals(-1*senate_close["MO"]*100,2)}% in Missouri`
 				}
 				else if (item=="MT") {
-					ending+=` Jon Tester was barely re-elected by ${Math.round((senate_close["MT"])*1000)/10}% in Montana`
+					ending+=` Jon Tester was barely re-elected by ${roundToDecimals(senate_close["MT"]*100,2)}% in Montana`
 				}
 				else if (item=="NE") {
-					ending+=` Deb Fischer saw re-election by only ${Math.round((-1*senate_close["NE"])*1000)/10}% in Nebraska`
+					ending+=` Deb Fischer saw re-election by only ${roundToDecimals(-1*senate_close["NE"]*100,2)}% in Nebraska`
 				}
 				else if (item=="NV") {
-					ending+=` Jacky Rosen won re-election in Nevada by only ${Math.round((senate_close["NV"])*1000)/10}%`
+					ending+=` Jacky Rosen won re-election in Nevada by only ${roundToDecimals(senate_close["NV"]*100,2)}%`
 				}
 				else if (item=="NJ") {
-					ending+=` Andy Kim won by only ${Math.round((senate_close["NJ"])*1000)/10}% in scandal-plagued Menendez's NJ open seat`
+					ending+=` Andy Kim won by only ${roundToDecimals(senate_close["NJ"]*100,2)}% in scandal-plagued Menendez's NJ open seat`
 				}
 				else if (item=="NM") {
-					ending+=` Martin Heinreich barely held on by ${Math.round((senate_close["NM"])*1000)/10}% in New Mexico`
+					ending+=` Martin Heinreich barely held on by ${roundToDecimals(senate_close["NM"]*100,2)}% in New Mexico`
 				}
 				else if (item=="NY") {
-					ending+=` Kirsten Gillibrand was re-elected by only ${Math.round((senate_close["NY"])*1000)/10}% in New York`
+					ending+=` Kirsten Gillibrand was re-elected by only ${roundToDecimals(senate_close["NY"]*100,2)}% in New York`
 				}
 				else if (item=="OH") {
-					ending+=` Sherrod Brown narrowly hung on by ${Math.round((senate_close["OH"])*1000)/10}% in Ohio`
+					ending+=` Sherrod Brown narrowly hung on by ${roundToDecimals(senate_close["OH"]*100,2)}% in Ohio`
 				}
 				else if (item=="PA") {
-					ending+=` Bob Casey Jr was narrowly re-elected by ${Math.round((senate_close["PA"])*1000)/10}% in Pennsylvania`
+					ending+=` Bob Casey Jr was narrowly re-elected by ${roundToDecimals(senate_close["PA"]*100,2)}% in Pennsylvania`
 				}
 				else if (item=="RI") {
-					ending+=` Sheldon Whitehouse faced a shockingly close race to win re-election by only ${Math.round((senate_close["RI"])*1000)/10}% in Rhode Island`
+					ending+=` Sheldon Whitehouse faced a shockingly close race to win re-election by only ${roundToDecimals(senate_close["RI"]*100,2)}% in Rhode Island`
 				}
 				else if (item=="TX") {
-					ending+=` Ted Cruz was re-elected by only ${Math.round((-1*senate_close["TX"])*1000)/10}% in Texas`
+					ending+=` Ted Cruz was re-elected by only ${roundToDecimals(-1*senate_close["TX"]*100,2)}% in Texas`
 				}
 				else if (item=="VA") {
-					ending+=` Tim Kaine was re-elected by only ${Math.round((senate_close["VA"])*1000)/10}% in Virginia`
+					ending+=` Tim Kaine was re-elected by only ${roundToDecimals(senate_close["VA"]*100,2)}% in Virginia`
 				}
 				else if (item=="WA") {
-					ending+=` Maria Cantwell was narrowly re-elected by ${Math.round((senate_close["WA"])*1000)/10}% in Washington state`
+					ending+=` Maria Cantwell was narrowly re-elected by ${roundToDecimals(senate_close["WA"]*100,2)}% in Washington state`
 				}
 				else if (item=="WV") {
-					ending+=` Glen Elliott miraculously defeated Jim Justice in Manchin's open West Virginia seat by ${Math.round((senate_close["WV"])*1000)/10}%`
+					ending+=` Glen Elliott miraculously defeated Jim Justice in Manchin's open West Virginia seat by ${roundToDecimals(senate_close["WV"]*100,2)}%`
 				}
 				else if (item=="WI") {
-					ending+=` Tammy Baldwin barely held on by ${Math.round((senate_close["WI"])*1000)/10}% in Wisconsin`
+					ending+=` Tammy Baldwin barely held on by ${roundToDecimals(senate_close["WI"]*100,2)}% in Wisconsin`
 				}
 				if(Object.keys(senate_close).length>=3 && index<Object.keys(senate_close).length-1) {
 					ending+=`,`
@@ -56845,7 +56850,7 @@
 					ending+=` and`
 				}
 				if (index==Object.keys(senate_close).length-1) {
-					ending+='.'
+					ending+='.</p>'
 				}
 			});
 			
@@ -56889,7 +56894,7 @@
 			e.candidate_json[2].fields.first_name="Donald"
 			e.candidate_json[2].fields.last_name="Trump" 
 			vpTable["Donald Trump"]="JD Vance"
-			//-0.1/-0.5/-0.3/-0.75 (if running in 2020: D+4.3; D+16 EVs. Tipping point PA D+4.0. Senate tipping point - MT R+2.4)
+			//-0.1/-0.5/-0.3/-0.75 (if running in 2020: D+4.3; D+16 EVs. Tipping point PA D+4.0. House tipping point D+3.8 Senate tipping point - MT R+2.4)
 			e.candidate_json[2].fields.state="Florida"
 			opponent_name="Donald Trump"
 			opponent_vp_name="JD Vance"
@@ -56941,14 +56946,14 @@
 			//logic of approval/etc. shifts: For every 0.2 econ issue score right/left of Trump/Vance, get +1/-1 worker approval. Same shtick for globalism issue score (+1/-1 dove approval, adversary approval, -1/+1 blob approval) and immigration issue score (+1/-1 latino approval.) If MAGA candidate has non-MAGA VP, reduce r_radical by 2.
 			worker_approval+=1.5
 			dove_approval+=0.5 //Burgum less anti-war comparatively.
-			latino_approval-=1.25 //Burgum not as harsh on immigration.
+			latino_approval-=1 //Burgum not as harsh on immigration.
 			adversary_approval+=0.5 //slightly worse for Russia/etc. than Vance.
 			blob_approval-=0.5
 			r_radical-=2 //Burgum less willing to endorse Stop the Steal
 			e.candidate_json[2].fields.first_name="Donald"
 			e.candidate_json[2].fields.last_name="Trump" 
 			vpTable["Donald Trump"]="Doug Burgum" 
-			//-0.4/-0.4/-0.3/-0.5 (if running in 2020: D+1.2, D+14 EVs. Tipping point NV: D+1.5; Senate tipping point MT: R+0.9)
+			//-0.4/-0.4/-0.3/-0.55 (if running in 2020: D+0.4, D+12 EVs. Tipping point NV: D+0.3; House D+2.1; Senate tipping point MT: R+1.6)
 			e.candidate_json[2].fields.state="Florida"
 			opponent_name="Donald Trump"
 			opponent_vp_name="Doug Burgum"
@@ -56958,7 +56963,7 @@
 			e.candidate_issue_score_json[5].fields.issue_score=-0.4
 			e.candidate_issue_score_json[6].fields.issue_score=-0.4
 			e.candidate_issue_score_json[7].fields.issue_score=-0.3
-			e.candidate_issue_score_json[8].fields.issue_score=-0.5
+			e.candidate_issue_score_json[8].fields.issue_score=-0.55
 			applyDrift(301,0.01,1131) //NY
 			applyDrift(301,0.01,1108) //Florida
 			applyDrift(301,0.05,1133) //North Dakota. Home state effects are roughly weighed by population sort of.
@@ -57000,26 +57005,26 @@
 		else if(OpponentValue==3) {
 			applySalience(111,0.075) //increases importance of globalism/foreign policy in the election
 			applySalience(113,0.075) //increases importance of immigration in the election
-			worker_approval+=0.5 //Rubio isn't very populist
+			worker_approval+=1 //Rubio isn't very populist
 			dove_approval+=3.5 //pretty bomb-happy
-			latino_approval-=0.5 //significant appeal to Latinos
+			latino_approval-=1 //significant appeal to Latinos
 			adversary_approval+=3.5 //you already look better in comparison
 			blob_approval-=3.5
 			r_radical-=2 //Rubio less willing to endorse Stop the Steal
 			e.candidate_json[2].fields.first_name="Donald"
 			e.candidate_json[2].fields.last_name="Trump" 
 			vpTable["Donald Trump"]="Marco Rubio" 
-			// -0.2/+0.2/-0.5/-0.65 (if running in 2020: D+0.6, D+26 EVs. Tipping point PA: D+1.6. Tipping point Senate - AZ R+0.1)
+			// -0.3/+0.2/-0.5/-0.55 (if running in 2020: D+0.4, D+26 EVs. Tipping point PA: D+1.4. House D+2.0; Tipping point Senate - AZ R+1.5)
 			e.candidate_json[2].fields.state="Florida"
 			opponent_name="Donald Trump"
 			opponent_vp_name="Marco Rubio"
 			opponent_last_name="Trump"
 			opponent_vp_last_name="Rubio"
 			opponent_slogan="Make America Strong Again!"
-			e.candidate_issue_score_json[5].fields.issue_score=-0.2
+			e.candidate_issue_score_json[5].fields.issue_score=-0.3
 			e.candidate_issue_score_json[6].fields.issue_score=+0.2
 			e.candidate_issue_score_json[7].fields.issue_score=-0.5
-			e.candidate_issue_score_json[8].fields.issue_score=-0.65
+			e.candidate_issue_score_json[8].fields.issue_score=-0.55
 			applyDrift(301,0.01,1131) //NY
 			applyDrift(301,0.015,1108) //Florida
 			e.candidate_json[3].fields.first_name="Chuck"
@@ -57070,7 +57075,7 @@
 			e.candidate_json[2].fields.first_name="Donald"
 			e.candidate_json[2].fields.last_name="Trump" 
 			vpTable["Donald Trump"]="Tim Scott" 
-			//  -0.15/+0.1/-0.5/-0.7 (if running in 2020: D+1.2, D+26 EVs. Tipping point Pennsylvania D+1.8; Tipping point Senate AZ D+1.4.)
+			//  -0.15/+0.1/-0.5/-0.7 (if running in 2020: D+1.7, D+26 EVs. House D+2.6. Tipping point Pennsylvania D+1.1; Tipping point Senate AZ D+0.4.)
 			e.candidate_json[2].fields.state="Florida"
 			opponent_name="Donald Trump"
 			opponent_vp_name="Tim Scott"
@@ -57121,25 +57126,25 @@
 		}
 		else if(OpponentValue==5) {
 			applySalience(111,0.15) //increases importance of globalism in the election
-			worker_approval-=0 //as populist as his dad
+			worker_approval-=0.5 //more populist than his dad
 			dove_approval-=1  //even more isolationist
-			latino_approval-=1.25 //less anti-immigration than his dad.
+			latino_approval-=0.75 //less vocal about rounding up and expelling everyone than Trump
 			adversary_approval-=1
 			blob_approval+=1
 			e.candidate_json[2].fields.first_name="Donald"
 			e.candidate_json[2].fields.last_name="Trump Jr." 
 			vpTable["Donald Trump Jr."]="Vivek Ramaswamy" 
-			// -0.1/-0.7/-0.7/-0.5 (D+5.7; D+92 EVs; NE-02 D+7.33; Senate tipping point Montana R+0.1)
+			// 0/-0.7/-0.7/-0.6 (D+6.9; D+92 EVs; NE-02 D+9.1; House D+8.1; Senate tipping point Montana D+0.8)
 			e.candidate_json[2].fields.state="Florida"
 			opponent_name="Donald Trump Jr."
 			opponent_vp_name="Vivek Ramaswamy"
 			opponent_last_name="Trump Jr."
 			opponent_vp_last_name="Ramaswamy"
 			opponent_slogan="Make America Free Again!"
-			e.candidate_issue_score_json[5].fields.issue_score=-0.1
+			e.candidate_issue_score_json[5].fields.issue_score=+0
 			e.candidate_issue_score_json[6].fields.issue_score=-0.7
 			e.candidate_issue_score_json[7].fields.issue_score=-0.7
-			e.candidate_issue_score_json[8].fields.issue_score=-0.5
+			e.candidate_issue_score_json[8].fields.issue_score=-0.6
 			applyDrift(301,0.01,1131) //NY. Trump family gets two home states as bonus....
 			applyDrift(301,0.01,1108) //Florida
 			applyDrift(301,0.005,1134) //Ohio
@@ -57191,7 +57196,7 @@
 			e.candidate_json[2].fields.first_name="Ron"
 			e.candidate_json[2].fields.last_name="DeSantis" 
 			vpTable["Ron DeSantis"]="Doug Burgum" 
-			// -0.4/0.1/-0.7/-0.2 (D+5.6; D+148 EVs; PA D+7.15; Senate tipping point AZ D+4.8)
+			// -0.4/0.1/-0.7/-0.2 (D+6.1; D+148 EVs; ME-02 D+6.1; House tipping point D+3.8; Senate tipping point AZ D+4.8)
 			e.candidate_json[2].fields.state="Florida"
 			opponent_name="Ron DeSantis"
 			opponent_vp_name="Doug Burgum"
@@ -57248,7 +57253,7 @@
 			e.candidate_json[2].fields.first_name="Josh"
 			e.candidate_json[2].fields.last_name="Hawley" 
 			vpTable["Josh Hawley"]="JD Vance" 
-			//+0.45/-0.6/-0.6/-0.5 (D+1.8; D+80 EVs; WI D+1.7; Senate tipping point MT R+2.3)
+			//+0.45/-0.6/-0.6/-0.5 (D+2.1; D+80 EVs; NV D+2.0; House tipping point D+3.2; Senate tipping point MT R+2.4)
 			e.candidate_json[2].fields.state="Missouri"
 			opponent_name="Josh Hawley"
 			opponent_vp_name="JD Vance"
@@ -57305,7 +57310,7 @@
 			e.candidate_json[2].fields.first_name="J.D."
 			e.candidate_json[2].fields.last_name="Vance" 
 			vpTable["J.D. Vance"]="Donald Trump Jr." 
-			//+0.15/-0.7/-0.5/-0.5 (D+4.4; D+80 EVs. PA D+5.58; Senate tipping point MT R+4.5)
+			//+0.15/-0.7/-0.5/-0.5 (D+4.4; D+80 EVs. PA D+5.58; House D+4.1; Senate tipping point MT R+4.5)
 			e.candidate_json[2].fields.state="Ohio"
 			opponent_name="JD Vance"
 			opponent_vp_name="Donald Trump Jr."
@@ -57323,13 +57328,13 @@
 			applySalience(113,-0.075) //immigration less important
 			worker_approval+=1 //ticket moves to right on econ 
 			dove_approval+=3.5 //ticket moves very globalist
-			latino_approval-=1.5 //ticket gets more moderate on immigration 
+			latino_approval-=1.75 //ticket gets more moderate on immigration 
 			adversary_approval+=3.5
 			blob_approval-=3.5
 			e.candidate_json[2].fields.first_name="Doug"
 			e.candidate_json[2].fields.last_name="Burgum" 
 			vpTable["Doug Burgum"]="Donald Trump Jr." 
-			//-0.6/+0.3/-0.2/-0.2 (D+2.6; D+60 EVs. PA D+2.6; 51 Senate seats; Senate tipping point MO D+1.8)
+			//-0.6/+0.3/-0.2/-0.2 (D+3.4; D+60 EVs. PA D+4.2; 51 Senate seats; House D+2.7; Senate tipping point MO D+1.8)
 			e.candidate_json[2].fields.state="North Dakota"
 			opponent_name="Doug Burgum"
 			opponent_vp_name="Donald Trump Jr."
@@ -57338,7 +57343,7 @@
 			e.candidate_issue_score_json[5].fields.issue_score+=-0.2
 			e.candidate_issue_score_json[6].fields.issue_score+=0.7
 			e.candidate_issue_score_json[7].fields.issue_score+=0.1
-			e.candidate_issue_score_json[8].fields.issue_score+=0.3
+			e.candidate_issue_score_json[8].fields.issue_score+=0.35
 			applyMinorBoost(302,rfk_boost*0.25) //hey what happened to our MAGA candidate?
 			//home state effects don't change.
 			opponent_maga=false
@@ -57346,23 +57351,23 @@
 		else if(OpponentValue==13) {
 			applySalience(112,0.075) //increases importance of social issues in the election
 			applySalience(113,-0.075) //immigration less important
-			worker_approval+=1.5 //ticket gets more normie on econ
+			worker_approval+=1.25 //ticket gets more normie on econ
 			dove_approval+=1 //ticket moves more globalist
-			latino_approval-=1.25 //ticket gets much more moderate on immigration 
+			latino_approval-=1.75 //ticket gets much more moderate on immigration 
 			adversary_approval+=1
 			blob_approval-=1
 			e.candidate_json[2].fields.first_name="Marco"
 			e.candidate_json[2].fields.last_name="Rubio" 
 			vpTable["Marco Rubio"]="Donald Trump Jr." 
-			//-0.5/+0.4/-0.6/-0.4 (D+2.2; D+92 EVs; PA D+5.52, 50 Senate seats - Senate tipping point AZ D+0.9%)
+			//-0.55/+0.4/-0.6/-0.2 (D+2.2; D+92 EVs; VA D+5, House D+4.5; 50 Senate seats - Senate tipping point AZ D+3.2%)
 			opponent_name="Marco Rubio"
 			opponent_vp_name="Donald Trump Jr."
 			opponent_last_name="Rubio"
 			opponent_vp_last_name="Trump Jr."
-			e.candidate_issue_score_json[5].fields.issue_score-=0.3
+			e.candidate_issue_score_json[5].fields.issue_score-=0.25
 			e.candidate_issue_score_json[6].fields.issue_score+=0.2
 			e.candidate_issue_score_json[7].fields.issue_score+=-0.1
-			e.candidate_issue_score_json[8].fields.issue_score+=0.25
+			e.candidate_issue_score_json[8].fields.issue_score+=0.35
 			//home state effects don't change.
 			opponent_maga=false
 		}
@@ -57375,7 +57380,7 @@
 			e.candidate_json[2].fields.first_name="Tim"
 			e.candidate_json[2].fields.last_name="Scott" 
 			vpTable["Tim Scott"]="Donald Trump Jr." 
-			//-0.4/+0.3/-0.6/-0.5 (D+3.3; D+92 EVs; PA D+5.82; Senate tipping point AZ R+0.9)
+			//-0.4/+0.3/-0.6/-0.5 (D+3.6; D+92 EVs; PA D+5.82; House D+2.4; Senate tipping point AZ R+0.9)
 			e.candidate_json[2].fields.state="South Carolina"
 			opponent_name="Tim Scott"
 			opponent_vp_name="Donald Trump Jr."
@@ -57392,11 +57397,11 @@
 		else if(OpponentValue==15) {
 			worker_approval+=1.5 //ticket moves to right on econ 
 			dove_approval-=0.25 //ticket moves more isolationist
-			latino_approval-=1.25 //ticket gets more moderate on immigration 
+			latino_approval-=0.25 //ticket slightly gets more moderate on immigration 
 			e.candidate_json[2].fields.first_name="Vivek"
 			e.candidate_json[2].fields.last_name="Ramaswamy" 
 			vpTable["Vivek Ramaswamy"]="Lara Trump" 
-			//-0.4/-0.75/-0.7/-0.25 (D+7.3; D+148 EVs; ME-02 D+8.3; 51 Senate seats - Senate tipping point TX D+3.0)
+			//-0.3/-0.75/-0.7/-0.55 (D+8.4; D+148 EVs; NE-02 D+10.8; House D+9.7; 50 Senate seats - Senate tipping point MT D+2.3)
 			e.candidate_json[2].fields.state="Ohio"
 			opponent_name="Vivek Ramaswamy"
 			opponent_vp_name="Lara Trump"
@@ -57405,7 +57410,7 @@
 			e.candidate_issue_score_json[5].fields.issue_score+=-0.3
 			e.candidate_issue_score_json[6].fields.issue_score+=-0.05
 			e.candidate_issue_score_json[7].fields.issue_score+=0
-			e.candidate_issue_score_json[8].fields.issue_score+=0.25
+			e.candidate_issue_score_json[8].fields.issue_score+=0.05
 			//home state effects don't change.
 			opponent_maga=true
 		}
@@ -57421,7 +57426,7 @@
 			e.candidate_json[2].fields.first_name="Doug"
 			e.candidate_json[2].fields.last_name="Burgum" 
 			vpTable["Doug Burgum"]="Marco Rubio" 
-			//-0.7/+0.4/-0.3/0 (D+6.7; D+112 EVs; PA D+8.5; 51 Senate seats - tipping point MO D+3.1)
+			//-0.7/+0.4/-0.3/0 (D+7.3; D+112 EVs; PA D+9.1; House D+4.3; 51 Senate seats - tipping point MO D+3.2)
 			e.candidate_json[2].fields.state="North Dakota"
 			opponent_name="Doug Burgum"
 			opponent_vp_name="Marco Rubio"
@@ -57443,7 +57448,7 @@
 			e.candidate_json[2].fields.first_name="J.D."
 			e.candidate_json[2].fields.last_name="Vance" 
 			vpTable["J.D. Vance"]="Tom Cotton" 
-			//+0.2/-0.6/-0.4/-0.6 (D+1.3; D+14 EVs; PA D+0.8. Tipping point: MT R+5.4)
+			//+0.2/-0.6/-0.4/-0.6 (D+1.3; D+14 EVs; PA D+1.0. House D+2.7; Tipping point: MT R+5.5)
 			e.candidate_json[2].fields.state="Ohio"
 			opponent_name="JD Vance"
 			opponent_vp_name="Tom Cotton"
@@ -57475,6 +57480,17 @@
 			
 		}
 	}
+	function roundToDecimals(n, decimals) {
+		var log10 = n ? Math.floor(Math.log10(n)) : 0; //taking the log10 is how we find the order of magnitude of the number for the purpose of decimal places 
+		if (log10>=0) {
+			divider=Math.pow(10, decimals); 
+		}
+		else { //log10 is negative (i.e. number <1.)
+			divider=Math.pow(10, decimals-(log10+1)) //believe this works properly in testing.
+		}
+
+		return Math.round(n * divider) / divider;
+	}
 
 	function applyOpponentFade() {
 		//do this state by state. Idea is that in states when they are weak and clearly spoilers, they lose more support than states where they are clearly viable, even as just a primary opponent (where they might gain support.)
@@ -57487,19 +57503,19 @@
 			CPolling = pop_vote.find(p=>p.candidate==305).percent //Centrists
 			if (boost_list[305][StateNum]>0) { //centrist boost in this specific state 
 				if (RPolling>CPolling*8 && DPolling>CPolling*8) {
-					applyMinorBoost(305,-0.08*boost_list[305][StateNum],1100+StateNum)
+					applyMinorBoost(305,-0.012*boost_list[305][StateNum],1100+StateNum)
 				}
 				else if (RPolling>CPolling*4 && DPolling>CPolling*4) {
-					applyMinorBoost(305,-0.06*boost_list[305][StateNum],1100+StateNum)
+					applyMinorBoost(305,-0.09*boost_list[305][StateNum],1100+StateNum)
 				}
 				else if (RPolling>CPolling*2 && DPolling>CPolling*2) {
-					applyMinorBoost(305,-0.04*boost_list[305][StateNum],1100+StateNum)
+					applyMinorBoost(305,-0.06*boost_list[305][StateNum],1100+StateNum)
 				}
 				else if (RPolling>CPolling*1.5 && DPolling>CPolling*1.5) {
-					applyMinorBoost(305,-0.02*boost_list[305][StateNum],1100+StateNum)
+					applyMinorBoost(305,-0.03*boost_list[305][StateNum],1100+StateNum)
 				}
 				else if (RPolling>CPolling && DPolling>CPolling) {
-					applyMinorBoost(305,-0.01*boost_list[305][StateNum],1100+StateNum)
+					applyMinorBoost(305,-0.015*boost_list[305][StateNum],1100+StateNum)
 				}
 				else if (CPolling>2*RPolling || CPolling>2*DPolling) { //hard cap is naturally done already in applyMinorBoost so don't need to check here
 					applyMinorBoost(305,0.04*boost_list[305][StateNum],1100+StateNum)
@@ -57513,19 +57529,19 @@
 			}
 			if (boost_list[302][StateNum]>0) { //RFK boost in this specific state 
 				if (RPolling>IPolling*8 && DPolling>IPolling*8) {
-					applyMinorBoost(302,-0.08*boost_list[302][StateNum],1100+StateNum)
+					applyMinorBoost(302,-0.12*boost_list[302][StateNum],1100+StateNum)
 				}
 				else if (RPolling>IPolling*4 && DPolling>IPolling*4) {
-					applyMinorBoost(302,-0.06*boost_list[302][StateNum],1100+StateNum)
+					applyMinorBoost(302,-0.09*boost_list[302][StateNum],1100+StateNum)
 				}
 				else if (RPolling>IPolling*2 && DPolling>IPolling*2) {
-					applyMinorBoost(302,-0.04*boost_list[302][StateNum],1100+StateNum)
+					applyMinorBoost(302,-0.06*boost_list[302][StateNum],1100+StateNum)
 				}
 				else if (RPolling>IPolling*1.5 && DPolling>IPolling*1.5) {
-					applyMinorBoost(302,-0.02*boost_list[302][StateNum],1100+StateNum)
+					applyMinorBoost(302,-0.03*boost_list[302][StateNum],1100+StateNum)
 				}
 				else if (RPolling>IPolling && DPolling>IPolling) {
-					applyMinorBoost(302,-0.01*boost_list[302][StateNum],1100+StateNum)
+					applyMinorBoost(302,-0.015*boost_list[302][StateNum],1100+StateNum)
 				}
 				else if (CPolling>2*RPolling || CPolling>2*DPolling) { //hard cap is naturally done already in applyMinorBoost so don't need to check here
 					applyMinorBoost(302,0.04*boost_list[302][StateNum],1100+StateNum)
@@ -57539,19 +57555,19 @@
 			}
 			if (boost_list[303][StateNum]>0) { //Green boost in this specific state
 				if (RPolling>GPolling*32 && DPolling>GPolling*32) {
-					applyMinorBoost(303,-0.08*boost_list[303][StateNum],1100+StateNum)
+					applyMinorBoost(303,-0.12*boost_list[303][StateNum],1100+StateNum)
 				}
 				else if (RPolling>GPolling*16 && DPolling>GPolling*16) {
-					applyMinorBoost(303,-0.06*boost_list[303][StateNum],1100+StateNum)
+					applyMinorBoost(303,-0.09*boost_list[303][StateNum],1100+StateNum)
 				}
 				else if (RPolling>GPolling*8 && DPolling>GPolling*8) {
-					applyMinorBoost(303,-0.04*boost_list[303][StateNum],1100+StateNum)
+					applyMinorBoost(303,-0.06*boost_list[303][StateNum],1100+StateNum)
 				}
 				else if (RPolling>GPolling*4 && DPolling>GPolling*4) {
-					applyMinorBoost(303,-0.02*boost_list[303][StateNum],1100+StateNum)
+					applyMinorBoost(303,-0.03*boost_list[303][StateNum],1100+StateNum)
 				}
 				else if (RPolling>GPolling*2 && DPolling>GPolling*2) {
-					applyMinorBoost(303,-0.01*boost_list[303][StateNum],1100+StateNum)
+					applyMinorBoost(303,-0.015*boost_list[303][StateNum],1100+StateNum)
 				}
 			}
 		}
@@ -58139,8 +58155,7 @@
 		}
 		else if (ans == 1002) {
 			party_unity +=1 //vaguely unifying
-			//testing
-			//e.question_number=43
+			
 		}
 		else if (ans == 1003) {
 			expectations -=1
@@ -58875,11 +58890,11 @@
 			bipartisan+=2 //willing to work with Republicans
 		}
 		else if (ans==20001) {
-			applySalience(110,0.21) //big economic issue in news
+			applySalience(110,0.15) //big economic issue in news
 			bipartisan-=1
 			party_econ_progressive+=1
-			party_unity-=1
-			political_capital-=1
+			party_unity-=2
+			political_capital-=2
 			worker_approval+=2 //unions likey 
 			inflation+=1 //stopping the supply chain
 			economy-=1 //when you're in the middle of a supply chain crisis
@@ -59384,7 +59399,7 @@
 			political_capital-=5 //Congress really hates this.
 			bipartisan-=3 //Rs very pro-Israel
 			blob_approval-=1
-			dove_approval+=3
+			dove_approval+=2
 			party_social_progressive+=2
 			if (ans==26103) {
 				dove_approval+=1 //you stuck with your policy
@@ -60634,8 +60649,8 @@
 			party_unity+=0.15
 		}
 		else if (ans==42304) {
-			e.candidate_issue_score_json[8].fields.issue_score=0.1 //just overwrites his immigration score to +0.1.
-			applySalience(113,0.36) //America's watching the car crash 
+			e.candidate_issue_score_json[5].fields.issue_score=-0.06 //sort of attacking him for being pro-corporate.
+			applySalience(113,0.18) //America's watching the car crash 
 			party_unity-=2
 		}
 		else if (ans==42401) {
@@ -60676,10 +60691,10 @@
 			party_unity+=0.1
 		}
 		else if (ans==42504) {
-			e.candidate_issue_score_json[8].fields.issue_score=0.15 //moves his immigration score to +0.15
+			e.candidate_issue_score_json[5].fields.issue_score-=0.04 //sort of attacking him for being pro-corporate
 			e.candidate_issue_score_json[6].fields.issue_score+=0.04
 			applySalience(111,0.06) 
-			applySalience(113,0.18) //watching the car crash
+			applySalience(113,0.09) //watching the car crash
 			party_unity-=2
 			political_capital-=0.25
 		}
@@ -60743,7 +60758,7 @@
 			party_unity+=0.3
 		}
 		else if (ans==42804) {
-			e.candidate_issue_score_json[8].fields.issue_score=0.25 //just overwrites his immigration score completely
+			e.candidate_issue_score_json[5].fields.issue_score-=0.06 //you're basically attacking him for being pro-corporate.
 			applySalience(113,0.18) //America's watching the car crash 
 			party_unity-=3
 		}
@@ -61273,7 +61288,7 @@
 						if (Math.ceil(Math.random() *100)<=25 && random_on) {
 							q24403_bad=1
 							if (tooltips_on) {
-								ReplaceFeedback(24403,`<span class=\'mytooltip\' style="background-color:darkblue;color:white">Beijing refuses to renounce conquest<span class=\'mytooltiptext\'><img src=https://i.imgur.com/UUyfVsl.jpeg><br><b>The PRC has a 25% chance to reject peace if asked to renounce reunification by force; 50% if also asked to return the Penghus. If randomness is off, this will never trigger.</b><br><i>Beaten and bloodied, the PRC refuses to submit to yet another Unequal Treaty - while beneath, the people rise, crying for an end to the madness.</i></span></span> of Taiwan, clinging to their pride even as the blockade strangles their ports. In the streets, young people rise in protest - demanding jobs, dignity, a future - and when the PLA is ordered to fire, the soldiers refuse and join the people. And for once, you dare to hope that a new China is being born from the ashes of the old.`)
+								ReplaceFeedback(24403,`<span class=\'mytooltip\' style="background-color:darkblue;color:white">Beijing refuses to renounce conquest<span class=\'mytooltiptext\'><img src=https://i.imgur.com/UUyfVsl.jpeg><br><b>The PRC has a 25% chance to reject peace and escalate if asked to renounce reunification by force; 50% if also asked to return the Penghus. If randomness is off, this will never trigger.</b><br><i>Beaten and bloodied, the PRC refuses to submit to yet another Unequal Treaty - while beneath, the people rise, crying for an end to the madness.</i></span></span> of Taiwan, clinging to their pride even as the blockade strangles their ports. In the streets, young people rise in protest - demanding jobs, dignity, a future - and when the PLA is ordered to fire, the soldiers refuse and join the people. And for once, you dare to hope that a new China is being born from the ashes of the old.`)
 							}
 							else {
 								ReplaceFeedback(24403,`Beijing refuses to renounce conquest of Taiwan, clinging to their pride even as the blockade strangles their ports. In the streets, young people rise in protest - demanding jobs, dignity, a future - and when the PLA is ordered to fire, the soldiers refuse and join the people. And for once, you dare to hope that a new China is being born from the ashes of the old.`)
@@ -61296,7 +61311,7 @@
 						if (Math.ceil(Math.random() *100)<=25 && random_on) {
 							q24503_bad=1
 							if (tooltips_on) {
-								ReplaceFeedback(24503,`<span class=\'mytooltip\' style="background-color:darkblue;color:white">Beijing refuses to renounce conquest<span class=\'mytooltiptext\'><img src=https://i.imgur.com/UUyfVsl.jpeg><br><b>The PRC has a 25% chance to reject peace if asked to renounce reunification by force; 50% if also asked to return the Penghus. If randomness is off, this will never trigger.</b><br><i>Beaten and bloodied, the PRC refuses to submit to yet another Unequal Treaty - while beneath, the people rise, crying for an end to the madness.</i></span></span> of Taiwan, clinging to their pride even as the blockade strangles their ports. In the streets, young people rise in protest - demanding jobs, dignity, a future - and when the PLA is ordered to fire, the soldiers refuse and join the people. And for once, you dare to hope that a new China is being born from the ashes of the old.`)
+								ReplaceFeedback(24503,`<span class=\'mytooltip\' style="background-color:darkblue;color:white">Beijing refuses to renounce conquest<span class=\'mytooltiptext\'><img src=https://i.imgur.com/UUyfVsl.jpeg><br><b>The PRC has a 25% chance to reject peace and escalate if asked to renounce reunification by force; 50% if also asked to return the Penghus. If randomness is off, this will never trigger.</b><br><i>Beaten and bloodied, the PRC refuses to submit to yet another Unequal Treaty - while beneath, the people rise, crying for an end to the madness.</i></span></span> of Taiwan, clinging to their pride even as the blockade strangles their ports. In the streets, young people rise in protest - demanding jobs, dignity, a future - and when the PLA is ordered to fire, the soldiers refuse and join the people. And for once, you dare to hope that a new China is being born from the ashes of the old.`)
 							}
 							else {
 								ReplaceFeedback(24403,`Beijing refuses to renounce conquest of Taiwan, clinging to their pride even as the blockade strangles their ports. In the streets, young people rise in protest - demanding jobs, dignity, a future - and when the PLA is ordered to fire, the soldiers refuse and join the people. And for once, you dare to hope that a new China is being born from the ashes of the old.`)
@@ -61330,7 +61345,7 @@
 					if (ukraine_strength+2>=24 && crimea_nuclear==1) {
 						q24001_bad=1
 						if (tooltips_on) {
-							ReplaceFeedback(24001,"You held the line - aid kept flowing, and you pushed for peace without surrendering principle. Putin refused to concede territory, betting on fatigue, but Ukraine didn't waver. By year-end, as blue and yellow flags rise over Sevastopol, reports from Russia invigorate you: protests in the streets, the <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>FSB losing control<span class=\'mytooltiptext\'><img src=https://i.imgur.com/eH3fCyh.jpeg><br><b>Russian loss of the Donbas has a 25% random chance of triggering popular revolt. Russian loss of Crimea has a 50% chance. If randomness is off, this will never trigger.</b><br><i>Decades of simmering frustrations, finally boiling over into incadescent rage, past the point repression can stop. The Russian people are no longer silent.</i></span></span>. Maybe a freer Russia is possible.")
+							ReplaceFeedback(24001,"You held the line - aid kept flowing, and you pushed for peace without surrendering principle. Putin refused to concede territory, betting on fatigue, but Ukraine didn't waver. By year-end, as blue and yellow flags rise over Sevastopol, reports from Russia invigorate you: protests in the streets, the <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>FSB losing control<span class=\'mytooltiptext\'><img src=https://i.imgur.com/eH3fCyh.jpeg><br><b>Russian loss of the Donbas has a 25% random chance of triggering an escalation. Russian loss of Crimea has a 50% chance. If randomness is off, this will never trigger.</b><br><i>Decades of simmering frustrations, finally boiling over into incadescent rage, past the point repression can stop. The Russian people are no longer silent.</i></span></span>. Maybe a freer Russia is possible.")
 						}
 						else {
 							ReplaceFeedback(24001,"You held the line - aid kept flowing, and you pushed for peace without surrendering principle. Putin refused to concede territory, betting on fatigue, but Ukraine didn't waver. By year-end, as blue and yellow flags rise over Sevastopol, reports from Russia invigorate you: protests in the streets, the FSB losing control. Maybe a freer Russia is possible.")
@@ -61342,7 +61357,7 @@
 					else if (ukraine_strength+2>=20 && donbas_nuclear==1) {
 						q24001_bad=1
 						if (tooltips_on) {
-							ReplaceFeedback(24001,"You held the line - aid kept flowing, and you pushed for peace without surrendering principle. Putin refused to concede territory, betting on fatigue, but Ukraine didn't waver. By year-end, as blue and yellow flags rise over Luhansk and Donetsk, reports from Russia come in: protests in the streets, the <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>FSB losing control<span class=\'mytooltiptext\'><img src=https://i.imgur.com/eH3fCyh.jpeg><br><b>Russian loss of the Donbas has a 25% random chance of triggering popular revolt. Russian loss of Crimea has a 50% chance. If randomness is off, this will never trigger.</b><br><i>Decades of simmering frustrations, finally boiling over into incadescent rage, past the point repression can stop. The Russian people are no longer silent.</i></span></span>. A new day dawns in Russia.")
+							ReplaceFeedback(24001,"You held the line - aid kept flowing, and you pushed for peace without surrendering principle. Putin refused to concede territory, betting on fatigue, but Ukraine didn't waver. By year-end, as blue and yellow flags rise over Luhansk and Donetsk, reports from Russia come in: protests in the streets, the <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>FSB losing control<span class=\'mytooltiptext\'><img src=https://i.imgur.com/eH3fCyh.jpeg><br><b>Russian loss of the Donbas has a 25% random chance of triggering an escalation. Russian loss of Crimea has a 50% chance. If randomness is off, this will never trigger.</b><br><i>Decades of simmering frustrations, finally boiling over into incadescent rage, past the point repression can stop. The Russian people are no longer silent.</i></span></span>. A new day dawns in Russia.")
 						}
 						else {
 							ReplaceFeedback(24001,"You held the line - aid kept flowing, and you pushed for peace without surrendering principle. Putin refused to concede territory, betting on fatigue, but Ukraine didn't waver. By year-end, as blue and yellow flags rise over Luhansk and Donetsk, reports from Russia come in: protests in the streets, the FSB losing control. A new day dawns in Russia.")
@@ -61359,7 +61374,7 @@
 					if (ukraine_strength+1>=24 && crimea_nuclear==1) {
 						q24002_bad=1
 						if (tooltips_on) {
-							ReplaceFeedback(24002,"You knew this path would draw fire from all sides - Putin refuses to engage in good faith; Ukrainian leaders accuse you of betraying their sovereignty. But you keep the aid coming; by year-end, as blue and yellow flags rise over Sevastopol, you read the news: protests in the streets, the <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>FSB losing control<span class=\'mytooltiptext\'><img src=https://i.imgur.com/eH3fCyh.jpeg><br><b>Russian loss of the Donbas has a 25% random chance of triggering popular revolt. Russian loss of Crimea has a 50% chance. If randomness is off, this will never trigger.</b><br><i>Decades of simmering frustrations, finally boiling over into incadescent rage, past the point repression can stop. The Russian people are no longer silent.</i></span></span>. Maybe a freer Russia is possible.")
+							ReplaceFeedback(24002,"You knew this path would draw fire from all sides - Putin refuses to engage in good faith; Ukrainian leaders accuse you of betraying their sovereignty. But you keep the aid coming; by year-end, as blue and yellow flags rise over Sevastopol, you read the news: protests in the streets, the <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>FSB losing control<span class=\'mytooltiptext\'><img src=https://i.imgur.com/eH3fCyh.jpeg><br><b>Russian loss of the Donbas has a 25% random chance of triggering an escalation. Russian loss of Crimea has a 50% chance. If randomness is off, this will never trigger.</b><br><i>Decades of simmering frustrations, finally boiling over into incadescent rage, past the point repression can stop. The Russian people are no longer silent.</i></span></span>. Maybe a freer Russia is possible.")
 						}
 						else {
 							ReplaceFeedback(24002,"You knew this path would draw fire from all sides - Putin refuses to engage in good faith; Ukrainian leaders accuse you of betraying their sovereignty. But you keep the aid coming; by year-end, as blue and yellow flags rise over Sevastopol, you read the news: protests in the streets, the FSB losing control. Maybe a freer Russia is possible.")
@@ -61371,7 +61386,7 @@
 					else if (ukraine_strength+1>=20 && donbas_nuclear==1) {
 						q24002_bad=1
 						if (tooltips_on) {
-							ReplaceFeedback(24002,"You knew this path would draw fire from all sides - Putin refuses to engage in good faith; Ukrainian leaders accuse you of betraying their sovereignty. But you keep the aid coming; by year-end, as blue and yellow flags rise over Luhansk and Donetsk, you read the news: protests in the streets, the <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>FSB losing control<span class=\'mytooltiptext\'><img src=https://i.imgur.com/eH3fCyh.jpeg><br><b>Russian loss of the Donbas has a 25% random chance of triggering popular revolt. Russian loss of Crimea has a 50% chance. If randomness is off, this will never trigger.</b><br><i>Decades of simmering frustrations, finally boiling over into incadescent rage, past the point repression can stop. The Russian people are no longer silent.</i></span></span>. A new day dawns in Russia.")
+							ReplaceFeedback(24002,"You knew this path would draw fire from all sides - Putin refuses to engage in good faith; Ukrainian leaders accuse you of betraying their sovereignty. But you keep the aid coming; by year-end, as blue and yellow flags rise over Luhansk and Donetsk, you read the news: protests in the streets, the <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>FSB losing control<span class=\'mytooltiptext\'><img src=https://i.imgur.com/eH3fCyh.jpeg><br><b>Russian loss of the Donbas has a 25% random chance of triggering an escalation. Russian loss of Crimea has a 50% chance. If randomness is off, this will never trigger.</b><br><i>Decades of simmering frustrations, finally boiling over into incadescent rage, past the point repression can stop. The Russian people are no longer silent.</i></span></span>. A new day dawns in Russia.")
 						}
 						else {
 							ReplaceFeedback(24002,"You knew this path would draw fire from all sides - Putin refuses to engage in good faith; Ukrainian leaders accuse you of betraying their sovereignty. But you keep the aid coming; by year-end, as blue and yellow flags rise over Luhansk and Donetsk, you read the news: protests in the streets, the FSB losing control. A new day dawns in Russia.")
@@ -61393,7 +61408,7 @@
 					else if (ukraine_strength+5>=20 && donbas_nuclear==1) {
 						q24003_bad=1
 						if (tooltips_on) {
-							ReplaceFeedback(24003,"You never wanted to pour billions into the weapons of war, but you knew - peace only comes when aggression fails. The flood of arms turned the tide, and as blue and yellow flags rise over Luhansk and Donetsk, you feel the fire of hope. Reports from Russia invigorate you: protests in the streets, the <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>FSB losing control<span class=\'mytooltiptext\'><img src=https://i.imgur.com/eH3fCyh.jpeg><br><b>Russian loss of the Donbas has a 25% random chance of triggering popular revolt. Russian loss of Crimea has a 50% chance. If randomness is off, this will never trigger.</b><br><i>Decades of simmering frustrations, finally boiling over into incadescent rage, past the point repression can stop. The Russian people are no longer silent.</i></span></span>. Maybe a freer Russia is possible.")
+							ReplaceFeedback(24003,"You never wanted to pour billions into the weapons of war, but you knew - peace only comes when aggression fails. The flood of arms turned the tide, and as blue and yellow flags rise over Luhansk and Donetsk, you feel the fire of hope. Reports from Russia invigorate you: protests in the streets, the <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>FSB losing control<span class=\'mytooltiptext\'><img src=https://i.imgur.com/eH3fCyh.jpeg><br><b>Russian loss of the Donbas has a 25% random chance of triggering an escalation. Russian loss of Crimea has a 50% chance. If randomness is off, this will never trigger.</b><br><i>Decades of simmering frustrations, finally boiling over into incadescent rage, past the point repression can stop. The Russian people are no longer silent.</i></span></span>. Maybe a freer Russia is possible.")
 						}
 						else {
 							ReplaceFeedback(24003,"You never wanted to pour billions into the weapons of war, but you knew - peace only comes when aggression fails. The flood of arms turned the tide, and as blue and yellow flags rise over Luhansk and Donetsk, you feel the fire of hope. Reports from Russia invigorate you: protests in the streets, the FSB losing control. Maybe a freer Russia is possible.")
@@ -61407,9 +61422,9 @@
 					}
 					
 					if (ukraine_strength-2>=24 && crimea_nuclear==1) {
-						q24004_bad=1 //the default
+						q24004_bad=1 
 						if (tooltips_on) {
-							ReplaceFeedback(24004,"You knew the backlash would come, and it has - Ukrainian leaders brand you a betrayer, Congressmen lash out on national television. Despite losing your aid, Ukraine continues on nevertheless; as blue and yellow flags rise over Sevastopol, you read the news: protests in the streets, the <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>FSB losing control<span class=\'mytooltiptext\'><img src=https://i.imgur.com/eH3fCyh.jpeg><br><b>Russian loss of the Donbas has a 25% random chance of triggering popular revolt. Russian loss of Crimea has a 50% chance. If randomness is off, this will never trigger.</b><br><i>Decades of simmering frustrations, finally boiling over into incadescent rage, past the point repression can stop. The Russian people are no longer silent.</i></span></span>. Maybe a freer Russia is possible.")
+							ReplaceFeedback(24004,"You knew the backlash would come, and it has - Ukrainian leaders brand you a betrayer, Congressmen lash out on national television. Despite losing your aid, Ukraine continues on nevertheless; as blue and yellow flags rise over Sevastopol, you read the news: protests in the streets, the <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>FSB losing control<span class=\'mytooltiptext\'><img src=https://i.imgur.com/eH3fCyh.jpeg><br><b>Russian loss of the Donbas has a 25% random chance of triggering an escalation. Russian loss of Crimea has a 50% chance. If randomness is off, this will never trigger.</b><br><i>Decades of simmering frustrations, finally boiling over into incadescent rage, past the point repression can stop. The Russian people are no longer silent.</i></span></span>. Maybe a freer Russia is possible.")
 						}
 						else {
 							ReplaceFeedback(24004,"You knew the backlash would come, and it has - Ukrainian leaders brand you a betrayer, Congressmen lash out on national television. Despite losing your aid, Ukraine continues on nevertheless; as blue and yellow flags rise over Sevastopol, you read the news: protests in the streets, the FSB losing control. Maybe a freer Russia is possible.")
@@ -61421,7 +61436,7 @@
 					else if (ukraine_strength-2>=20 && donbas_nuclear==1) {
 						q24004_bad=1
 						if (tooltips_on) {
-							ReplaceFeedback(24004,"You knew the backlash would come, and it has - Ukrainian leaders brand you a betrayer, Congressmen lash out on national television. Despite losing your aid, Ukraine continues on nevertheless; as blue and yellow flags rise over Luhansk and Donetsk, you read the news: protests in the streets, the <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>FSB losing control<span class=\'mytooltiptext\'><img src=https://i.imgur.com/eH3fCyh.jpeg><br><b>Russian loss of the Donbas has a 25% random chance of triggering popular revolt. Russian loss of Crimea has a 50% chance. If randomness is off, this will never trigger.</b><br><i>Decades of simmering frustrations, finally boiling over into incadescent rage, past the point repression can stop. The Russian people are no longer silent.</i></span></span>. Maybe a freer Russia is possible.")
+							ReplaceFeedback(24004,"You knew the backlash would come, and it has - Ukrainian leaders brand you a betrayer, Congressmen lash out on national television. Despite losing your aid, Ukraine continues on nevertheless; as blue and yellow flags rise over Luhansk and Donetsk, you read the news: protests in the streets, the <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>FSB losing control<span class=\'mytooltiptext\'><img src=https://i.imgur.com/eH3fCyh.jpeg><br><b>Russian loss of the Donbas has a 25% random chance of triggering an escalation. Russian loss of Crimea has a 50% chance. If randomness is off, this will never trigger.</b><br><i>Decades of simmering frustrations, finally boiling over into incadescent rage, past the point repression can stop. The Russian people are no longer silent.</i></span></span>. Maybe a freer Russia is possible.")
 						}
 						else {
 							ReplaceFeedback(24004,"You knew the backlash would come, and it has - Ukrainian leaders brand you a betrayer, Congressmen lash out on national television. Despite losing your aid, Ukraine continues on nevertheless; as blue and yellow flags rise over Luhansk and Donetsk, you read the news: protests in the streets, the FSB losing control. Maybe a freer Russia is possible.")
@@ -62921,6 +62936,107 @@
 			random_on=false
 			e.global_parameter_json[0].fields.global_variance=0 //remove all variance retroactively.
 			e.global_parameter_json[0].fields.state_variance=0
+			if (e.question_number==5) { 
+				if (q6003_bad==1) { //annoy Sinema too much via protests
+					q6003_bad=0
+					ReplaceFeedback(6003,"The crowds in Arizona and West Virginia cheer for a minimum wage hike, and you feel the energy. Yet Sinema and Manchin stand firm, stubborn and unmoving, their opposition a wall you can't break. The people are with you, but their Senators are a different story.")
+				}
+			}
+			else if (e.question_number==9 && senate_lost==1) {
+				if (q11103_bad==1) { //debt ceiling standoff
+					q11103_bad=0
+					ReplaceFeedback(11103,"Americans don't see it, don't understand how the Republicans are holding the world hostage, demanding surrender while threatening global stability. You stand firm, won't back down, but neither do they. As the nation teeters over the debt ceiling, you invoke the 14th, and for now, no one dares challenge your decision.")
+				}
+			}
+			else if (e.question_number==22) {
+				if (q23002_bad==1) {
+					q23002_bad=0
+					if (debt_14th_used==1) {
+						ReplaceFeedback(23002,"Once again you refused right-wing hostage-taking. The public didn't get it; all they wanted was an end to the chaos. When default struck and you acted to invoke the 14th Amendment, the right took you all the way to the Supreme Court. But the 5-4 ruling vindicated your stand - not for power, but for democracy itself.")
+					}
+					else {
+						ReplaceFeedback(23002,"You took the risk because you had no choice - you couldn't keep letting the far right hold the economy hostage. The public didn't get it; all they wanted was an end to the chaos. When default struck and you invoked the 14th, they took you all the way to the Supreme Court. But the 5-4 ruling vindicated your stand - not for power, but for democracy itself.")
+					}
+				}
+			}
+			else if (e.question_number==23 && taiwan_war==1) {
+				if (q24403_bad==1) { //taiwan war nuke variants
+					q24403_bad=0 
+					//I am not going to bother with conditioning tooltips as well if you toggle randomness here. Too much work for too little gain.
+					ReplaceFeedback(24403,`The footage is everywhere: <span class=\'mytooltip\' style="background-color:lightgreen;">Xi Jinping flanked by the Politburo<span class=\'mytooltiptext\'><img src=https://i.imgur.com/QCgC8yh.jpeg><br>Humiliated by peace, he stepped down after - begging forgiveness for a war that should never have happened.</span></span> as the PRC permanently rejects reunification through force. They tried to push on, but economic ruin from America's blockade was imminent. Though you lift the sanctions, few dare call it appeasement. The headlines blaze with pride: "So much for the Chinese Century! America's still here!"`)
+				}
+				if (q24503_bad==1) { 
+					q24503_bad=0
+					ReplaceFeedback(24403,`The footage is everywhere: <span class=\'mytooltip\' style="background-color:lightgreen;">Xi Jinping flanked by the Politburo<span class=\'mytooltiptext\'><img src=https://i.imgur.com/QCgC8yh.jpeg><br>Humiliated by peace, he stepped down after - begging forgiveness for a war that should never have happened.</span></span> as the PRC permanently rejects reunification through force. They tried to push on, but economic ruin from America's blockade was imminent. Though you lift the sanctions, few dare call it appeasement. The headlines blaze with pride: "So much for the Chinese Century! America's still here!"`)
+				}
+				if (q24404_good==0) { 
+					q24404_good=1
+					ReplaceFeedback(24404,`The footage is everywhere: <span class=\'mytooltip\' style="background-color:lightgreen;">Xi Jinping flanked by the Politburo<span class=\'mytooltiptext\'><img src=https://i.imgur.com/QCgC8yh.jpeg><br>Humiliated by peace, he stepped down after - begging forgiveness for a war that should never have happened.</span></span> as the PRC permanently rejects reunification through force, announces the return of the Penghu Islands to Taiwan. Though you lift the sanctions, few dare call it appeasement. The headlines blaze with pride: \"So much for the Chinese Century! America's still here!\"`)
+				}
+				if (q24504_good==0) { 
+					q24504_good=1
+					ReplaceFeedback(24504,`The footage is everywhere: <span class=\'mytooltip\' style="background-color:lightgreen;">Xi Jinping flanked by the Politburo<span class=\'mytooltiptext\'><img src=https://i.imgur.com/QCgC8yh.jpeg><br>Humiliated by peace, he stepped down after - begging forgiveness for a war that should never have happened.</span></span> as the PRC permanently rejects reunification through force, announces the return of the Penghu Islands to Taiwan. Though you lift the sanctions, few dare call it appeasement. The headlines blaze with pride: \"So much for the Chinese Century! America's still here!\"`)
+				}
+			}
+			else if (e.question_number==23 && ukraine_strength>=17) { //ukraine ascendant
+				if (ukraine_strength+2>=24 && q24001_bad==1) {
+					q24001_bad=0
+					ReplaceFeedback(24001,"You held the line - aid kept flowing, and you pushed for peace without surrendering principle. Putin refused to concede territory, betting on fatigue, but Ukraine didn't waver. By year-end, as blue and yellow flags rise over Sevastopol, you feel the pride of vindication. You know the fight isn't over, but today, justice took a step forward.")
+				}
+				else if (ukraine_strength+2>=20 && q24001_bad==1) {
+					q24001_bad=0
+					ReplaceFeedback(24001,"You held the line - aid kept flowing, and you pushed for peace without surrendering principle. Putin refused to concede territory, betting on fatigue, but Ukraine didn't waver. By year-end, as blue and yellow flags rise over Luhansk and Donetsk, you feel the pride of vindication. You know the fight isn't over, but today, justice took a step forward.")
+				}
+				if (ukraine_strength+1>=24 && q24002_bad==1) {
+					q24002_bad=0
+					ReplaceFeedback(24002,"You knew this path would draw fire from all sides - Putin refuses to engage in good faith, and Ukrainian leaders accuse you of betraying their sovereignty. But you keep the aid coming, and Ukraine makes good use of it. By year-end, as blue and yellow flags rise over Sevastopol, you feel the fire of hope. One way or another, this war will end.")
+				}
+				else if (ukraine_strength+1>=20 && q24002_bad==1) {
+					q24002_bad=0
+					ReplaceFeedback(24002,"You knew this path would draw fire from all sides - Putin refuses to engage in good faith, and Ukrainian leaders accuse you of betraying their sovereignty. But you keep the aid coming, and Ukraine makes good use of it. By year-end, as blue and yellow flags rise over Luhansk and Donetsk, you feel the fire of hope. One way or another, this war will end.")
+				}
+				if (ukraine_strength+5>=24 && q24003_bad==1) {
+					q24003_bad=0
+					ReplaceFeedback(24003,"You never wanted to pour billions into the weapons of war, but you knew - peace only comes when aggression fails. The flood of arms turned the tide, and now Ukraine's flag flies over Sevastopol, erasing one of Putin's proudest conquests. One way or another, this war will end.")
+				}
+				else if (ukraine_strength+5>=20 && q24003_bad==1) {
+					q24003_bad=0
+					ReplaceFeedback(24003,"You never wanted to pour billions into the weapons of war, but you knew - peace only comes when aggression fails. The flood of arms turned the tide, and as blue and yellow flags rise over Luhansk and Donetsk, you feel the fire of hope. One way or another, this war will end.")
+				}
+				if (ukraine_strength-2>=24 && q24004_bad==1) {
+					q24004_bad=0
+					ReplaceFeedback(24004,"You knew the backlash would come, and it has - Ukrainian leaders brand you a betrayer, Congressmen lash out on national television. With stockpiles and arms from Europe, Ukraine forges on nevertheless; as blue and yellow flags rise over Sevastopol, it's clear they intend to end the war with or without you.")
+				}
+				else if (ukraine_strength-2>=20 && q24004_bad==1) {
+					q24004_bad=0
+					ReplaceFeedback(24004,"You knew the backlash would come, and it has - Ukrainian leaders brand you a betrayer, Congressmen lash out on national television. With stockpiles and arms from Europe, Ukraine forges on nevertheless; as blue and yellow flags rise over Luhansk and Donetsk, it's clear they intend to end the war with or without you.")
+				}
+			}
+			else if (e.question_number==37 && assassination==12) {
+				if (q38501_bad==1 && authenticity>=-5) {
+					q38501_bad=0
+					ReplaceFeedback(38501,"You grip the podium, knuckles white, your voice a rasping shadow of what it was - but when you speak, even in broken bursts, the people lean in like every word matters. They see the bandages, the scars, the tremble in your limbs, and still they chant your name in solidarity. And little by little, your voice steadies, because the people refuse to let you fall.")
+				}
+			}
+			else if (e.question_number==39) {
+				if (q40002_bad==1) {
+					q40002_bad=0
+					ReplaceFeedback(40002,`The national security community seems appalled by your decision to sit on probable foreign interference in our elections to help you, no matter how you justify it. But ${opponent_last_name}'s numbers continue to fall, and despite the claims of deepfake, America believes otherwise. Whether or not the tape is true, it <i>feels</i> true, and in the end, that's all that matters.`)
+				}
+				else if (q40102_bad==1) {
+					q40102_bad=0
+					ReplaceFeedback(40102,`Intelligence officials are unhappy with you, demanding swift condemnation, but you refuse to be rushed again after Iraq. The headlines scream scandal while ${opponent_last_name} drowns under the weight of leaks you never asked for. The ugliest excerpts spread like wildfire online. Your polls surge, as America forgets the price of eggs.`)
+				}
+				else if (q40501_bad==1 && authenticity>=3) {
+					q40501_bad=0
+					ReplaceFeedback(40501,`You don't speak like a cornered rat; you speak like someone who's marched in the rain with striking workers, been hauled off in cuffs for what's right. And then you feel it: first, the silence, as people actually listen, then the headlines soften, the bleeding polls slow. You may be bruised and beaten, but you're still standing. That may be enough.`)
+					
+				}
+				else if (q40602_bad==1) {
+					q40602_bad=0
+					ReplaceFeedback(40602,`The intel community bristles, but you hold the line, waiting for hard evidence. The press circles like vultures while ${opponent_last_name} flails, calling the files forgeries. But the public's already glued to every sordid headline, sharing juicy excerpts like gossip online. For a moment, you can see Hillary's smile, watching the tables turn from 2016.`)
+				}
+			}
 		}
 		else {
 			random_on=true
@@ -62971,10 +63087,10 @@
 		RandomButton.id = 'random_button';
 		RandomButton.style.marginLeft = '1.5em';
 		if (random_on) {
-			RandomButton.innerHTML = 'Toggle Randomness (on)';
+			RandomButton.innerHTML = 'Toggle Randomness (currently on)';
 		}
 		else {
-			RandomButton.innerHTML = 'Toggle Randomness (off)';
+			RandomButton.innerHTML = 'Toggle Randomness (currently off)';
 		}
 		RandomButton.addEventListener('click', toggleRandom);
 		ToolTipButton.insertAdjacentElement('afterend', RandomButton);
