@@ -1334,12 +1334,12 @@ campaignTrail_temp.achievements = {
         "image" : "https://i.imgur.com/z9j0wMX.jpeg",
         "description" : "Accomplish a permanent Gaza ceasefire in 2024",
     },
-    "The World Turned Upside Down" : {
+    "The World turned upside down" : {
         "image" : "https://i.imgur.com/GtdTXvC.jpeg",
         "description" : "Have the election decided by faithless electors",
     },
-    "Who will count the votes, and how" : {
-        "image" : "",
+    "Who will count the votes" : {
+        "image" : "https://i.imgur.com/3t1IWR1.jpeg",
         "description" : "See a stolen 2024 election",
     },
     "It Can't Happen Here" : {
@@ -1358,7 +1358,7 @@ campaignTrail_temp.achievements = {
         "image" : "https://i.imgur.com/4GNYn0W.jpeg",
         "description" : "Have Xi Jinping resign",
     },
-    "Ще не вмерла України і слава" : {
+    "Ukraine Has Not Yet Perished" : {
         "image" : "https://i.imgur.com/B4MgrGo.jpeg",
         "description" : "Ukraine ends the game with Crimea reconquered",
     },
@@ -1366,7 +1366,7 @@ campaignTrail_temp.achievements = {
         "image" : "",
         "description" : "Have a show of force backfire",
     },
-    "World's Most Dangerous Game of Chicken" : {
+    "The Riskiest Game of Chicken" : {
         "image" : "",
         "description" : "Careen over the debt ceiling",
     },
