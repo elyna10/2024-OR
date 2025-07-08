@@ -54361,7 +54361,7 @@
 				ctsAchievement("Wait, What?")
 			}
 			if (ukraine_strength>=24) {
-				ctsAchievement("Ще не вмерла України і слава")
+				ctsAchievement("Ukraine Has Not Yet Perished")
 			}
 			if (e.player_answers.includes(23103) && e.player_answers.includes(27004)) {
 				ctsAchievement("Soak the Rich")
@@ -54582,10 +54582,10 @@
 					corrr=`\n<h2>OUR REVOLUTION</h2><font id='wittyquote' size='3' color='white'><em>`+customquote+`</em></font>`
 				}
 				if (faithless) {
-					ctsAchievement("The World Turned Upside Down")
+					ctsAchievement("The World turned upside down")
 				}
 				if (stop_the_steal) {
-					ctsAchievement("Who will count the votes, and how")
+					ctsAchievement("Who gets to count the vote?")
 					if (blob_approval>=5) {
 						ctsAchievement("It Can't Happen Here")
 					}
@@ -58528,7 +58528,7 @@
 				party_unity-=4
 				bipartisan-=1
 				adversary_approval+=2 //they like you screwing up
-				ctsAchievement("World's Most Dangerous Game of Chicken")
+				ctsAchievement("The Riskiest Game of Chicken")
 			}
 			else { //got away with it.
 				debt_14th_used=1
@@ -59030,7 +59030,7 @@
 				party_unity-=4
 				bipartisan-=1
 				adversary_approval+=2 //they like you screwing up
-				ctsAchievement("World's Most Dangerous Game of Chicken")
+				ctsAchievement("The Riskiest Game of Chicken")
 			}
 			else if (debt_14th_used==2) { //Supreme Court ALREADY RULED this doesn't work
 				applySalience(110,0.06) //not this again!
