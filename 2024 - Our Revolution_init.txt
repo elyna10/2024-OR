@@ -1323,11 +1323,11 @@ campaignTrail_temp.achievements = {
         "description" : "Achieve Medicare for All",
     },
     "The Holier Grail" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/ySK6Kjd.jpeg", //placeholder
         "description" : "Achieve Medicare for All with dental and vision coverage",
     },
     "The True Ending" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/ePQ9yQN.jpeg", //placeholder
         "description" : "Accomplish Medicare for All on Hard or higher difficulty.",
     },
     "The White Whale" : {
@@ -1351,7 +1351,7 @@ campaignTrail_temp.achievements = {
         "description" : "Have the Vice Presidency sit empty for multiple years",
     },
     "Wait, What?" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/dILqtUZ.jpeg", //placeholder
         "description" : "Win the Senate but not the House in 2024",
     },
     "罢免独裁国贼习近平" : {
@@ -1363,19 +1363,19 @@ campaignTrail_temp.achievements = {
         "description" : "Ukraine ends the game with Crimea reconquered",
     },
     "Good politics, bad strategy" : { //done by making a show of force to intimidate China or get them to fire the first shot, and have that show of force destroyed
-        "image" : "",
+        "image" : "https://i.imgur.com/gja4ZiA.jpeg", //placeholder
         "description" : "Have a show of force backfire",
     },
     "The Riskiest Game of Chicken" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/dzq0zWD.jpeg", //placeholder
         "description" : "Careen over the debt ceiling",
     },
     "Definition of Insanity" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/p8Dqnis.jpeg", //placeholder
         "description" : "Try to go over the debt ceiling a second time",
     },
     "Soak the Rich" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/I8JXen8.jpeg", //placeholder
         "description" : "End the game having raised taxes on the wealthy and corporations",
     },
     "Eggs for just $12 a dozen" : {
@@ -1383,43 +1383,43 @@ campaignTrail_temp.achievements = {
         "description" : "End the game with prices up 40% or higher",
     },
     "Inflation? What inflation?" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/eUsvkxl.jpeg", //placeholder
         "description" : "End the game with prices up 14% or less",
     },
     "Bernienomics" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/EKnS30c.jpeg", //placeholder
         "description" : "End the game with prices up 14% or less, and the economy in the green",
     },
     "Stagflation" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/jz4wcYz.jpeg", //placeholder
         "description" : "End the game with an inflation rate 6% or higher and the economy in the red.",
     },
     "Why didn't it work?" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/lprE2rm.jpeg", //placeholder
         "description" : "Lose re-election despite all three constituencies approving",
     },
     "Didn't need them" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/4sYedUk.jpeg", //placeholder
         "description" : "Win re-election despite all three constituencies disapproving",
     },
     "No Interest in Banks" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/U7BVTjg.jpeg", //placeholder
         "description" : "Win the Indiana Senate seat in 2024",
     },
     "No More Hawley-days" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/qVPmCAL.jpeg", //placeholder
         "description" : "Win the Missouri Senate seat in 2024",
     },
     "Great Scott, He Lost!" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/oHzxRdh.jpeg", //placeholder
         "description" : "Win the Florida Senate seat in 2024",
     },
     "Cruzin' for a Bruisin'" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/ba5WmRq.jpeg", //placeholder
         "description" : "Win the Texas Senate seat in 2024",
     },
     "Fischer Out of Water" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/MDc6C5b.jpeg", //placeholder
         "description" : "Win the Nebraska Senate seat in 2024",
     },
     "Justice Denied" : {
@@ -1427,79 +1427,79 @@ campaignTrail_temp.achievements = {
         "description" : "Hold the West Virginia Senate seat in 2024",
     },
     "What was the point?" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/mhgle02.jpeg", //placeholder
         "description" : "Win re-election with a trifecta, but fail to accomplish major legislation in your second term.",
     },
     "Red Tsunami" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/xRjJVNh.jpeg", //placeholder
         "description" : "Lose ten or more Senate seats in 2024",
     },
     "Split Tickets" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/1dsv9HZ.jpeg", //placeholder
         "description" : "Win re-election while Republicans take a 58+ seat Senate majority",
     },
     "Déjà Flu" : { //gives a bird flu pandemic ending because typical slide (selling out Taiwan) is invalid - also unusual because you need to go a schizo anti-war first then pro-Israel.
-        "image" : "",
+        "image" : "https://i.imgur.com/Cj53pKQ.jpeg", //placeholder
         "description" : "Lose to Ramaswamy/Lara Trump while Taiwan has been conquered",
     },
     "The Art of the Loss" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/MhXqeBe.jpeg", //placeholder 
         "description" : "Defeat the Donald Trump/J.D. Vance ticket",
     },
     "Boardroom Blues" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/BVCUhcR.jpeg", //placeholder
         "description" : "Defeat the Donald Trump/Doug Burgum ticket",
     },
     "No More War Games" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/TLI4vGE.jpeg", //placeholder
         "description" : "Defeat the Donald Trump/Marco Rubio ticket",
     },
     "Mr. Trump, Tear Down This Wall" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/ccllBv6.jpeg", //placeholder
         "description" : "Defeat the Donald Trump/Tim Scott ticket",
     },
     "Like Father, Like Son" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/miNieOR.jpeg", //placeholder
         "description" : "Defeat the Donald Trump Jr./Vivek Ramaswamy ticket",
     },
     "DeSanctimonious Defeated" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/BuvBqtd.jpeg", //placeholder
         "description" : "Defeat the Ron DeSantis/Doug Burgum ticket",
     },
     "The Real Populist McCoy" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/JIpwmOv.jpeg", //placeholder
         "description" : "Defeat the Josh Hawley/J.D. Vance ticket",
     },
     "No Chance for Vance" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/zRnIp9d.jpeg", //placeholder
         "description" : "Defeat the JD Vance/Donald Trump Jr. ticket",
     },
     "Burgum on the Rocks" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/y4kbaTb.jpeg", //placeholder
         "description" : "Defeat the Doug Burgum/Donald Trump Jr. ticket",
     },
     "Peace over Power" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/hs9mMhy.jpeg", //placeholder
         "description" : "Defeat the Marco Rubio/Donald Trump Jr. ticket",
     },
     "Got off Scott-free" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/r8UfKMD.jpeg", //placeholder
         "description" : "Defeat the Tim Scott/Donald Trump Jr. ticket",
     },
     "Ramaswamy's Blue Tsunami" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/mVSE82c.jpeg", //placeholder
         "description" : "Defeat the Vivek Ramaswamy/Lara Trump ticket",
     },
     "Wall Street Wipeout" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/vBbs2xz.jpeg", //placeholder
         "description" : "Defeat the Doug Burgum/Marco Rubio ticket",
     },
     "Cotton Not Picked" : {
-        "image" : "",
+        "image" : "https://i.imgur.com/d08rxS0.jpeg", //placeholder
         "description" : "Defeat the JD Vance/Tom Cotton ticket",
     },
     "The Truest Ending?" : { //exactly repeat the 2021-2024 choices, resulting in the real-world election map and Kamala waking up to realize that she was dreaming.
-        "image" : "",
+        "image" : "https://i.imgur.com/eczfB9p.jpeg", //placeholder
         "description" : "Find out that it was all a dream",
     },
 }
