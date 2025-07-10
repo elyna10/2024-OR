@@ -55668,7 +55668,7 @@
 		7: -0.6,
 		8: -0.4,
 		9: 0.3,
-		10: 0.1,
+		10: 0.6,
 		11: -0.3,
 		12: 0,
 		13: 0.05,
@@ -56091,6 +56091,8 @@
 			if (inputString.toLowerCase() === 'biden' && !ending_2020) {
 				e.global_parameter_json[0].fields.global_variance=0
 				e.global_parameter_json[0].fields.state_variance=0
+				e.difficulty_level_id=4 //force difficulty to normal
+				e.difficulty_level_multiplier=0.97 //turn off any difficulty effects
 				e.global_parameter_json[0].fields.question_count=1
 				ending_2020=true
 				e.questions_json[campaignTrail_temp.question_number] = tunnel(2020);
@@ -58453,6 +58455,7 @@
 			bipartisan+=1
 			if ((ans==10002 && political_capital-senate_lost*5>=3) || (ans==10102 && political_capital-senate_lost>=2) || (ans==10202 && political_capital-senate_lost>=1)) {
 				stimulus+=2 //this is how to pass the Bipartisan Infrastructure Law.
+				inflation-=0.5 //improving supply chains via infrastructure gives an inflation 'discount'
 				worker_approval+=0.5 //half a loaf
 			}
 		}
@@ -62487,6 +62490,8 @@
 				applyBernieEffect(-1*bernie_effect) //turns the election into 2024 turnout, removes Bernie's local bonuses in VT/NH/ME and penalty in FL
 				applyDrift(300,0.04,1107) //Biden effect in Delaware
 				biden_ending=true
+				e.difficulty_level_id=4 //force difficulty to normal
+				e.difficulty_level_multiplier=0.97 //turn off any difficulty effects
 				e.global_parameter_json[0].fields.global_variance=0 //remove all variance retroactively.
 				e.global_parameter_json[0].fields.state_variance=0
 				ctsAchievement("The Truest Ending?")
