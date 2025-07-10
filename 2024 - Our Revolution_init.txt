@@ -1323,11 +1323,11 @@ campaignTrail_temp.achievements = {
         "description" : "Achieve Medicare for All",
     },
     "The Holier Grail" : {
-        "image" : "https://i.imgur.com/ySK6Kjd.jpeg", //placeholder
+        "image" : "https://i.imgur.com/Zv4Dmoj.png", 
         "description" : "Achieve Medicare for All with dental and vision coverage",
     },
     "The True Ending" : {
-        "image" : "https://i.imgur.com/ePQ9yQN.jpeg", //placeholder
+        "image" : "https://i.imgur.com/4MYhl9B.png", 
         "description" : "Accomplish Medicare for All on Hard or higher difficulty.",
     },
     "The White Whale" : {
@@ -1455,7 +1455,7 @@ campaignTrail_temp.achievements = {
         "description" : "Defeat the Donald Trump/Marco Rubio ticket",
     },
     "Mr. Trump, Tear Down This Wall" : {
-        "image" : "https://i.imgur.com/ccllBv6.jpeg", //placeholder
+        "image" : "https://i.imgur.com/U8qhFD7.jpeg", //placeholder
         "description" : "Defeat the Donald Trump/Tim Scott ticket",
     },
     "Like Father, Like Son" : {
