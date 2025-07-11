@@ -53859,20 +53859,38 @@
 									blame+=' and '
 								}
 							});
-							blame+=" instead of visiting "
-							blue_wall_states_lost_unvisited.forEach((item,index)=>{
-								blame+=e.states_json.find(state_item=>state_item.pk==item).fields.name
-								
-								if (blue_wall_states_lost_unvisited.length>=3 && index<blue_wall_states_lost_unvisited.length-1) {
-									blame+=', '
-								}
-								if (index==blue_wall_states_lost_unvisited.length-2) {
-									blame+=' or '
-								}
-								if (index==blue_wall_states_lost_unvisited.length-1) {
-									blame+='.'
-								}
-							});
+							if (blue_wall_states_lost_unvisited.length==0) { //you visited the swing state you lost, but you also visited somewhere questionable.
+								blame+=" instead of spending more time in "
+								blue_wall_states_lost.forEach((item,index)=>{
+									blame+=e.states_json.find(state_item=>state_item.pk==item).fields.name
+									
+									if (blue_wall_states_lost.length>=3 && index<blue_wall_states_lost.length-1) {
+										blame+=', '
+									}
+									if (index==blue_wall_states_lost.length-2) {
+										blame+=' or '
+									}
+									if (index==blue_wall_states_lost.length-1) {
+										blame+='.'
+									}
+								});
+							}
+							else { //a state you did not visit exists
+								blame+=" instead of visiting "
+								blue_wall_states_lost_unvisited.forEach((item,index)=>{
+									blame+=e.states_json.find(state_item=>state_item.pk==item).fields.name
+									
+									if (blue_wall_states_lost_unvisited.length>=3 && index<blue_wall_states_lost_unvisited.length-1) {
+										blame+=', '
+									}
+									if (index==blue_wall_states_lost_unvisited.length-2) {
+										blame+=' or '
+									}
+									if (index==blue_wall_states_lost_unvisited.length-1) {
+										blame+='.'
+									}
+								});
+							}
 							
 						}
 						else { //no questionable visits
@@ -55478,7 +55496,7 @@
 	opponent_last_name="Trump"
 	opponent_vp_name="Mike Pence" //only matters if you cheat and skip through setting the opponent, to keep the endings from crashing.
 	opponent_vp_last_name="Pence"
-	opponent_slogan="Make America Great Again"
+	opponent_slogan="Make America Great Again!" //only matters if you cheat and skip through setting the opponent
 	var inputString=''
 	var music='bernie'
 	var kmusic_seen=false
@@ -56752,7 +56770,7 @@
 			ending+=` Unusually, no seats that remained with the same party were decided by 5% or less.`
 		}
 		else {
-			ending+=`<p>In addition, ${Object.keys(senate_close).length} `
+			ending+=`</p><p>In addition, ${Object.keys(senate_close).length} `
 			if (Object.keys(senate_close).length==1) {
 				ending+=` seat`
 			}
@@ -56852,7 +56870,7 @@
 					ending+=` and`
 				}
 				if (index==Object.keys(senate_close).length-1) {
-					ending+='.</p>'
+					ending+='.'
 				}
 			});
 			
