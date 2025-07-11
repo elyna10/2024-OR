@@ -62466,8 +62466,6 @@
 				}
 			}
 			else if (e.question_number>=42) { //Last Question
-				customquote = quotes[Math.floor((Math.random() * quotes.length))]
-				corrr=`\n<h2>OUR REVOLUTION</h2><font id='wittyquote' size='3' color='white'><em>`+customquote+`</em></font>`
 				if (ticket_status==1) {
 					e.questions_json[campaignTrail_temp.question_number+1] = tunnel(44000) //Bernie picks last place to campaign
 				}
