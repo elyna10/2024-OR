@@ -53785,8 +53785,20 @@
 					political_capital+=1
 				}
 				updateSimplePopup();
+				if (!ending_2020 && ticket_status==1) {
+					campaignTrail_temp.election_json[0].fields.advisor_url = "https://i.imgur.com/dsEx2GC.jpeg"; //happy Bernie
+				}
+				else if (!ending_2020) {
+					campaignTrail_temp.election_json[0].fields.advisor_url = "https://i.imgur.com/5BWx6ro.jpeg"; //happy Kamala
+				}
 			}
 			else { //you lost, let's see if you should get blamed by someone for it.
+				if (!ending_2020 && ticket_status==1) {
+					campaignTrail_temp.election_json[0].fields.advisor_url = "https://i.imgur.com/0JIqvKT.jpeg"; //sad Bernie
+				}
+				else if (!ending_2020) {
+					campaignTrail_temp.election_json[0].fields.advisor_url = "https://i.imgur.com/PlidS9O.jpeg"; //sad Kamala
+				}
 				blame=""
 				if (ticket_status==1 && authenticity>=-3) {	//bernie only gets blamed for visiting wrong places if he has authenticity high enough to have been able to definitely make visits during the campaign phase.
 					visits =e.player_visits.slice(e.player_visits.length-5) //last 5 visits are after the campaign began
@@ -54156,7 +54168,7 @@
 			
 			if (senate_results["NE"]>0) { 
 				osborn_win=true
-				if (random_on) {
+				if (e.random_on) {
 					if (Math.ceil(Math.random() *100)+party_econ_progressive*10-party_social_progressive*10>=50) { //he agrees to caucus with Ds, chance increased if not too socially progressive (activists make a fuss over him being for a border wall and gun rights) and if the party is econ progressive (he likes Bernie and appears to dislike that the party has gotten too establishment and inauthentic.) Starting party has -20% chance of success, but you can get this a lot higher by game-end.
 						senate_seats+=1
 						senate_gains["NE"]=senate_results["NE"]
@@ -54518,7 +54530,7 @@
 					if (item.result.find(p=>p.candidate==300).electoral_votes>0) {
 						votes_up=item.result.find(p=>p.candidate==300).electoral_votes
 						for (let vote = 0; vote<votes_up; vote++) { //every single elector has a progressive_anger % chance to turn faithless
-							if (random_on) {
+							if (e.random_on) {
 								if(Math.random()*100<progressive_anger) {
 									item.result.find(p=>p.candidate==303).electoral_votes+=1 //Green Party gets an EV
 									e.final_overall_results.find(p=>p.candidate==300).electoral_votes-= 1 //your tally goes down
@@ -54553,7 +54565,16 @@
 						ctsAchievement("Not Worth a Bucket")
 					}
 				}
+				
 			
+		}
+		if (faithless || stop_the_steal || (quickstats[0]<270 && e.final_overall_results.find(p=>p.candidate==301).electoral_votes<270)) { //election deadlocked somehow
+			if (!ending_2020 && ticket_status==1) {
+				campaignTrail_temp.election_json[0].fields.advisor_url = "https://i.imgur.com/AfDHTn1.jpeg"; //protesting Bernie
+			}
+			else if (!ending_2020) {
+				campaignTrail_temp.election_json[0].fields.advisor_url = "https://i.imgur.com/sVc6z9z.jpeg"; //protesting Kamala
+			}
 		}
 
 		e.pages = [];
@@ -55501,9 +55522,7 @@
 	var music='bernie'
 	var kmusic_seen=false
 	var ending_2020=false
-	
-	var tooltips_on=true
-	var random_on=true
+	var styles_set=false
 
 	if (e.difficulty_level_id<=3) { //easy and less difficulty levels get a variableboost
 		political_capital+=5
@@ -55527,6 +55546,15 @@
 		blob_approval-=5
 		adversary_approval-=5
 		r_radical+=10
+	}
+	
+	if (e.random_on) {
+		e.global_parameter_json[0].fields.global_variance=0 //remove all variance retroactively.
+		e.global_parameter_json[0].fields.state_variance=0
+	}
+	else {
+		e.global_parameter_json[0].fields.global_variance=0 //remove all variance retroactively.
+		e.global_parameter_json[0].fields.state_variance=0
 	}
 
 
@@ -60962,7 +60990,7 @@
 				if (political_capital<1) { //unfortunately, feedback needs to be set at the PREVIOUS question.
 					ReplaceFeedback(6002,"You watch as Sinema's smile tightens, before she walks out without a word. An hour later, Schumer is on the phone, screaming curses at you to turn on the TV - when you do so, it's to the sight of the smirking Sinema announcing that she's becoming a Republican because the Democratic Party under Bernie Sanders has lost its mind.")
 				}
-				if (random_on && (party_econ_progressive-party_unity)*5+Math.ceil(Math.random() *100)>=100) { //unlikely; only possible if you go strong progressive. Think it's max 20% chance even if you picked all the most progressive options previously.
+				if (e.random_on && (party_econ_progressive-party_unity)*5+Math.ceil(Math.random() *100)>=100) { //unlikely; only possible if you go strong progressive. Think it's max 20% chance even if you picked all the most progressive options previously.
 					q6003_bad = 1
 					ReplaceFeedback(6003,"The rallies start strong - workers flooding the streets, chanting for $15 an hour. But then the news breaks: a group of your supporters surrounded Sinema's car, pounding on the windows with her inside. And then Sinema herself is smirking before the cameras, declaring that she's becoming a Republican because your Democratic Party has lost its soul.")
 				}
@@ -61025,9 +61053,9 @@
 				}
 				if (senate_lost==1) {
 					e.questions_json[campaignTrail_temp.question_number+1] = tunnel(11100)// early debt ceiling v1
-					if (random_on && Math.ceil(Math.random() *100)<=25) { //14th amendment solution has 25% chance of catastrophe
+					if (e.random_on && Math.ceil(Math.random() *100)<=25) { //14th amendment solution has 25% chance of catastrophe
 						q11103_bad = 1
-						if (tooltips_on) {
+						if (e.tooltips_on) {
 							ReplaceFeedback(11103,"Republicans refused to budge, so you <span class=\'mytooltip\'>invoked the 14th<span class=\'mytooltiptext\'><img src=https://i.imgur.com/kAgvhfA.jpeg><br><i>Declared the debt ceiling unconstitutional and ensured America paid its bills.</i></span></span> to pay the bills. But the Supreme Court releases a brutal 5-4 decision against you; the markets crash through the circuit breakers, while <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>the economy teeters<span class=\'mytooltiptext\'><img src=https://i.imgur.com/EQd2pmt.jpeg><br><b>The U.S. went through the debt ceiling, causing economic catastrophe<br>The Roberts Court has a 25% random chance of deciding this; they will always rule for you if randomness is off.</b><br><i>Seniors without Social Security, government workers sent home without pay, market crashes wiping out savings and devastating working families. You faced down economic terrorism, and the terrorists won.</i></span></span>. A panicked Congress passes the Republicans' ransom demands by a veto-proof margin; you taste defeat as you sign their bill into law.")
 						}
 						else {
@@ -61109,7 +61137,7 @@
 					var fed_high_feedback=`<span class=\'mytooltiptext\'><img src=https://i.imgur.com/72XKSpd.jpeg><br><b>As Fed Chair, Brainard will prioritize fighting inflation over a healthy economy.</b><br><i>You picked Brainard because you thought she'd hold the line and keep rates low - but now you're the one calling for higher rates, and it looks like she agrees. She's hiking fast, maybe too fast, and the risk of recession is a real concern. You've got no control until 2025 - you can only hope she gets it right.</i></span>`
 					var fed_low_feedback=`<span class=\'mytooltiptext\'><img src=https://i.imgur.com/72XKSpd.jpeg><br><b>As Fed Chair, Brainard will try to keep a balance between fighting inflation very cautiously while lowering rates as necessary to keep the economy healthy as well.</b><br><i>You picked Brainard thinking she'd fight for working people and keep rates low. But it looks like no matter how much you yell at her she doesn't agree - she's still hiking, just far slower than the hawks like Powell, and you've got no say over her until 2025. It's not what you hoped for, but maybe it's the best you could have gotten.</i></span>`
 				}
-				if (tooltips_on) {
+				if (e.tooltips_on) {
 					ReplaceFeedback(16001,`You thundered for price controls, for windfall taxes, for justice - but Congress slammed the door. Now the right-wing networks are running loops of imagined bread lines you supposedly want, stoking fear and mocking your efforts to protect the people. They've turned your fight into a punchline. The <span class=\'mytooltip\' style="background-color:darkblue;color:white;">silence from the Fed`+fed_low_feedback+`</span> seems almost kinder.`)
 					ReplaceFeedback(16002,`Congress slams the door in your face, muttering about deficits. They tell you helping people eat is inflationary, while billionaires fly private and profits soar. Economists take to TV, mocking it as \"economically illiterate.\" <span class=\'mytooltip\' style="background-color:darkblue;color:white;">They talk theory`+fed_feedback+`</span> while people skip meals. You're not ashamed of trying to help - you're ashamed they didn't.`)
 					ReplaceFeedback(16003,`The backlash is swift - calls of betrayal from the left, outrage from the center, and silence from the Fed itself. You spoke hard truths because inflation is a working-class issue, and letting it fester would've been the greater sin. Still, you're branded a sellout to the working-class by the left, even as Wall Street pundits sneer that <span class=\'mytooltip\' style="background-color:darkblue;color:white;">you've \"politicized\" the Fed.`+fed_high_feedback+`</span>`)
@@ -61244,7 +61272,7 @@
 				quotes = ["''The oligarchs run Russia. But guess what? Oligarchs run the United States as well.'' ~ Bernie Sanders", ]
 				customquote = quotes[Math.floor((Math.random() * quotes.length))]
 				corrr=`\n<h2>OUR REVOLUTION</h2><font id='wittyquote' size='3' color='white'><em>`+customquote+`</em></font>`
-				if ( ans == 22202 || ans == 22302 || ((ans==22201 || ans ==22301) &&(Math.ceil(Math.random() *100)>50 || !random_on)) || ((ans==22203 || ans ==22303) &&(Math.ceil(Math.random() *100)>75 && random_on)) || ((ans==22204 || ans ==22304) &&(Math.ceil(Math.random() *100)>95 && random_on)) ) { //PRC can be intimidated from war depending on your choices.
+				if ( ans == 22202 || ans == 22302 || ((ans==22201 || ans ==22301) &&(Math.ceil(Math.random() *100)>50 || !e.random_on)) || ((ans==22203 || ans ==22303) &&(Math.ceil(Math.random() *100)>75 && e.random_on)) || ((ans==22204 || ans ==22304) &&(Math.ceil(Math.random() *100)>95 && e.random_on)) ) { //PRC can be intimidated from war depending on your choices.
 				//if randomness off: negotiating will never work, arming or sabre-rattling will always work
 					taiwan_war = 1
 					tiktok_early_ban=1
@@ -61266,10 +61294,10 @@
 					if (debt_14th_used==2) { //Supreme Court already ruled there's no guardrails.
 						ReplaceFeedback(23002,"Congress, battered and devastated by the temporary default little over a year ago, reacts with incredulity and panic to your attempt to play debt chicken once again. With the Supreme Court having already ruled against the 14th, they unite across party lines, passing every last right-wing demand into law with enough votes to override any veto.") //Congress saves you from your own stupidity.
 					}
-					else if (Math.ceil(Math.random() *100)<=25 && random_on) {
+					else if (Math.ceil(Math.random() *100)<=25 && e.random_on) {
 						q23002_bad=1 //14th doesn't work 
 						if (debt_14th_used==1) {
-							if (tooltips_on) {
+							if (e.tooltips_on) {
 								ReplaceFeedback(23002,"Once again, you <span class=\'mytooltip\'>invoked the 14th<span class=\'mytooltiptext\'><img src=https://i.imgur.com/kAgvhfA.jpeg><br><i>Declared the debt ceiling unconstitutional and ensured America paid its bills.</i></span></span> to pay the bills. But this time the Supreme Court released a brutal 5-4 decision against you; the markets crash through the circuit breakers, while <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>the economy teeters<span class=\'mytooltiptext\'><img src=https://i.imgur.com/EQd2pmt.jpeg><br><b>The U.S. went through the debt ceiling, causing economic catastrophe<br>The Roberts Court has a 25% random chance of deciding this; they will always rule for you if randomness is off.</b><br><br><i>Seniors without Social Security, government workers sent home without pay, market crashes wiping out savings and devastating working families. You faced down economic terrorism, and the terrorists won.</i></span></span>. A panicked Congress passes the Republicans' ransom demands by a veto-proof margin; you taste defeat as you sign their bill into law.")
 							}
 							else {
@@ -61277,7 +61305,7 @@
 							}
 						}
 						else {
-							if (tooltips_on) {
+							if (e.tooltips_on) {
 								ReplaceFeedback(23002,"Republicans refused to budge, so you <span class=\'mytooltip\'>invoked the 14th<span class=\'mytooltiptext\'><img src=https://i.imgur.com/kAgvhfA.jpeg><br><i>Declared the debt ceiling unconstitutional and ensured America paid its bills.</i></span></span> to pay the bills. But the Supreme Court releases a brutal 5-4 decision against you; the markets crash through the circuit breakers, while <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>the economy teeters<span class=\'mytooltiptext\'><img src=https://i.imgur.com/EQd2pmt.jpeg><br><b>The U.S. went through the debt ceiling, causing economic catastrophe.<br>The Roberts Court has a 25% random chance of deciding this; they will always rule for you if randomness is off.</b><br><i>Seniors without Social Security, government workers sent home without pay, market crashes wiping out savings and devastating working families. You faced down economic terrorism, and the terrorists won.</i></span></span>. A panicked Congress passes the Republicans' ransom demands by a veto-proof margin; you taste defeat as you sign their bill into law.")
 							}
 							else {
@@ -61286,7 +61314,7 @@
 						}
 					}
 					else if (debt_14th_used==1) { //used before but no ruling. This time Supreme Court says it's fine.
-						if (tooltips_on) {
+						if (e.tooltips_on) {
 							ReplaceFeedback(23002,"Once again you refused right-wing hostage-taking. The public didn't get it; all they wanted was an end to the chaos. When default struck and you acted to <span class=\'mytooltip\'>invoke the 14th<span class=\'mytooltiptext\'><img src=https://i.imgur.com/kAgvhfA.jpeg><br><i>Declared the debt ceiling unconstitutional and ensured America paid its bills.</i></span></span> Amendment, the right took you all the way to the Supreme Court. But the 5-4 ruling vindicated your stand - not for power, but for democracy itself.")
 						}
 						else {
@@ -61306,18 +61334,18 @@
 				else if (taiwan_war==1) { //fought war
 					if (taiwan_strength>=4) { //easy win. PRC just isn't ready.
 						e.questions_json[campaignTrail_temp.question_number+1] = tunnel(24400)
-						if (Math.ceil(Math.random() *100)<=25 && random_on) {
+						if (Math.ceil(Math.random() *100)<=25 && e.random_on) {
 							q24403_bad=1
-							if (tooltips_on) {
+							if (e.tooltips_on) {
 								ReplaceFeedback(24403,`<span class=\'mytooltip\' style="background-color:darkblue;color:white">Beijing refuses to renounce conquest<span class=\'mytooltiptext\'><img src=https://i.imgur.com/UUyfVsl.jpeg><br><b>The PRC has a 25% chance to reject peace and escalate if asked to renounce reunification by force; 50% if also asked to return the Penghus. If randomness is off, this will never trigger.</b><br><i>Beaten and bloodied, the PRC refuses to submit to yet another Unequal Treaty - while beneath, the people rise, crying for an end to the madness.</i></span></span> of Taiwan, clinging to their pride even as the blockade strangles their ports. In the streets, young people rise in protest - demanding jobs, dignity, a future - and when the PLA is ordered to fire, the soldiers refuse and join the people. And for once, you dare to hope that a new China is being born from the ashes of the old.`)
 							}
 							else {
 								ReplaceFeedback(24403,`Beijing refuses to renounce conquest of Taiwan, clinging to their pride even as the blockade strangles their ports. In the streets, young people rise in protest - demanding jobs, dignity, a future - and when the PLA is ordered to fire, the soldiers refuse and join the people. And for once, you dare to hope that a new China is being born from the ashes of the old.`)
 							}
 						}
-						if (Math.ceil(Math.random() *100)>50 || !random_on) { //random off will always prevent nuclear war from things other than no-fly zone
+						if (Math.ceil(Math.random() *100)>50 || !e.random_on) { //random off will always prevent nuclear war from things other than no-fly zone
 							q24404_good=1
-							if (tooltips_on) {
+							if (e.tooltips_on) {
 								ReplaceFeedback(24404,`The footage is everywhere: <span class=\'mytooltip\' style="background-color:lightgreen;">Xi Jinping flanked by the Politburo<span class=\'mytooltiptext\'><img src=https://i.imgur.com/QCgC8yh.jpeg><br>Humiliated by peace, he stepped down after - begging forgiveness for a war that should never have happened.</span></span> as the PRC permanently rejects reunification through force, announces the return of the Penghu Islands to Taiwan. Though you lift the sanctions, few dare call it appeasement. The headlines blaze with pride: \"So much for the Chinese Century! America's still here!\"`)
 							}
 							else {
@@ -61329,18 +61357,18 @@
 						economy-=2 //Taiwan microchip factories are seriously damaged in war.
 						inflation+=2
 						e.questions_json[campaignTrail_temp.question_number+1] = tunnel(24500)
-						if (Math.ceil(Math.random() *100)<=25 && random_on) {
+						if (Math.ceil(Math.random() *100)<=25 && e.random_on) {
 							q24503_bad=1
-							if (tooltips_on) {
+							if (e.tooltips_on) {
 								ReplaceFeedback(24503,`<span class=\'mytooltip\' style="background-color:darkblue;color:white">Beijing refuses to renounce conquest<span class=\'mytooltiptext\'><img src=https://i.imgur.com/UUyfVsl.jpeg><br><b>The PRC has a 25% chance to reject peace and escalate if asked to renounce reunification by force; 50% if also asked to return the Penghus. If randomness is off, this will never trigger.</b><br><i>Beaten and bloodied, the PRC refuses to submit to yet another Unequal Treaty - while beneath, the people rise, crying for an end to the madness.</i></span></span> of Taiwan, clinging to their pride even as the blockade strangles their ports. In the streets, young people rise in protest - demanding jobs, dignity, a future - and when the PLA is ordered to fire, the soldiers refuse and join the people. And for once, you dare to hope that a new China is being born from the ashes of the old.`)
 							}
 							else {
 								ReplaceFeedback(24403,`Beijing refuses to renounce conquest of Taiwan, clinging to their pride even as the blockade strangles their ports. In the streets, young people rise in protest - demanding jobs, dignity, a future - and when the PLA is ordered to fire, the soldiers refuse and join the people. And for once, you dare to hope that a new China is being born from the ashes of the old.`)
 							}
 						}
-						if (Math.ceil(Math.random() *100)>50 || !random_on) {
+						if (Math.ceil(Math.random() *100)>50 || !e.random_on) {
 							q24504_good=1
-							if (tooltips_on) {
+							if (e.tooltips_on) {
 								ReplaceFeedback(24504,`The footage is everywhere: <span class=\'mytooltip\' style="background-color:lightgreen;">Xi Jinping flanked by the Politburo<span class=\'mytooltiptext\'><img src=https://i.imgur.com/QCgC8yh.jpeg><br>Humiliated by peace, he stepped down after - begging forgiveness for a war that should never have happened.</span></span> as the PRC permanently rejects reunification through force, announces the return of the Penghu Islands to Taiwan. Though you lift the sanctions, few dare call it appeasement. The headlines blaze with pride: \"So much for the Chinese Century! America's still here!\"`)
 							}
 							else {
@@ -61351,13 +61379,13 @@
 				} //otherwise Ukraine feedback. Way too many different options, most of which are largely cosmetic (U.S. doesn't care very much.)
 				else if (ukraine_strength>=17) { //Ukraine ascendant
 					e.questions_json[campaignTrail_temp.question_number+1] = tunnel(24000)
-					if (Math.ceil(Math.random() *100)<=50 && random_on) {
+					if (Math.ceil(Math.random() *100)<=50 && e.random_on) {
 						var crimea_nuclear = 1
 					}
 					else {
 						var crimea_nuclear = 0
 					}
-					if (Math.ceil(Math.random() *100)<=25 && random_on) {
+					if (Math.ceil(Math.random() *100)<=25 && e.random_on) {
 						var donbas_nuclear = 1
 					}
 					else {
@@ -61365,7 +61393,7 @@
 					}
 					if (ukraine_strength+2>=24 && crimea_nuclear==1) {
 						q24001_bad=1
-						if (tooltips_on) {
+						if (e.tooltips_on) {
 							ReplaceFeedback(24001,"You held the line - aid kept flowing, and you pushed for peace without surrendering principle. Putin refused to concede territory, betting on fatigue, but Ukraine didn't waver. By year-end, as blue and yellow flags rise over Sevastopol, reports from Russia invigorate you: protests in the streets, the <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>FSB losing control<span class=\'mytooltiptext\'><img src=https://i.imgur.com/eH3fCyh.jpeg><br><b>Russian loss of the Donbas has a 25% random chance of triggering an escalation. Russian loss of Crimea has a 50% chance. If randomness is off, this will never trigger.</b><br><i>Decades of simmering frustrations, finally boiling over into incadescent rage, past the point repression can stop. The Russian people are no longer silent.</i></span></span>. Maybe a freer Russia is possible.")
 						}
 						else {
@@ -61377,7 +61405,7 @@
 					}
 					else if (ukraine_strength+2>=20 && donbas_nuclear==1) {
 						q24001_bad=1
-						if (tooltips_on) {
+						if (e.tooltips_on) {
 							ReplaceFeedback(24001,"You held the line - aid kept flowing, and you pushed for peace without surrendering principle. Putin refused to concede territory, betting on fatigue, but Ukraine didn't waver. By year-end, as blue and yellow flags rise over Luhansk and Donetsk, reports from Russia come in: protests in the streets, the <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>FSB losing control<span class=\'mytooltiptext\'><img src=https://i.imgur.com/eH3fCyh.jpeg><br><b>Russian loss of the Donbas has a 25% random chance of triggering an escalation. Russian loss of Crimea has a 50% chance. If randomness is off, this will never trigger.</b><br><i>Decades of simmering frustrations, finally boiling over into incadescent rage, past the point repression can stop. The Russian people are no longer silent.</i></span></span>. A new day dawns in Russia.")
 						}
 						else {
@@ -61394,7 +61422,7 @@
 					
 					if (ukraine_strength+1>=24 && crimea_nuclear==1) {
 						q24002_bad=1
-						if (tooltips_on) {
+						if (e.tooltips_on) {
 							ReplaceFeedback(24002,"You knew this path would draw fire from all sides - Putin refuses to engage in good faith; Ukrainian leaders accuse you of betraying their sovereignty. But you keep the aid coming; by year-end, as blue and yellow flags rise over Sevastopol, you read the news: protests in the streets, the <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>FSB losing control<span class=\'mytooltiptext\'><img src=https://i.imgur.com/eH3fCyh.jpeg><br><b>Russian loss of the Donbas has a 25% random chance of triggering an escalation. Russian loss of Crimea has a 50% chance. If randomness is off, this will never trigger.</b><br><i>Decades of simmering frustrations, finally boiling over into incadescent rage, past the point repression can stop. The Russian people are no longer silent.</i></span></span>. Maybe a freer Russia is possible.")
 						}
 						else {
@@ -61406,7 +61434,7 @@
 					}
 					else if (ukraine_strength+1>=20 && donbas_nuclear==1) {
 						q24002_bad=1
-						if (tooltips_on) {
+						if (e.tooltips_on) {
 							ReplaceFeedback(24002,"You knew this path would draw fire from all sides - Putin refuses to engage in good faith; Ukrainian leaders accuse you of betraying their sovereignty. But you keep the aid coming; by year-end, as blue and yellow flags rise over Luhansk and Donetsk, you read the news: protests in the streets, the <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>FSB losing control<span class=\'mytooltiptext\'><img src=https://i.imgur.com/eH3fCyh.jpeg><br><b>Russian loss of the Donbas has a 25% random chance of triggering an escalation. Russian loss of Crimea has a 50% chance. If randomness is off, this will never trigger.</b><br><i>Decades of simmering frustrations, finally boiling over into incadescent rage, past the point repression can stop. The Russian people are no longer silent.</i></span></span>. A new day dawns in Russia.")
 						}
 						else {
@@ -61428,7 +61456,7 @@
 					}
 					else if (ukraine_strength+5>=20 && donbas_nuclear==1) {
 						q24003_bad=1
-						if (tooltips_on) {
+						if (e.tooltips_on) {
 							ReplaceFeedback(24003,"You never wanted to pour billions into the weapons of war, but you knew - peace only comes when aggression fails. The flood of arms turned the tide, and as blue and yellow flags rise over Luhansk and Donetsk, you feel the fire of hope. Reports from Russia invigorate you: protests in the streets, the <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>FSB losing control<span class=\'mytooltiptext\'><img src=https://i.imgur.com/eH3fCyh.jpeg><br><b>Russian loss of the Donbas has a 25% random chance of triggering an escalation. Russian loss of Crimea has a 50% chance. If randomness is off, this will never trigger.</b><br><i>Decades of simmering frustrations, finally boiling over into incadescent rage, past the point repression can stop. The Russian people are no longer silent.</i></span></span>. Maybe a freer Russia is possible.")
 						}
 						else {
@@ -61444,7 +61472,7 @@
 					
 					if (ukraine_strength-2>=24 && crimea_nuclear==1) {
 						q24004_bad=1 
-						if (tooltips_on) {
+						if (e.tooltips_on) {
 							ReplaceFeedback(24004,"You knew the backlash would come, and it has - Ukrainian leaders brand you a betrayer, Congressmen lash out on national television. Despite losing your aid, Ukraine continues on nevertheless; as blue and yellow flags rise over Sevastopol, you read the news: protests in the streets, the <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>FSB losing control<span class=\'mytooltiptext\'><img src=https://i.imgur.com/eH3fCyh.jpeg><br><b>Russian loss of the Donbas has a 25% random chance of triggering an escalation. Russian loss of Crimea has a 50% chance. If randomness is off, this will never trigger.</b><br><i>Decades of simmering frustrations, finally boiling over into incadescent rage, past the point repression can stop. The Russian people are no longer silent.</i></span></span>. Maybe a freer Russia is possible.")
 						}
 						else {
@@ -61456,7 +61484,7 @@
 					}
 					else if (ukraine_strength-2>=20 && donbas_nuclear==1) {
 						q24004_bad=1
-						if (tooltips_on) {
+						if (e.tooltips_on) {
 							ReplaceFeedback(24004,"You knew the backlash would come, and it has - Ukrainian leaders brand you a betrayer, Congressmen lash out on national television. Despite losing your aid, Ukraine continues on nevertheless; as blue and yellow flags rise over Luhansk and Donetsk, you read the news: protests in the streets, the <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>FSB losing control<span class=\'mytooltiptext\'><img src=https://i.imgur.com/eH3fCyh.jpeg><br><b>Russian loss of the Donbas has a 25% random chance of triggering an escalation. Russian loss of Crimea has a 50% chance. If randomness is off, this will never trigger.</b><br><i>Decades of simmering frustrations, finally boiling over into incadescent rage, past the point repression can stop. The Russian people are no longer silent.</i></span></span>. Maybe a freer Russia is possible.")
 						}
 						else {
@@ -61840,7 +61868,7 @@
 				if (israel_embargo==0) { //if you armed Israel at ANY point, they have significant numbers of American weapons.
 					e.questions_json[campaignTrail_temp.question_number+1] = tunnel(32000)
 					if (e.player_answers.includes(26003) || e.player_answers.includes(26004) || e.player_answers.includes(26103) || e.player_answers.includes(26104)) { //player disarmed Israel after October 7. Implication is that they did not disarm Israel at the start.
-						if (tooltips_on) {
+						if (e.tooltips_on) {
 							ReplaceQuestion(32000,`The morning briefing makes for grim reading: <span class=\'mytooltip\' style=\'background-color:silver\'>Israel's continued advance into central Gaza<span class=\'mytooltiptext\'><img src=https://i.imgur.com/k7ivwCL.jpeg><br>They call it a military necessity to avoid civilian harm. In your gut, you know the truth: Netanyahu's never letting them back if he can help it, if you don't stop him. The worst part of the tragedy is, you understand how people get here, how the brutal alchemy of trauma and fear teaches the abused to become abusers, convinces the scarred that only by inflicting their own horrors can they prevent it from befalling them again. The Germans driven out from Eastern Europe after the horrors of Nazi occupation, the Serbs forced to flee the lands Milošević soaked in blood, and your own people who carried the scars of the Shoah built a nation in Israel by driving another nation to exile in the Nakba. <i>When will it end? When will it ever end?</i></span></span> has left devastation in its wake - thirty thousand Palestinian lives lost and half of Gaza's houses reduced to rubble. Many of their munitions are made in America - stockpiled from the first few years of your term. As protesters howl for an end to the violence, how will you make peace?`)
 						}
 						else {
@@ -61849,7 +61877,7 @@
 					
 					}
 					else if (e.player_answers.includes(2001) || e.player_answers.includes(2003) || e.player_answers.includes(8102) ) { //player disarmed Israel at start of game. Implication is that they armed Israel after October 7.
-						if (tooltips_on) {
+						if (e.tooltips_on) {
 							ReplaceQuestion(32000,`The morning briefing makes for grim reading: <span class=\'mytooltip\' style=\'background-color:silver\'>Israel's continued advance into central Gaza<span class=\'mytooltiptext\'><img src=https://i.imgur.com/k7ivwCL.jpeg><br>They call it a military necessity to avoid civilian harm. In your gut, you know the truth: Netanyahu's never letting them back if he can help it, if you don't stop him. The worst part of the tragedy is, you understand how people get here, how the brutal alchemy of trauma and fear teaches the abused to become abusers, convinces the scarred that only by inflicting their own horrors can they prevent it from befalling them again. The Germans driven out from Eastern Europe after the horrors of Nazi occupation, the Serbs forced to flee the lands Milošević soaked in blood, and your own people who carried the scars of the Shoah built a nation in Israel by driving another nation to exile in the Nakba. <i>When will it end? When will it ever end?</i></span></span> has left devastation in its wake - thirty thousand Palestinian lives lost and half of Gaza's houses reduced to rubble. Many of their munitions are made in America - recently shipped after you chose to rearm them. As protesters howl for an end to the violence, how will you make peace?`)
 						}
 						else {
@@ -61923,7 +61951,7 @@
 				applyOpponent(opponent) //whoever was picked, time to apply them
 			}
 			else if (e.question_number==33) {
-				if ((Math.ceil(Math.random() *100)+authenticity*10<0 && random_on) || (!random_on && authenticity<-5)) {//only possible if fervor is negative; guaranteed at -10 or less.
+				if ((Math.ceil(Math.random() *100)+authenticity*10<0 && e.random_on) || (!e.random_on && authenticity<-5)) {//only possible if fervor is negative; guaranteed at -10 or less.
 					e.questions_json[campaignTrail_temp.question_number+1] = tunnel(35100)
 					// replacing result of terrible debate with global multiplier
 					political_capital-=2
@@ -62056,7 +62084,7 @@
 						}
 					}
 					e.questions_json[campaignTrail_temp.question_number+1] = tunnel(38500) //Bernie wakes in the hospital
-					if ((Math.ceil(Math.random() *100)+authenticity*10<0 && random_on) || (!random_on && authenticity<-5)) {
+					if ((Math.ceil(Math.random() *100)+authenticity*10<0 && e.random_on) || (!e.random_on && authenticity<-5)) {
 						ReplaceFeedback(38501,"The crowd cheers louder with every halting sentence, not because you're strong, but because you won't quit. But you push yourself too much; when your knees buckle and you pass out, the cameras catch it all. Suddenly the headlines ask if you're finished, if America can afford a wounded geriatric as President, an 83-year old man in the Oval Office.") //lack the fire in the belly for the strenuous campaigning plan
 						q38501_bad=1
 					}
@@ -62101,7 +62129,7 @@
 					opponent+=10
 					applyOpponent(opponent)
 					if (opponent==11) {
-						if (tooltips_on) {
+						if (e.tooltips_on) {
 							var opponent_feedback=`<span class=\'mytooltip\'>JD Vance<span class=\'mytooltiptext\'><img src=https://i.imgur.com/JqZ7q9M.jpeg><br><i>A fraud who went in eight years from calling Trump 'America's Hitler' to groveling at his feet.</i></span></span>/<span class=\'mytooltip\'>Don Trump Jr.<span class=\'mytooltiptext\'><img src=https://i.imgur.com/AcTYhgj.jpeg><br><i>The man who somehow stumbled his way onto the Republican ticket, riding on nothing but his last name and his father's bloody shirt. To the 1%, he's a dream - a puppet leader better than they ever could have imagined, a man who's spent his entire life following in his father's shadow, a spineless lackey dressed up as a strongman.</i></span></span>`
 						}
 						else {
@@ -62109,7 +62137,7 @@
 						}
 					}
 					else if (opponent==12) {
-						if (tooltips_on) {
+						if (e.tooltips_on) {
 							var opponent_feedback=`<span class=\'mytooltip\'>Doug Burgum<span class=\'mytooltiptext\'><img src=https://i.imgur.com/SwiyPRG.jpeg><br><i>A billionaire with the backing of big money who knows he's one of them - quite literally</i></span></span>/<span class=\'mytooltip\'>Don Trump Jr.<span class=\'mytooltiptext\'><img src=https://i.imgur.com/AcTYhgj.jpeg><br><i>The man who somehow stumbled his way onto the Republican ticket, riding on nothing but his last name and his father's bloody shirt. To the 1%, he's a dream - a puppet leader better than they ever could have imagined, a man who's spent his entire life following in his father's shadow, a spineless lackey dressed up as a strongman.</i></span></span>`
 						}
 						else {
@@ -62117,7 +62145,7 @@
 						}
 					}
 					else if (opponent==13) {
-						if (tooltips_on) {
+						if (e.tooltips_on) {
 							var opponent_feedback=`<span class=\'mytooltip\'>Marco Rubio<span class=\'mytooltiptext\'><img src=https://i.imgur.com/5sMG4z7.jpeg><br><i>An empty suit, a polished politician - so polished that he went on repeat like a broken record eight years ago.</i></span></span>/<span class=\'mytooltip\'>Don Trump Jr.<span class=\'mytooltiptext\'><img src=https://i.imgur.com/AcTYhgj.jpeg><br><i>The man who somehow stumbled his way onto the Republican ticket, riding on nothing but his last name and his father's bloody shirt. To the 1%, he's a dream - a puppet leader better than they ever could have imagined, a man who's spent his entire life following in his father's shadow, a spineless lackey dressed up as a strongman.</i></span></span>`
 						}
 						else {
@@ -62125,7 +62153,7 @@
 						}
 					}
 					else if (opponent==14) {
-						if (tooltips_on) {
+						if (e.tooltips_on) {
 							var opponent_feedback=`<span class=\'mytooltip\'>Tim Scott<span class=\'mytooltiptext\'><img src=https://i.imgur.com/mDMkvHr.jpeg><br><i>A black Republican who talks a good game about unity and opportunity, but keeps the billionaires in charge and the rest of us struggling.</i></span></span>/<span class=\'mytooltip\'>Don Trump Jr.<span class=\'mytooltiptext\'><img src=https://i.imgur.com/AcTYhgj.jpeg><br><i>The man who somehow stumbled his way onto the Republican ticket, riding on nothing but his last name and his father's bloody shirt. To the 1%, he's a dream - a puppet leader better than they ever could have imagined, a man who's spent his entire life following in his father's shadow, a spineless lackey dressed up as a strongman.</i></span></span>`
 						}
 						else {
@@ -62133,7 +62161,7 @@
 						}
 					}
 					else if (opponent==15) {
-						if (tooltips_on) {
+						if (e.tooltips_on) {
 							var opponent_feedback=`<span class=\'mytooltip\'>Vivek Ramaswamy<span class=\'mytooltiptext\'><img src=https://i.imgur.com/VqexH9Q.jpeg><br><i>Another corporate billionaire trying to buy his way into DC. Like Sinclair Lewis said, fascism has come to America - wrapped in a flag, holding the banner of anti-wokeness, but really just looking to turn back the clock for the benefit of the rich.</i></span></span>/<span class=\'mytooltip\'>Lara Trump.<span class=\'mytooltiptext\'><img src=https://i.imgur.com/I9bPnw7.jpeg><br><i>Yet another unqualified power-hungry member of the Trump dynasty, thrust onto the ticket - not for her skills, not for her vision, but because her last name keeps the grift alive. The second woman to have made it onto a Republican ticket, and somehow even more of a joke than the first - who, for all her faults, at least got there on her own.</i>"</span></span>`
 						}
 						else {
@@ -62141,7 +62169,7 @@
 						}
 					}
 					else if (opponent==16) {
-						if (tooltips_on) {
+						if (e.tooltips_on) {
 							var opponent_feedback=`<span class=\'mytooltip\'>Doug Burgum<span class=\'mytooltiptext\'><img src=https://i.imgur.com/SwiyPRG.jpeg><br><i>A billionaire with the backing of big money who knows he's one of them - quite literally</i></span></span>/<span class=\'mytooltip\'>Marco Rubio.<span class=\'mytooltiptext\'><img src=https://i.imgur.com/5sMG4z7.jpeg><br><i>An empty suit, a polished politician - so polished that he went on repeat like a broken record eight years ago.</i></span></span>`
 						}
 						else {
@@ -62149,7 +62177,7 @@
 						}
 					}
 					else if (opponent==17) {
-						if (tooltips_on) {
+						if (e.tooltips_on) {
 							var opponent_feedback=`<span class=\'mytooltip\'>JD Vance<span class=\'mytooltiptext\'><img src=https://i.imgur.com/JqZ7q9M.jpeg><br><i>A fraud who went in eight years from calling Trump 'America's Hitler' to waving the MAGA banner.</i></span></span>/<span class=\'mytooltip\'>Tom Cotton.<span class=\'mytooltiptext\'><img src=https://i.imgur.com/DUo450I.jpeg><br><i>A corporate yes-man in a cheap populist disguise. A pliant pawn, someone who'll decry the elite before doing their bidding.</i></span></span>`
 						}
 						else {
@@ -62256,7 +62284,7 @@
 					if (adversary_approval>=10) {
 						ReplaceQuestion(40000,`It spreads like wildfire across social media - ${opponent_last_name}, caught on audio, using slurs while bragging about colluding with businesses to raise prices in exchange for tax cuts once they're in office. Even as his polls plummet, your intelligence advisors warn you: it's a sophisticated deepfake, developed by foreign adversaries to help you. What do you tell America?`)
 						e.questions_json[campaignTrail_temp.question_number+1] = tunnel(40000)
-						if (Math.ceil(Math.random() *100)-(blob_approval-2)*2>80 && random_on) {
+						if (Math.ceil(Math.random() *100)-(blob_approval-2)*2>80 && e.random_on) {
 							ReplaceFeedback(40002,`The whistleblower's words echo through the halls of Congress, proclaiming you <i>knew</i> it was a foreign deepfake and ordered silence. Suddenly the trust you spent a lifetime building is vanishing like a dream. It doesn't matter that you just wanted to check the findings. For the first time in your life, people believe you're just another politician.`)
 							q40002_bad=1
 						}
@@ -62268,7 +62296,7 @@
 						ReplaceQuestion(40100,`Leaked emails, sensitive documents, and research dossiers from ${opponent_last_name}'s campaign flood social media, many of the details explosive and widely shared. Yet as his polls drop, your intelligence advisors are clear: To them, it's 2016 all over again - a move by some foreign adversary - Russia or the PRC - to help your re-election. What do you tell America?`)
 						ReplaceAnswer(40101,`You can't let this stand - it's the same playbook they used in 2016, and it disgusts you that it's now used to <i>help</i> you. You'll speak to America and tell them the truth: The documents seem to be authentic, but the intelligence communities have concluded that they come from a foreign adversary trying to disrupt our democracy. They're throwing mud at ${opponent_last_name}, but you refuse to lower yourself to their level.`)
 						e.questions_json[campaignTrail_temp.question_number+1] = tunnel(40100)
-						if (Math.ceil(Math.random() *100)-(blob_approval-1)*2>100 && random_on) {
+						if (Math.ceil(Math.random() *100)-(blob_approval-1)*2>100 && e.random_on) {
 							ReplaceFeedback(40102,`The whistleblower's words ring out like a hammer blow on Capitol Hill, saying that when they told you the leaks came from overseas, you told them to stay quiet and not tell America. You just wanted to be sure, to get it right, but that doesn't matter when the headlines smell another scandal. And the trust you spent your life earning is gone, like ash in the wind.`)
 							q40102_bad=1
 						}
@@ -62288,7 +62316,7 @@
 					}
 					else {
 						e.questions_json[campaignTrail_temp.question_number+1] = tunnel(40500)
-						if ((Math.ceil(Math.random() *100)+authenticity*10<80 && random_on) || (!random_on && authenticity<3)) {
+						if ((Math.ceil(Math.random() *100)+authenticity*10<80 && e.random_on) || (!e.random_on && authenticity<3)) {
 							ReplaceFeedback(40501,"You know the damn thing's fake, but when you look into the camera, the words don't land right. All of a sudden your voice cracks - only once, but enough for the circling vultures. The headlines declare you're breaking, a guilty man coming apart at the seams. And all you can think is poor Muskie, who they hit with lies and watched as the system tore him down.")
 							q40501_bad=1
 						}
@@ -62301,12 +62329,12 @@
 					if (adversary_approval>=5) {
 						ReplaceQuestion(40600,`The leaks hit like a tidal wave - sensitive documents from ${opponent_last_name}'s campaign plastered across social media. The details don't matter - as the headlines scream scandal, his polls sink. Your intelligence team is clear: <i>2016 all over again</i>. A foreign adversary deciding somehow that </i>you're</i> the preferable choice. What do you tell America?`)
 						e.questions_json[campaignTrail_temp.question_number+1] = tunnel(40600)
-						if (Math.ceil(Math.random() *100)-(blob_approval-1)*2>100 && random_on) {
+						if (Math.ceil(Math.random() *100)-(blob_approval-1)*2>100 && e.random_on) {
 							ReplaceFeedback(40602,"The whistleblower's words hit like a freight train on Capitol Hill accusing you of silencing them from announcing the leaks came from abroad. You didn't want to act on assumptions, but the headlines scream scandal, and the questions spiral - was there collusion with Beijing? The voices on the right drip with vindictive glee, calling it payback for Russiagate.")
 							q40602_bad=1
 						}
 						else {
-							if (tooltips_on) {
+							if (e.tooltips_on) {
 								ReplaceFeedback(40602,`The intel community bristles, but you hold the line, waiting for hard evidence. The press circles like vultures while ${opponent_last_name} flails, calling the files forgeries. But the public's already glued to every sordid headline, sharing juicy excerpts like gossip online. For a moment, you can see <span class=\'mytooltip\' style=\'background-color:silver\'>Hillary<span class=\'mytooltiptext\'><img src=https://i.imgur.com/pu89D6W.jpeg><br>You didn't always agree with her, but she was brilliant and implacable. She made mistakes, no one can deny that - in 2008, she played it safe when America screamed for boldness and change; in 2016, she ran like it was owed to her, speaking policy while others spoke fire. But can you blame her, when the world can't decide if women are too emotional to lead or too cold to relate? You've tried to learn from her - to de-emphasize your identity, to campaign in those Rust Belt cities, to listen harder and not repeat those same mistakes. But you can't help but wonder - is that enough to break through? Or will you be yet another woman who dents but never quite cracks that highest and hardest glass ceiling?</span></span>'s smile, watching the tables turn from 2016.`)
 							}
 							else {
@@ -62697,11 +62725,9 @@
 	}
 
 	function injectTooltipStyles() {
-		if (document.getElementById("tooltipStyles")) return;
-
-		const style = document.createElement("style");
-		style.id = "tooltipStyles";
-		style.textContent = `
+		if (document.getElementById("tooltipStyles") && styles_set) return;
+		styles_set=true;
+		document.getElementById("tooltipStyles").textContent = `
 			.hover-value {
 				border-bottom: 1px dotted #000;
 				cursor: help;
@@ -62732,8 +62758,7 @@
 			.hover-value:hover::after {
 				opacity: 1;
 			}
-		`;
-		document.head.appendChild(style);
+		`; //overwrite old styles from code1
 	}
 
 	function updateSimplePopup() {
@@ -62905,190 +62930,6 @@
 		if (!popup) return;
 		popup.style.display = (popup.style.display === "none") ? "block" : "none";
 	}
-	function toggleTooltips() {
-		if (tooltips_on) {
-			tooltips_on=false 
-			//remove tooltips
-			e.answers_json.forEach(p=>{
-				while (/<span class='mytooltip'.*?'>/.test(p.fields.description)) {
-					p.fields.description=p.fields.description.replace(/<span class='mytooltip'.*?'>/,"").replace(/<span class='mytooltiptext'>.*?<\/span><\/span>/,"")
-				}
-			});
-			e.questions_json.forEach(p=>{
-				while (/<span class='mytooltip'.*?'>/.test(p.fields.description)) {
-					p.fields.description=p.fields.description.replace(/<span class='mytooltip'.*?'>/,"").replace(/<span class='mytooltiptext'>.*?<\/span><\/span>/,"")
-				}
-			});
-			e.answer_feedback_json.forEach(p=>{
-				while (/<span class='mytooltip'.*?'>/.test(p.fields.answer_feedback)) {
-					p.fields.answer_feedback=p.fields.answer_feedback.replace(/<span class='mytooltip'.*?'>/,"").replace(/<span class='mytooltiptext'>.*?<\/span><\/span>/,"")
-				}
-			});
-		}
-		else {
-			tooltips_on=true	
-			applyTooltipsToObject(campaignTrail_temp.questions_json);
-			applyTooltipsToObject(campaignTrail_temp.answers_json);
-			applyTooltipsToObject(campaignTrail_temp.answer_feedback_json);
-		}
-		//view does not automatically update - to force update, force it to go to campaign map and back (trick from 2024-DM.)
-		const viewElectoralMapButton = document.getElementById("view_electoral_map");
-		if (viewElectoralMapButton) {
-			// Click the 'View Electoral Map' button
-			viewElectoralMapButton.click();
-			console.log("Clicked on 'View Electoral Map' button.");
-
-			// Observe changes in the DOM to react when 'Resume Questions' button becomes available
-			const observer = new MutationObserver(mutations => {
-				mutations.forEach(mutation => {
-					const resumeQuestionsButton = document.getElementById("resume_questions_button");
-					if (resumeQuestionsButton) {
-						// Click the 'Resume Questions' button if found
-						resumeQuestionsButton.click();
-						console.log("Clicked on 'Resume Questions' button.");
-						observer.disconnect(); // Disconnect the observer once the button is clicked
-					}
-				});
-			});
-			  // Start observing changes in the DOM
-			  observer.observe(document.body, { childList: true, subtree: true });
-		}
-	}
-	function toggleRandom() {
-		if (random_on) {
-			random_on=false
-			e.global_parameter_json[0].fields.global_variance=0 //remove all variance retroactively.
-			e.global_parameter_json[0].fields.state_variance=0
-			if (e.question_number==5) { 
-				if (q6003_bad==1) { //annoy Sinema too much via protests
-					q6003_bad=0
-					ReplaceFeedback(6003,"The crowds in Arizona and West Virginia cheer for a minimum wage hike, and you feel the energy. Yet Sinema and Manchin stand firm, stubborn and unmoving, their opposition a wall you can't break. The people are with you, but their Senators are a different story.")
-				}
-			}
-			else if (e.question_number==9 && senate_lost==1) {
-				if (q11103_bad==1) { //debt ceiling standoff
-					q11103_bad=0
-					ReplaceFeedback(11103,"Americans don't see it, don't understand how the Republicans are holding the world hostage, demanding surrender while threatening global stability. You stand firm, won't back down, but neither do they. As the nation teeters over the debt ceiling, you invoke the 14th, and for now, no one dares challenge your decision.")
-				}
-			}
-			else if (e.question_number==22) {
-				if (q23002_bad==1) {
-					q23002_bad=0
-					if (debt_14th_used==1) {
-						ReplaceFeedback(23002,"Once again you refused right-wing hostage-taking. The public didn't get it; all they wanted was an end to the chaos. When default struck and you acted to invoke the 14th Amendment, the right took you all the way to the Supreme Court. But the 5-4 ruling vindicated your stand - not for power, but for democracy itself.")
-					}
-					else {
-						ReplaceFeedback(23002,"You took the risk because you had no choice - you couldn't keep letting the far right hold the economy hostage. The public didn't get it; all they wanted was an end to the chaos. When default struck and you invoked the 14th, they took you all the way to the Supreme Court. But the 5-4 ruling vindicated your stand - not for power, but for democracy itself.")
-					}
-				}
-			}
-			else if (e.question_number==23 && taiwan_war==1) {
-				if (q24403_bad==1) { //taiwan war nuke variants
-					q24403_bad=0 
-					//I am not going to bother with conditioning tooltips as well if you toggle randomness here. Too much work for too little gain.
-					ReplaceFeedback(24403,`The footage is everywhere: <span class=\'mytooltip\' style="background-color:lightgreen;">Xi Jinping flanked by the Politburo<span class=\'mytooltiptext\'><img src=https://i.imgur.com/QCgC8yh.jpeg><br>Humiliated by peace, he stepped down after - begging forgiveness for a war that should never have happened.</span></span> as the PRC permanently rejects reunification through force. They tried to push on, but economic ruin from America's blockade was imminent. Though you lift the sanctions, few dare call it appeasement. The headlines blaze with pride: "So much for the Chinese Century! America's still here!"`)
-				}
-				if (q24503_bad==1) { 
-					q24503_bad=0
-					ReplaceFeedback(24403,`The footage is everywhere: <span class=\'mytooltip\' style="background-color:lightgreen;">Xi Jinping flanked by the Politburo<span class=\'mytooltiptext\'><img src=https://i.imgur.com/QCgC8yh.jpeg><br>Humiliated by peace, he stepped down after - begging forgiveness for a war that should never have happened.</span></span> as the PRC permanently rejects reunification through force. They tried to push on, but economic ruin from America's blockade was imminent. Though you lift the sanctions, few dare call it appeasement. The headlines blaze with pride: "So much for the Chinese Century! America's still here!"`)
-				}
-				if (q24404_good==0) { 
-					q24404_good=1
-					ReplaceFeedback(24404,`The footage is everywhere: <span class=\'mytooltip\' style="background-color:lightgreen;">Xi Jinping flanked by the Politburo<span class=\'mytooltiptext\'><img src=https://i.imgur.com/QCgC8yh.jpeg><br>Humiliated by peace, he stepped down after - begging forgiveness for a war that should never have happened.</span></span> as the PRC permanently rejects reunification through force, announces the return of the Penghu Islands to Taiwan. Though you lift the sanctions, few dare call it appeasement. The headlines blaze with pride: \"So much for the Chinese Century! America's still here!\"`)
-				}
-				if (q24504_good==0) { 
-					q24504_good=1
-					ReplaceFeedback(24504,`The footage is everywhere: <span class=\'mytooltip\' style="background-color:lightgreen;">Xi Jinping flanked by the Politburo<span class=\'mytooltiptext\'><img src=https://i.imgur.com/QCgC8yh.jpeg><br>Humiliated by peace, he stepped down after - begging forgiveness for a war that should never have happened.</span></span> as the PRC permanently rejects reunification through force, announces the return of the Penghu Islands to Taiwan. Though you lift the sanctions, few dare call it appeasement. The headlines blaze with pride: \"So much for the Chinese Century! America's still here!\"`)
-				}
-			}
-			else if (e.question_number==23 && ukraine_strength>=17) { //ukraine ascendant
-				if (ukraine_strength+2>=24 && q24001_bad==1) {
-					q24001_bad=0
-					ReplaceFeedback(24001,"You held the line - aid kept flowing, and you pushed for peace without surrendering principle. Putin refused to concede territory, betting on fatigue, but Ukraine didn't waver. By year-end, as blue and yellow flags rise over Sevastopol, you feel the pride of vindication. You know the fight isn't over, but today, justice took a step forward.")
-				}
-				else if (ukraine_strength+2>=20 && q24001_bad==1) {
-					q24001_bad=0
-					ReplaceFeedback(24001,"You held the line - aid kept flowing, and you pushed for peace without surrendering principle. Putin refused to concede territory, betting on fatigue, but Ukraine didn't waver. By year-end, as blue and yellow flags rise over Luhansk and Donetsk, you feel the pride of vindication. You know the fight isn't over, but today, justice took a step forward.")
-				}
-				if (ukraine_strength+1>=24 && q24002_bad==1) {
-					q24002_bad=0
-					ReplaceFeedback(24002,"You knew this path would draw fire from all sides - Putin refuses to engage in good faith, and Ukrainian leaders accuse you of betraying their sovereignty. But you keep the aid coming, and Ukraine makes good use of it. By year-end, as blue and yellow flags rise over Sevastopol, you feel the fire of hope. One way or another, this war will end.")
-				}
-				else if (ukraine_strength+1>=20 && q24002_bad==1) {
-					q24002_bad=0
-					ReplaceFeedback(24002,"You knew this path would draw fire from all sides - Putin refuses to engage in good faith, and Ukrainian leaders accuse you of betraying their sovereignty. But you keep the aid coming, and Ukraine makes good use of it. By year-end, as blue and yellow flags rise over Luhansk and Donetsk, you feel the fire of hope. One way or another, this war will end.")
-				}
-				if (ukraine_strength+5>=24 && q24003_bad==1) {
-					q24003_bad=0
-					ReplaceFeedback(24003,"You never wanted to pour billions into the weapons of war, but you knew - peace only comes when aggression fails. The flood of arms turned the tide, and now Ukraine's flag flies over Sevastopol, erasing one of Putin's proudest conquests. One way or another, this war will end.")
-				}
-				else if (ukraine_strength+5>=20 && q24003_bad==1) {
-					q24003_bad=0
-					ReplaceFeedback(24003,"You never wanted to pour billions into the weapons of war, but you knew - peace only comes when aggression fails. The flood of arms turned the tide, and as blue and yellow flags rise over Luhansk and Donetsk, you feel the fire of hope. One way or another, this war will end.")
-				}
-				if (ukraine_strength-2>=24 && q24004_bad==1) {
-					q24004_bad=0
-					ReplaceFeedback(24004,"You knew the backlash would come, and it has - Ukrainian leaders brand you a betrayer, Congressmen lash out on national television. With stockpiles and arms from Europe, Ukraine forges on nevertheless; as blue and yellow flags rise over Sevastopol, it's clear they intend to end the war with or without you.")
-				}
-				else if (ukraine_strength-2>=20 && q24004_bad==1) {
-					q24004_bad=0
-					ReplaceFeedback(24004,"You knew the backlash would come, and it has - Ukrainian leaders brand you a betrayer, Congressmen lash out on national television. With stockpiles and arms from Europe, Ukraine forges on nevertheless; as blue and yellow flags rise over Luhansk and Donetsk, it's clear they intend to end the war with or without you.")
-				}
-			}
-			else if (e.question_number==37 && assassination==12) {
-				if (q38501_bad==1 && authenticity>=-5) {
-					q38501_bad=0
-					ReplaceFeedback(38501,"You grip the podium, knuckles white, your voice a rasping shadow of what it was - but when you speak, even in broken bursts, the people lean in like every word matters. They see the bandages, the scars, the tremble in your limbs, and still they chant your name in solidarity. And little by little, your voice steadies, because the people refuse to let you fall.")
-				}
-			}
-			else if (e.question_number==39) {
-				if (q40002_bad==1) {
-					q40002_bad=0
-					ReplaceFeedback(40002,`The national security community seems appalled by your decision to sit on probable foreign interference in our elections to help you, no matter how you justify it. But ${opponent_last_name}'s numbers continue to fall, and despite the claims of deepfake, America believes otherwise. Whether or not the tape is true, it <i>feels</i> true, and in the end, that's all that matters.`)
-				}
-				else if (q40102_bad==1) {
-					q40102_bad=0
-					ReplaceFeedback(40102,`Intelligence officials are unhappy with you, demanding swift condemnation, but you refuse to be rushed again after Iraq. The headlines scream scandal while ${opponent_last_name} drowns under the weight of leaks you never asked for. The ugliest excerpts spread like wildfire online. Your polls surge, as America forgets the price of eggs.`)
-				}
-				else if (q40501_bad==1 && authenticity>=3) {
-					q40501_bad=0
-					ReplaceFeedback(40501,`You don't speak like a cornered rat; you speak like someone who's marched in the rain with striking workers, been hauled off in cuffs for what's right. And then you feel it: first, the silence, as people actually listen, then the headlines soften, the bleeding polls slow. You may be bruised and beaten, but you're still standing. That may be enough.`)
-					
-				}
-				else if (q40602_bad==1) {
-					q40602_bad=0
-					ReplaceFeedback(40602,`The intel community bristles, but you hold the line, waiting for hard evidence. The press circles like vultures while ${opponent_last_name} flails, calling the files forgeries. But the public's already glued to every sordid headline, sharing juicy excerpts like gossip online. For a moment, you can see Hillary's smile, watching the tables turn from 2016.`)
-				}
-			}
-		}
-		else {
-			random_on=true
-			e.global_parameter_json[0].fields.global_variance=0.01 //readd variance
-			e.global_parameter_json[0].fields.state_variance=0.005
-		}
-		//view does not automatically update - to force update, force it to go to campaign map and back (trick from 2024-DM.)
-		const viewElectoralMapButton = document.getElementById("view_electoral_map");
-		if (viewElectoralMapButton) {
-			// Click the 'View Electoral Map' button
-			viewElectoralMapButton.click();
-			console.log("Clicked on 'View Electoral Map' button.");
-
-			// Observe changes in the DOM to react when 'Resume Questions' button becomes available
-			const observer = new MutationObserver(mutations => {
-				mutations.forEach(mutation => {
-					const resumeQuestionsButton = document.getElementById("resume_questions_button");
-					if (resumeQuestionsButton) {
-						// Click the 'Resume Questions' button if found
-						resumeQuestionsButton.click();
-						console.log("Clicked on 'Resume Questions' button.");
-						observer.disconnect(); // Disconnect the observer once the button is clicked
-					}
-				});
-			});
-			  // Start observing changes in the DOM
-			  observer.observe(document.body, { childList: true, subtree: true });
-		}
-	}
 
 	function addHeadquarterButton() {
 		if (document.getElementById('headquarter_button')) return;
@@ -63100,23 +62941,6 @@
 		newButton.innerHTML = 'Game Stats';
 		newButton.addEventListener('click', toggleSimplePopup);
 		refButton.insertAdjacentElement('afterend', newButton);
-		const ToolTipButton = document.createElement('button');
-		ToolTipButton.id = 'tooltip_button';
-		ToolTipButton.style.marginLeft = '1.5em';
-		ToolTipButton.innerHTML = 'Toggle tooltips';
-		ToolTipButton.addEventListener('click', toggleTooltips);
-		newButton.insertAdjacentElement('afterend', ToolTipButton);
-		const RandomButton = document.createElement('button');
-		RandomButton.id = 'random_button';
-		RandomButton.style.marginLeft = '1.5em';
-		if (random_on) {
-			RandomButton.innerHTML = 'Toggle Randomness (currently on)';
-		}
-		else {
-			RandomButton.innerHTML = 'Toggle Randomness (currently off)';
-		}
-		RandomButton.addEventListener('click', toggleRandom);
-		ToolTipButton.insertAdjacentElement('afterend', RandomButton);
 	}
 	createSimplePopup();
 
@@ -63237,9 +63061,11 @@
 			}
 		}
 	}
-	applyTooltipsToObject(campaignTrail_temp.questions_json);
-	applyTooltipsToObject(campaignTrail_temp.answers_json);
-	applyTooltipsToObject(campaignTrail_temp.answer_feedback_json);
+	if (e.tooltips_on) {
+		applyTooltipsToObject(campaignTrail_temp.questions_json);
+		applyTooltipsToObject(campaignTrail_temp.answers_json);
+		applyTooltipsToObject(campaignTrail_temp.answer_feedback_json);
+	}
 
 	let style = document.createElement('style');
 	style.type = 'text/css';
