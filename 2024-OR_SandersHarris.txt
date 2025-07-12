@@ -55549,8 +55549,8 @@
 	}
 	
 	if (e.random_on) {
-		e.global_parameter_json[0].fields.global_variance=0 //remove all variance retroactively.
-		e.global_parameter_json[0].fields.state_variance=0
+		e.global_parameter_json[0].fields.global_variance=0.01
+		e.global_parameter_json[0].fields.state_variance=0.005
 	}
 	else {
 		e.global_parameter_json[0].fields.global_variance=0 //remove all variance retroactively.
