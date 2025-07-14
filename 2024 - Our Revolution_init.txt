@@ -96,17 +96,18 @@ campaignTrail_temp.election_json = [
 			<br><br>To access a <b>secret ending</b>, you need to exactly follow what I've assessed as the real-world options. These are answers IDs. 1002, 2004, 3001, 4001, 5001, 6001, 7001, 8004, 9004, 10202, 11001, 12002, 13103, 14002, 15001, 16002, 17002, 18002, 19002, 20004, 21002, 22102, 23003, 24101, 25002, 26002, 27202, 28002, 29103, 30101, 31104, 32002, 33003, 34003, 35102, 36102, 37101, 38602, 39502, 40802, 41402, 42901, 43402, 44104. The initial ending slide will be as normal (though the results may look very familiar), the next ending slide is the secret one. This also gives you a CTS achievement. 
 			
 			<br><br>There is another <b>easter egg</b> and associated secret ending in this game: Type in 'biden' while you're at Q1, and hit enter. Both these secret endings are calibrated almost entirely via issue scores. Enjoy. </p><p><br><br><b>Opponent ideologies</b><br><br>The ideologies of each of your possible opponents are as follows, in the format of Econ score/Globalism score/Social score/Immigration score. The two-way map changes are caused almost exclusively by different issue score arrangements.
-			<br>Trump/Vance: -0.1/-0.5/-0.3/-0.75 (These are also the 'default' issue values before the opponent is set.)
+			<br>Trump/Vance: -0.1/-0.5/-0.3/-0.75 
+			<br>(Trump/Vance is also the 'default' issue values before the opponent is set.)
 			<br>Kennedy Jr/Shanahan: 0.6/-0.6/0.4/0.2
 			<br>Stein/Ware: 0.9/-0.6/0.75/0.7
 			<br>Oliver/ter Maat: -0.6/-0.2/0.6/0.6
 			
-			<br><br>Trump/Burgum: -0.4/-0.4/-0.3/-0.5
+			<br><br>Trump/Burgum: -0.4/-0.4/-0.3/-0.55
 			<br>Kennedy Jr/Ventura: 0.2/-0.6/0.4/0.6
 			<br>Stein/Benjamin: 0.6/-0.9/0.85/0.5
 			<br>Sinema/Baker: 0/0.4/0.4/0.2
 			
-			<br><br>Trump/Rubio: -0.2/+0.2/-0.5/-0.65
+			<br><br>Trump/Rubio: -0.3/+0.2/-0.5/-0.55
 			<br>Baldwin/Broden: -0.8/-0.8/-0.8/-0.8
 			<br>Peltier/La Rivia: 0.9/-0.9/0.6/0.4
 			<br>Manchin/Rice: 0.2/0/0/0
@@ -116,7 +117,7 @@ campaignTrail_temp.election_json = [
 			<br>West/Daou: 1/-0.8/1/0.4
 			<br>Yang/Jolly: 0.6/0.2/0.2/0
 			
-			<br><br>Trump Jr./Ramaswamy: -0.1/-0.7/-0.7/-0.5
+			<br><br>Trump Jr./Ramaswamy: 0/-0.7/-0.7/-0.6
 			<br>Kennedy Jr/Gabbard: 0.6/-0.8/0/0.4
 			<br>Sawant/Romman: 0.7/-0.6/0.8/0.3
 			<br>Amash/Riggleman: -0.4/0/0.4/0
@@ -130,16 +131,17 @@ campaignTrail_temp.election_json = [
 			<br>Kennedy Jr/Rowe: 0.6/-0.6/-0.4/-0.4
 			<br>Hawkins/Walker: 0.8/-0.6/0.6/0.6
 			<br>Sestak/Whitman: 0.2/0.2/0.4/0.2
+			
 			<br><br>Vance/Trump Jr: +0.15/-0.7/-0.5/-0.5
 			<br>Burgum/Trump Jr: -0.6/+0.3/-0.2/-0.2
-			<br>Rubio/Trump Jr: -0.4/+0.6/-0.6/-0.15
-			<br>Scott/Trump Jr: -0.4/+0.4/-0.5/-0.5
-			<br>Ramaswamy/Trump: -0.4/-0.75/-0.7/-0.25
+			<br>Rubio/Trump Jr: -0.55/+0.4/-0.6/-0.2
+			<br>Scott/Trump Jr: -0.4/+0.3/-0.6/-0.5
+			<br>Ramaswamy/Trump: -0.3/-0.75/-0.7/-0.55
 			<br>Burgum/Rubio: -0.7/+0.4/-0.3/0
 			<br>Vance/Cotton: +0.2/-0.6/-0.4/-0.6
 			
 			<br><br>Vance/Cotton is probably the single hardest opponent. Burgum/Rubio, Burgum/Trump Jr, and Ramaswamy/Trump are probably the easiest opponents.</p> 
-			<p><b>If you are having trouble winning the game and would like help</b>, here is a set to a list of answers that should give you re-election, without too many compromises on Bernie's part from his ideals. It is not the best electoral result you can get, but it will likely get you Medicare for All, and is an example in case it helps. Visit Missouri every time.
+			<p><b>If you are having trouble winning the game and would like help</b>, here is a set to a list of answers that should give you re-election with randomness off, without too many compromises on Bernie's part from his ideals. It is not the best electoral result you can get, but it will likely get you Medicare for All, and is an example in case it helps. Visit Missouri every time.
 			<li>1. People fought tooth and nail to elect you - some of them <i>died</i> for you. That sacrifice will not, <i>must not</i> be in vain. </li>
 			<li>2. You were elected as President of America first and foremost; a domestic cabinet of progressives will push the bold change you promised.</li>
 			<li>3. You swore a sacred oath to defend the Constitution of the United States against all enemies, foreign and domestic</li>
@@ -149,7 +151,7 @@ campaignTrail_temp.election_json = [
 			<li>7. The withdrawal must happen as planned, no matter the consequences; the Afghan people deserve the chance to determine their own future.</li>
 			<li>8. The PRO Act isn't just another bill, it'll be the foundation of working-class power in this nation.</li>
 			<li>9. The wealthy elite and their allies are using trans Americans as a scapegoat to distract from the real issues</li>
-			<li>10. If Democrats lose, it's not because they were too leftist - it's because they didn't fight hard enough for the working class.</li>
+			<li>10. These races should not have been this close, and the reason they were is that Democrats failed to fight for bold progressive policies.</li>
 			<li>11. Neel Kashkari may be a Republican, but he's willing to take on Wall Street.</li>
 			<li>12. The world has a right to know what's happening. You will make public what we know about Russia's invasion plans.</li>
 			<li>13. It's an outrage that corporations are exploiting undocumented workers to lower wages and divide workers. </li>
@@ -290,7 +292,7 @@ campaignTrail_temp.candidate_json = [
             "electoral_victory_message": "Placeholder!",
             "electoral_loss_message": "Placeholder!",
             "no_electoral_majority_message": "Placeholder!",
-            "description_as_running_mate": "<div style='overflow-y:auto;height:200px;overflow-x:hidden;'>A former prosecutor, once the \"top cop\" in California, now your Vice President. The choice wasn't easy. But after the bitter primary - the \"Anyone but Bernie\" crowd nearly coronated Warren at a contested convention, only for her to back you at the last second, terrified of going down like Hubert Humphrey - you needed unity. After Warren accused you of doubting a woman could win, and the media crucified you over <i>Bernie Bros</i>, you needed a female VP. And after the nation rose in fury over George Floyd, you needed a black running mate. Kamala fit the bill on all three.<br><br>Kamala knew how to play the game in ways that sometimes made you shake your head. But she also gets the need for change in her own way - she backed Medicare for All in the primaries and ran as a progressive, though you wonder how much of that is expediency. Millions are counting on you to end endless wars, tackle climate change, and pass Medicare for All. But you won't achieve any of it without a united party - and that means doing what Trump did and taking it over from the inside. Winning over the base. Winning over people like Kamala.</div>",
+            "description_as_running_mate": "<div style='overflow-y:auto;height:200px;overflow-x:hidden;'>A former prosecutor, once the \"top cop\" in California, now your Vice President. The choice wasn't easy. But after the bitter primary - the \"Anyone but Bernie\" crowd nearly coronated Warren at a contested convention, only for her to back you at the last second, terrified of going down like Hubert Humphrey - you needed unity. After Warren accused you of doubting a woman could win and the media crucified you over <i>Bernie Bros</i>, you needed a female VP. And after the nation rose in fury over George Floyd, you needed a black running mate. Kamala fit the bill on all three.<br><br>Kamala knew how to play the game in ways that sometimes made you shake your head. But she also gets the need for change in her own way - she backed Medicare for All in the primaries and ran as a progressive, though you wonder how much of that is expediency. Millions are counting on you to end endless wars, tackle climate change, and pass Medicare for All. But you won't achieve any of it without a united party - and that means doing what Trump did and taking it over from the inside. Winning over the base. Winning over people like Kamala.</div>",
             "candidate_score": 1,
             "running_mate": true
         }
@@ -349,7 +351,7 @@ campaignTrail_temp.candidate_json = [
             "party": "Green",
             "state": "Purity",
             "priority": 4,
-            "description": "<div style='overflow-y:auto;height:200px;overflow-x:hidden;'>When you swore in to be Burlington's first socialist Mayor, you figured that the realities of governance might disappoint the true believers who expected nothing short of perfection. You did not anticipate how vitriolic the backlash would become. Your old friends Michael Parenti and Peter Diamondstone called you a <i>Quisling,</i> and labelled your movement a trap for saps. <br><br>Today, the situation is the same. There are those on the left who regard you as a cruel disappointment, or worse, a deliberate sabotage on the authentic movement for justice. You want to say, <i>I'm still me. I'm still fighting for the same things I've always fought for.</i> But you know that words won't be enough. Only results will convince some. And for others? Nothing will. <b>Context only, not playable</b></div>",
+            "description": "<div style='overflow-y:auto;height:200px;overflow-x:hidden;'><p>When you swore in to be Burlington's first socialist Mayor, you figured that the realities of governance might disappoint the true believers who expected nothing short of perfection. You did not anticipate how vitriolic the backlash would become. Your old friends Michael Parenti and Peter Diamondstone called you a <i>Quisling,</i> and labelled your movement a trap for saps.</p><p>Today, the situation is the same. There are those on the left who regard you as a cruel disappointment, or worse, a deliberate sabotage on the authentic movement for justice. You want to say, <i>I'm still me. I'm still fighting for the same things I've always fought for.</i> But you know that words won't be enough. Only results will convince some. And for others? Nothing will. <b>Context only, not playable</b></p></div>",
 			"color_hex": "#014d4e",
             "secondary_color_hex": "#41afa2",
             "is_active": 1,
@@ -1509,6 +1511,10 @@ campaignTrail_temp.achievements = {
     "Stagflation" : {
         "image" : "https://i.imgur.com/jz4wcYz.jpeg", //placeholder
         "description" : "End the game with an inflation rate 6% or higher and the economy in the red.",
+    },
+    "True Populist" : {
+        "image" : "https://i.imgur.com/vr5csIq.jpeg", //placeholder
+        "description" : "Win re-election with prices up 40% or more",
     },
     "Why didn't it work?" : {
         "image" : "https://i.imgur.com/lprE2rm.jpeg", //placeholder
