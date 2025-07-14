@@ -3541,7 +3541,7 @@
 			"pk": 34503,
 			"fields": {
 				"question": 34500,
-				"description": "You'd prefer to keep the focus on the pocketbook issues, but DeSantis' attacks on basic human rights can't be ignored. Equality and justice are non-negotiable - they must exist for all of us, or they apply to none of us. LGBT people, people of color, and workers alike are all under fire - your response has to defend all of them equally as you fight for the soul of America!"
+				"description": "You'd prefer to keep the focus on the pocketbook issues, but DeSantis' attacks on basic human rights can't be ignored. Equality and justice are non-negotiable - they must exist for all of us, or they apply to none of us. LGBTQ+ people, people of color, and workers alike are all under fire - your response has to defend all of them equally as you fight for the soul of America!"
 			}
 		},
 		{
@@ -54405,7 +54405,7 @@
 			if (cumulative_inflation<=14 && economy>=7) {
 				ctsAchievement("Bernienomics")
 			}
-			if (inflation>=6 && economy<0) {
+			if (inflation>=6 && economy<3) {
 				ctsAchievement("Stagflation")
 			}
 			if (Object.keys(senate_losses).length>=10) {
@@ -54878,6 +54878,9 @@
 				}
 				if (!won_house && senate_seats>=50) {
 					ctsAchievement("Wait, What?")
+				}
+				if (cumulative_inflation>=40) {
+					ctsAchievement("True Populist")
 				}
 				if ((e.player_answers.includes(39201) || e.player_answers.includes(39202) || e.player_answers.includes(39203) || e.player_answers.includes(39204) || e.player_answers.includes(39501) || e.player_answers.includes(39502) || e.player_answers.includes(39503) || e.player_answers.includes(39504)) && (e.player_answers.includes(41201) || e.player_answers.includes(41202) || e.player_answers.includes(41203) || e.player_answers.includes(41501) || e.player_answers.includes(41502) || e.player_answers.includes(41503) || e.player_answers.includes(41504)) && (e.player_answers.includes(43201) || e.player_answers.includes(43202) || e.player_answers.includes(43501) || e.player_answers.includes(43502)) ) {
 					ctsAchievement("Didn't need them") 
@@ -57998,37 +58001,37 @@
 		if (ans >=16000) { //Fed is in Wait and See mode until spring of 2022.
 		// General philosophy: Aggressive cuts or hikes are less efficient, but also take longer to respond to crises. Overall, given sufficient time, Fed will deliver good economy with minimal inflation no matter who's in charge... it just takes much longer for some than others. And going faster will risk a serious recession that also hurts you poll-wise.
 			if (fed_chair=="Kashkari") { //acts aggressively, goes turbo-dove or turbo-hawk to perceived crises. Volcker-esque - prefers recession to inflation. When not in crisis, acts as dove to try and improve the economy with low interest rates.
-				if (inflation>=10) {
-					fed_status="Aggressive hike";
+				if (inflation>=10) { //does not care about economy
+					fed_status="Radical hike";
 					inflation-=1;
 					economy-=2.4;
 				}
-				else if (inflation >=6.5 && inflation<10) {
+				else if (inflation >=6.5 && inflation<10) { //does not care about economy
 					fed_status="Aggressive hike";
 					inflation-=0.6;
 					economy-=1.2;
 				}
-				else if (inflation >=2.0 && inflation<6.5) {
+				else if (inflation >=2.0 && inflation<6.5) { //does not care about economy
 					fed_status="Moderate hike";
 					inflation-=0.3;
 					economy-=0.5;
 				}
-				else if (inflation <2.0 && economy <=-5) {
-					fed_status="Aggressive cut";
+				else if (inflation <0.5 && economy <=-5) { 
+					fed_status="Radical cut";
 					inflation+=1;
 					economy+=2.4;
 				}
-				else if (inflation <2.0 && economy <=0) {
+				else if (inflation <1.0 && economy <=0) {
 					fed_status="Aggressive cut";
 					inflation+=0.5;
 					economy+=1.4;
 				}
-				else if (inflation <2.0 && economy >=0 && economy <10) {
+				else if (inflation <2.0 && economy <10) {
 					fed_status="Moderate cut";
 					inflation+=0.25;
 					economy+=0.75;
 				}
-				else { //inflation<2, and economy>=8, so no crisis but he worries about overheating.
+				else { //inflation<2, and economy>=10, so no crisis but he worries about overheating.
 					fed_status="Waiting";
 				}
 			}
@@ -58049,17 +58052,17 @@
 					inflation-=0.2;
 					economy-=0.3;
 				}
-				else if (inflation <3.0 && economy <=-5) {
+				else if (inflation <2.0 && economy <=-5) {
 					fed_status="Aggressive cut";
 					inflation+=0.5;
 					economy+=1.4;
 				}
-				else if (inflation <3.5 && economy <=0) {
+				else if (inflation <3.0 && economy <=0) {
 					fed_status="Moderate cut";
 					inflation+=0.25;
 					economy+=0.75;
 				}
-				else if (inflation <3.5 && economy >=0 && economy <8) {
+				else if (inflation <3.5 && economy <8) {
 					fed_status="Cautious cut";
 					inflation+=0.05;
 					economy+=0.18;
@@ -58085,20 +58088,30 @@
 					inflation-=0.1;
 					economy-=0.12;
 				}
-				else if (inflation <10.0 && economy <=-5) {
+				else if (inflation <7.5 && economy <=-5) {
 					fed_status="Aggressive cut";
 					inflation+=0.75;
 					economy+=1.93;
 				}
-				else if (inflation <10.0 && economy <0) {
+				else if (inflation <8.5 && economy <0) {
 					fed_status="Moderate cut";
 					inflation+=0.34;
 					economy+=1;
 				}
-				else if (inflation <6.5 && economy <3) {
+				else if (economy <0) { //recession but risking high inflation
 					fed_status="Moderate cut";
 					inflation+=0.225;
 					economy+=0.7;
+				}
+				else if (inflation <6.0 && economy <3) {
+					fed_status="Moderate cut";
+					inflation+=0.225;
+					economy+=0.7;
+				}
+				else if (economy<3) { //slow economy but inflation risking going over 6.5%
+					fed_status="Cautious cut";
+					inflation+=0.15;
+					economy+=0.5;
 				}
 				else if (inflation <4 && economy <=10) {
 					fed_status="Cautious cut";
@@ -58126,20 +58139,30 @@
 					inflation-=0.05;
 					economy-=0.05;
 				}
-				else if (inflation <10.0 && economy <=-5) {
-					fed_status="Aggressive cut";
+				else if (inflation <8.5 && economy <=-5) {
+					fed_status="Radical cut";
 					inflation+=1;
 					economy+=2.4;
 				}
-				else if (inflation <10.0 && economy <0) {
+				else if (inflation <9.0 && economy <0) {
 					fed_status="Aggressive cut";
 					inflation+=0.5;
 					economy+=1.4;
 				}
-				else if (inflation <6.5 && economy <3) {
+				else if (economy<0) {
 					fed_status="Moderate cut";
 					inflation+=0.34;
 					economy+=1;
+				}
+				else if (inflation <6.0 && economy <3) {
+					fed_status="Moderate cut";
+					inflation+=0.34;
+					economy+=1;
+				}
+				else if (economy<3) {
+					fed_status="Cautious cut";
+					inflation+=0.25;
+					economy+=0.75;
 				}
 				else if (inflation <4 && economy <=10) {
 					fed_status="Cautious cut";
@@ -62845,9 +62868,11 @@
 		fed_report=`<p><strong><span class="hover-value" data-tooltip="What the Federal Reserve is doing.">Fed Status</span>: 
 		<span ${fed_status.includes("cut") ? "style=\"color:#007D3E;\"" : fed_status.includes("hike") ? "style=\"color:#CC071E;\"" : ""} class="hover-value" data-tooltip="${
 		  fed_status == "Waiting" ? 'Keeping rates low and watching.' :
+		  fed_status == "Radical hike" ? 'Slaughtering workers to tame inflation' :
 		  fed_status == "Aggressive hike" ? 'Killing workers to tame inflation' :
 		  fed_status == "Moderate hike" ? 'Maiming workers to tame inflation' :
 		  fed_status == "Cautious hike" ? 'Hurting workers to tame inflation' :
+		  fed_status == "Radical cut" ? 'Raising the economy from the dead' :
 		  fed_status == "Aggressive cut" ? 'Reviving the economy' :
 		  fed_status == "Moderate cut" ? 'Energizing the economy' :
 		  fed_status == "Cautious cut" ? 'Cautiously helping the economy' :
