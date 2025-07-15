@@ -5881,7 +5881,7 @@
 			"pk": 112,
 			"fields": {
 				"name": "Social Issues",
-				"description": "The opinion this state has on social issues such as LGBTQ+ rights, abortion, gender equality, racial equality, and the general conventions of the presidency.",
+				"description": "The opinion this state has on social issues such as LGBTQ+ rights, abortion, climate change, gender and racial equality, and the general conventions of the presidency.",
 				"stance_1": "Don't Say Gay",
 				"stance_desc_1": "Let me be clear, people: The people in this state would rather bury their heads in the sand and pretend that the last few decades of progress didn't happen! These so-called 'Don't Say Gay' policies - let me tell you - they are rooted in fear and bigotry.",
 				"stance_2": "Stop WOKE",
