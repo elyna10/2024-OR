@@ -58419,8 +58419,8 @@
 			worker_approval+=1
 			party_econ_progressive+=2
 			if (political_capital>=3) {
-				economy -=0.25 //suddenly some dental/vision insurance people are out of a job.
-				inflation-=0.5 //reduced spending. (Probably net helps fill other empty positions.)
+				economy -=0.5 //suddenly some dental/vision insurance people are out of a job.
+				inflation-=1 //reduced spending. (Probably net helps fill other empty positions.)
 				political_capital-=3
 				party_unity+=1 //got something done
 				more_medicare_for_some=true //for ending
