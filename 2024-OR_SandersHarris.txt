@@ -50852,7 +50852,7 @@
 			"fields": {
 				"answer": 24301,
 				"candidate": 300,
-				"answer_feedback": "You push the aid through Congress, fifty billion dollars meant not for bombs, but for bread, hospitals, and homes. But the world isn't convinced; they're busy rearming, no longer trusting Washington to stand firm. Europe steps up, their aid generous but their eyes hard; they blame you for not doing more when it mattered most."
+				"answer_feedback": "Fifty billion for Ukrainian reconstruction scrapes through Congress. Your progressive wing grumbles about 'nation-building' while Tom Cotton calls it an "expensive clean-up" for a mess you should've prevented. At the G7, Scholz's keynote speech omits any mention of US leadership, while Macron briefs the press on Europe's need for 'strategic autonomy'."
 			}
 		},
 		{
@@ -59488,7 +59488,7 @@
 			dove_approval+=4
 			party_social_progressive+=4
 			r_radical+=1
-			if (ans==26103) {
+			if (ans==26104) {
 				dove_approval+=1 //you stuck with your policy
 			}
 		}
