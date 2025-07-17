@@ -50852,7 +50852,7 @@
 			"fields": {
 				"answer": 24301,
 				"candidate": 300,
-				"answer_feedback": "Fifty billion for Ukrainian reconstruction scrapes through Congress. Your progressive wing grumbles about 'nation-building' while Tom Cotton calls it an "expensive clean-up" for a mess you should've prevented. At the G7, Scholz's keynote speech omits any mention of US leadership, while Macron briefs the press on Europe's need for 'strategic autonomy'."
+				"answer_feedback": "Fifty billion for Ukrainian reconstruction scrapes through Congress. Your progressive wing grumbles about 'nation-building' while Tom Cotton calls it an \"expensive clean-up\" for a mess you should've prevented. At the G7, Scholz's keynote speech omits any mention of US leadership, while Macron briefs the press on Europe's need for 'strategic autonomy'."
 			}
 		},
 		{
