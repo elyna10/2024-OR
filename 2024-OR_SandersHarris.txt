@@ -500,7 +500,7 @@
 			"pk": 28000,
 			"fields": {
 				"priority": 0,
-				"description": "The Israel-Palestine conflict has spread now with the Yemeni Houthis attacking commercial ships in the Red Sea. Though they claim to be avenging Palestine with attacks on Israeli or Western-aligned ships, their attacks have been indiscriminate in practice, causing economic disruption as vessels steer clear. How will you respond to this new threat, Mr. President?",
+				"description": "The Israel-Palestine conflict has spread now with the Yemeni Houthis attacking commercial ships in the Red Sea. Though they claim to be avenging Palestine with attacks on Israeli or Western-aligned ships, their attacks have been indiscriminate in practice, causing economic disruption as vessels steer clear. What will you tell America about this new threat, Mr. President?",
 				"likelihood": 1
 			}
 		},
