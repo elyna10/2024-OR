@@ -57554,19 +57554,19 @@
 			CPolling = pop_vote.find(p=>p.candidate==305).percent //Centrists
 			if (boost_list[305][StateNum]>0) { //centrist boost in this specific state 
 				if (RPolling>CPolling*8 && DPolling>CPolling*8) {
-					applyMinorBoost(305,-0.12*boost_list[305][StateNum],1100+StateNum)
+					applyMinorBoost(305,-0.16*boost_list[305][StateNum],1100+StateNum)
 				}
 				else if (RPolling>CPolling*4 && DPolling>CPolling*4) {
-					applyMinorBoost(305,-0.09*boost_list[305][StateNum],1100+StateNum)
+					applyMinorBoost(305,-0.12*boost_list[305][StateNum],1100+StateNum)
 				}
 				else if (RPolling>CPolling*2 && DPolling>CPolling*2) {
-					applyMinorBoost(305,-0.06*boost_list[305][StateNum],1100+StateNum)
+					applyMinorBoost(305,-0.08*boost_list[305][StateNum],1100+StateNum)
 				}
 				else if (RPolling>CPolling*1.5 && DPolling>CPolling*1.5) {
-					applyMinorBoost(305,-0.03*boost_list[305][StateNum],1100+StateNum)
+					applyMinorBoost(305,-0.04*boost_list[305][StateNum],1100+StateNum)
 				}
 				else if (RPolling>CPolling && DPolling>CPolling) {
-					applyMinorBoost(305,-0.015*boost_list[305][StateNum],1100+StateNum)
+					applyMinorBoost(305,-0.02*boost_list[305][StateNum],1100+StateNum)
 				}
 				else if (CPolling>2*RPolling || CPolling>2*DPolling) { //hard cap is naturally done already in applyMinorBoost so don't need to check here
 					applyMinorBoost(305,0.04*boost_list[305][StateNum],1100+StateNum)
@@ -57580,19 +57580,19 @@
 			}
 			if (boost_list[302][StateNum]>0) { //RFK boost in this specific state 
 				if (RPolling>IPolling*8 && DPolling>IPolling*8) {
-					applyMinorBoost(302,-0.12*boost_list[302][StateNum],1100+StateNum)
+					applyMinorBoost(302,-0.16*boost_list[302][StateNum],1100+StateNum)
 				}
 				else if (RPolling>IPolling*4 && DPolling>IPolling*4) {
-					applyMinorBoost(302,-0.09*boost_list[302][StateNum],1100+StateNum)
+					applyMinorBoost(302,-0.12*boost_list[302][StateNum],1100+StateNum)
 				}
 				else if (RPolling>IPolling*2 && DPolling>IPolling*2) {
-					applyMinorBoost(302,-0.06*boost_list[302][StateNum],1100+StateNum)
+					applyMinorBoost(302,-0.08*boost_list[302][StateNum],1100+StateNum)
 				}
 				else if (RPolling>IPolling*1.5 && DPolling>IPolling*1.5) {
-					applyMinorBoost(302,-0.03*boost_list[302][StateNum],1100+StateNum)
+					applyMinorBoost(302,-0.04*boost_list[302][StateNum],1100+StateNum)
 				}
 				else if (RPolling>IPolling && DPolling>IPolling) {
-					applyMinorBoost(302,-0.015*boost_list[302][StateNum],1100+StateNum)
+					applyMinorBoost(302,-0.02*boost_list[302][StateNum],1100+StateNum)
 				}
 				else if (CPolling>2*RPolling || CPolling>2*DPolling) { //hard cap is naturally done already in applyMinorBoost so don't need to check here
 					applyMinorBoost(302,0.04*boost_list[302][StateNum],1100+StateNum)
@@ -57606,19 +57606,19 @@
 			}
 			if (boost_list[303][StateNum]>0) { //Green boost in this specific state
 				if (RPolling>GPolling*32 && DPolling>GPolling*32) {
-					applyMinorBoost(303,-0.12*boost_list[303][StateNum],1100+StateNum)
+					applyMinorBoost(303,-0.16*boost_list[303][StateNum],1100+StateNum)
 				}
 				else if (RPolling>GPolling*16 && DPolling>GPolling*16) {
-					applyMinorBoost(303,-0.09*boost_list[303][StateNum],1100+StateNum)
+					applyMinorBoost(303,-0.12*boost_list[303][StateNum],1100+StateNum)
 				}
 				else if (RPolling>GPolling*8 && DPolling>GPolling*8) {
-					applyMinorBoost(303,-0.06*boost_list[303][StateNum],1100+StateNum)
+					applyMinorBoost(303,-0.08*boost_list[303][StateNum],1100+StateNum)
 				}
 				else if (RPolling>GPolling*4 && DPolling>GPolling*4) {
-					applyMinorBoost(303,-0.03*boost_list[303][StateNum],1100+StateNum)
+					applyMinorBoost(303,-0.04*boost_list[303][StateNum],1100+StateNum)
 				}
 				else if (RPolling>GPolling*2 && DPolling>GPolling*2) {
-					applyMinorBoost(303,-0.015*boost_list[303][StateNum],1100+StateNum)
+					applyMinorBoost(303,-0.02*boost_list[303][StateNum],1100+StateNum)
 				}
 			}
 		}
