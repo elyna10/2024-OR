@@ -54568,7 +54568,7 @@
 				
 			
 		}
-		if (faithless || stop_the_steal || (quickstats[0]<270 && e.final_overall_results.find(p=>p.candidate==301).electoral_votes<270)) { //election deadlocked somehow
+		if (faithless || stop_the_steal || (quickstats[0]<270 && e.final_overall_results.find(p=>p.candidate==301).electoral_votes<270 && NuclearWar==0)) { //election deadlocked somehow but not nuclear war
 			if (!ending_2020 && ticket_status==1) {
 				campaignTrail_temp.election_json[0].fields.advisor_url = "https://i.imgur.com/AfDHTn1.jpeg"; //protesting Bernie
 			}
@@ -62673,6 +62673,7 @@
 			customquote = quotes[Math.floor((Math.random() * quotes.length))]
 			corrr=`\n<h2>OUR REVOLUTION</h2><font id='wittyquote' size='3' color='white'><em>`+customquote+`</em></font>`
 			e.election_json[0].fields.has_visits = 0 //so you don't get an awkward visit question while everything else changes.
+			e.election_json[0].fields.advisor_url="https://i.imgur.com/8THruOP.jpeg" //change advisor image to sad bernie
 		}
 		
 		updateSimplePopup();
