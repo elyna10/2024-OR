@@ -761,7 +761,7 @@
 			"pk": 35400,
 			"fields": {
 				"priority": 0,
-				"description": "As you step onto the podium for the mid-summer debate, you prepare for Josh Hawley to try and seize your mantle as champion of the working class. With the media consumed by his picket-line performatism and debates about DEI and immigration, only you can cut through the noise and expose his false populism for what it is. What strategy do you employ?",
+				"description": "As you step onto the podium for the mid-summer debate, you prepare for Josh Hawley to try and seize your mantle as champion of the working class. With the media consumed by his picket-line performatism and debates about DEI and immigration, only you can cut through the noise and expose his false populism for what it is. What will you say on stage?",
 				"likelihood": 1
 			}
 		},
