@@ -60286,44 +60286,45 @@
 			applySalience(111,0.06) //democracy and trust in the system suddenly more important
 			applySalience(112,0.06)
 		}
+		//starting at this point, opponent issue effects (and those only) of Bernie campaigning Qs are doubled. Watsonian reason is that campaigning is more effective when you're closer to the election. Doylist reason is that I wanted to encourage the player to keep Bernie around and keep the Kamala route from being too strong.
 		else if (ans==38001) { //Trump campaign
-			e.candidate_issue_score_json[7].fields.issue_score-=0.04 //move to the right on social
+			e.candidate_issue_score_json[7].fields.issue_score-=0.08 //move to the right on social
 			applySalience(112,0.06)
 			party_social_progressive+=1
 			party_unity+=0.2
 		}
 		else if (ans==38002) {
-			e.candidate_issue_score_json[5].fields.issue_score-=0.04 
+			e.candidate_issue_score_json[5].fields.issue_score-=0.08 
 			applySalience(110,0.06)
 			worker_approval+=0.5
 			party_unity+=0.2
 		}
 		else if (ans==38003) {
-			e.candidate_issue_score_json[7].fields.issue_score-=0.02 
+			e.candidate_issue_score_json[7].fields.issue_score-=0.04 
 			applySalience(112,0.03) //America doesn't care
 			party_unity+=0.1
 		}
 		else if (ans==38004) {
-			e.candidate_issue_score_json[7].fields.issue_score-=0.04 
+			e.candidate_issue_score_json[7].fields.issue_score-=0.08 
 			applySalience(112,0.06) //America does care
 			party_unity+=0.2
 		}
 		else if (ans==38101) { //Trump Jr campaign
-			e.candidate_issue_score_json[6].fields.issue_score-=0.015
-			e.candidate_issue_score_json[7].fields.issue_score-=0.015
+			e.candidate_issue_score_json[6].fields.issue_score-=0.03
+			e.candidate_issue_score_json[7].fields.issue_score-=0.03
 			applySalience(111,0.0225)
 			applySalience(112,0.0225)
 			party_unity+=0.15
 		}
 		else if (ans==38102) {
-			e.candidate_issue_score_json[7].fields.issue_score-=0.06 
+			e.candidate_issue_score_json[7].fields.issue_score-=0.12 
 			applySalience(112,0.09) 
 			party_unity+=0.3
 		}
 		else if (ans==38103 || ans==38104) {
-			e.candidate_issue_score_json[5].fields.issue_score-=0.06
+			e.candidate_issue_score_json[5].fields.issue_score-=0.12
 			if (ans ==38104) {
-				e.candidate_issue_score_json[5].fields.issue_score-=0.06 //makes this more painful for him
+				e.candidate_issue_score_json[5].fields.issue_score-=0.12 //makes this more painful for him
 				worker_approval+=0.5
 			}
 			applySalience(110,0.09) 
@@ -60331,37 +60332,37 @@
 			party_unity+=0.3
 		}
 		else if (ans==38201) { //campaign against Hawley
-			e.candidate_issue_score_json[5].fields.issue_score-=0.04 //as Hawley is slightly left of national center on econ, this attack moves him closer to the center and increases the prominence of his best issue. But you probably got the gist that billionaires donate more to him though.
+			e.candidate_issue_score_json[5].fields.issue_score-=0.08 //as Hawley is slightly left of national center on econ, this attack moves him closer to the center and increases the prominence of his best issue. But you probably got the gist that billionaires donate more to him though.
 			applySalience(110,0.06) 
 			worker_approval+=0.5
 			party_unity+=0.2
 		}
 		else if (ans==38202) { 
-			e.candidate_issue_score_json[6].fields.issue_score-=0.04 
+			e.candidate_issue_score_json[6].fields.issue_score-=0.08 
 			applySalience(111,0.06) 
 			worker_approval-=0.5
 			party_unity+=0.2
 			political_capital+=0.25
 		}
 		else if (ans==38203) { 
-			e.candidate_issue_score_json[7].fields.issue_score-=0.04 
+			e.candidate_issue_score_json[7].fields.issue_score-=0.08 
 			applySalience(112,0.06) 
 			party_unity+=0.2
 		}
 		else if (ans==38204) { 
-			e.candidate_issue_score_json[8].fields.issue_score-=0.04 
+			e.candidate_issue_score_json[8].fields.issue_score-=0.08 
 			applySalience(113,0.06) 
 			latino_approval+=0.5
 			party_unity+=0.2
 		}
 		else if (ans==38301) { //campaign vs DeSantis
-			e.candidate_issue_score_json[5].fields.issue_score-=0.04 
+			e.candidate_issue_score_json[5].fields.issue_score-=0.08 
 			applySalience(110,0.06) 
 			worker_approval+=0.5
 			party_unity+=0.2
 		}
 		else if (ans==38302) {
-			e.candidate_issue_score_json[6].fields.issue_score+=0.04 //moves DeSantis to right on globalism.
+			e.candidate_issue_score_json[6].fields.issue_score+=0.08 //moves DeSantis to right on globalism.
 			applySalience(111,0.06) 
 			dove_approval+=0.5
 			blob_approval-=1
@@ -60370,12 +60371,12 @@
 			political_capital-=0.25
 		}
 		else if (ans==38303) {
-			e.candidate_issue_score_json[7].fields.issue_score-=0.04 
+			e.candidate_issue_score_json[7].fields.issue_score-=0.08 
 			applySalience(112,0.12) 
 			party_unity+=0.2
 		}
 		else if (ans==38304) {
-			e.candidate_issue_score_json[8].fields.issue_score-=0.02
+			e.candidate_issue_score_json[8].fields.issue_score-=0.04
 			applySalience(113,0.03) //Americans don't really care. 
 			party_unity+=0.1
 		}
@@ -60638,199 +60639,200 @@
 			}
 			applyMinorBoost(303,0.0025+0.05*green_boost) //D votes go to Greens 
 		}
+		//opponent issue effects (and those only) of Bernie campaigning are doubled here too. Close to election so people are paying more attention (and I'm trying to avoid a situation in which it's better for the player to dispose of Bernie.)
 		else if (ans==42001) { //campaign vs Trump 
-			e.candidate_issue_score_json[7].fields.issue_score-=0.02
+			e.candidate_issue_score_json[7].fields.issue_score-=0.04
 			applySalience(112,0.03) 
 			party_unity+=0.1
 		}
 		else if (ans==42002) {
-			e.candidate_issue_score_json[5].fields.issue_score-=0.04 //Bernie is very good at making attacks on economics - every single one of his attacks there succeeds
+			e.candidate_issue_score_json[5].fields.issue_score-=0.08 //Bernie is very good at making attacks on economics - every single one of his attacks there succeeds
 			applySalience(110,0.06) 
 			party_unity+=0.2
 		}
 		else if (ans==42003) {
-			e.candidate_issue_score_json[8].fields.issue_score-=0.02 //Bernie is less conversant in making attacks on immigration and social policy (he is also further from the political median there.)
+			e.candidate_issue_score_json[8].fields.issue_score-=0.04 //Bernie is less conversant in making attacks on immigration and social policy (he is also further from the political median there.)
 			applySalience(113,0.03) 
 			party_unity+=0.1
 			latino_approval+=0.5
 		}
 		else if (ans==42004) {
-			e.candidate_issue_score_json[6].fields.issue_score-=0.04 //This is effective against some Trump tickets, and wholly backfires against others if Trump is comparatively pro-globalist.
+			e.candidate_issue_score_json[6].fields.issue_score-=0.08 //This is effective against some Trump tickets, and wholly backfires against others if Trump is comparatively pro-globalist.
 			applySalience(111,0.06) 
 			party_unity+=0.2
 			political_capital+=0.25
 		}
 		else if (ans==42101) {
-			e.candidate_issue_score_json[5].fields.issue_score-=0.04 
+			e.candidate_issue_score_json[5].fields.issue_score-=0.08 
 			applySalience(110,0.06) 
 			party_unity+=0.2
 		}
 		else if (ans==42102) {
-			e.candidate_issue_score_json[6].fields.issue_score+=0.04 
+			e.candidate_issue_score_json[6].fields.issue_score+=0.08 
 			applySalience(111,0.06) 
 			party_unity+=0.2
 			political_capital-=0.25
 		}
 		else if (ans==42103) {
-			e.candidate_issue_score_json[7].fields.issue_score-=0.02 //while DeSantis is extreme on social policy, he is also hard to attack on that.
+			e.candidate_issue_score_json[7].fields.issue_score-=0.04 //while DeSantis is extreme on social policy, he is also hard to attack on that.
 			applySalience(112,0.03) 
 			party_unity+=0.1
 		}
 		else if (ans==42104) {
-			e.candidate_issue_score_json[8].fields.issue_score-=0.04 
+			e.candidate_issue_score_json[8].fields.issue_score-=0.08 
 			applySalience(113,0.06) 
 			latino_approval+=1
 			party_unity+=0.2
 		}
 		else if (ans==42201) {
-			e.candidate_issue_score_json[5].fields.issue_score-=0.04 //I dunno what happens if you keep attacking Hawley on economics, it probably just helps him overall but maybe the global multipliers make up for it.
+			e.candidate_issue_score_json[5].fields.issue_score-=0.08 //I dunno what happens if you keep attacking Hawley on economics, it probably just helps him overall but maybe the global multipliers make up for it.
 			applySalience(110,0.06) 
 			party_unity+=0.2
 		}
 		else if (ans==42202) {
-			e.candidate_issue_score_json[6].fields.issue_score-=0.02 //Bernie is not very good at attacking someone for being too anti-war. It just goes against his ideological instincts.
+			e.candidate_issue_score_json[6].fields.issue_score-=0.04 //Bernie is not very good at attacking someone for being too anti-war. It just goes against his ideological instincts.
 			applySalience(111,0.03) 
 			political_capital+=0.25
 			party_unity+=0.1
 		}
 		else if (ans==42203) {
-			e.candidate_issue_score_json[7].fields.issue_score-=0.04 
+			e.candidate_issue_score_json[7].fields.issue_score-=0.08 
 			applySalience(112,0.06) 
 			party_unity+=0.2
 		}
 		else if (ans==42204) {
-			e.candidate_issue_score_json[8].fields.issue_score-=0.04 
+			e.candidate_issue_score_json[8].fields.issue_score-=0.08 
 			applySalience(113,0.06) 
 			latino_approval+=0.5
 			party_unity+=0.2
 		}
 		else if (ans==42301) {
-			e.candidate_issue_score_json[5].fields.issue_score-=0.06 //Trump Jr is just easy to attack
+			e.candidate_issue_score_json[5].fields.issue_score-=0.12 //Trump Jr is just easy to attack
 			applySalience(110,0.09) 
 			party_unity+=0.3
 		}
 		else if (ans==42302) {
-			e.candidate_issue_score_json[6].fields.issue_score-=0.06 
+			e.candidate_issue_score_json[6].fields.issue_score-=0.12 
 			applySalience(111,0.09) 
 			party_unity+=0.3
 			political_capital+=0.25
 		}
 		else if (ans==42303) {
-			e.candidate_issue_score_json[7].fields.issue_score-=0.03 
+			e.candidate_issue_score_json[7].fields.issue_score-=0.06 
 			applySalience(112,0.045) 
 			party_unity+=0.15
 		}
 		else if (ans==42304) {
-			e.candidate_issue_score_json[5].fields.issue_score=-0.06 //sort of attacking him for being pro-corporate.
+			e.candidate_issue_score_json[5].fields.issue_score=-0.12 //sort of attacking him for being pro-corporate.
 			applySalience(113,0.18) //America's watching the car crash 
 			party_unity-=2
 		}
 		else if (ans==42401) {
-			e.candidate_issue_score_json[5].fields.issue_score-=0.04
+			e.candidate_issue_score_json[5].fields.issue_score-=0.08
 			applySalience(110,0.06) 
 			party_unity+=0.2
 		}
 		else if (ans==42402) {
-			e.candidate_issue_score_json[6].fields.issue_score-=0.02
+			e.candidate_issue_score_json[6].fields.issue_score-=0.04
 			applySalience(111,0.03) 
 			political_capital+=0.25
 			party_unity+=0.1
 		}
 		else if (ans==42403) {
-			e.candidate_issue_score_json[7].fields.issue_score-=0.04
+			e.candidate_issue_score_json[7].fields.issue_score-=0.08
 			applySalience(112,0.06) 
 			party_unity+=0.2
 		}
 		else if (ans==42404) {
-			e.candidate_issue_score_json[8].fields.issue_score-=0.02
+			e.candidate_issue_score_json[8].fields.issue_score-=0.04
 			applySalience(113,0.03) 
 			party_unity+=0.1
 		}
 		else if (ans==42501) {
-			e.candidate_issue_score_json[5].fields.issue_score-=0.04
+			e.candidate_issue_score_json[5].fields.issue_score-=0.08
 			applySalience(110,0.06) 
 			party_unity+=0.2
 		}
 		else if (ans==42502) {
-			e.candidate_issue_score_json[6].fields.issue_score+=0.04
+			e.candidate_issue_score_json[6].fields.issue_score+=0.08
 			applySalience(111,0.06) 
 			party_unity+=0.2
 			political_capital-=0.25
 		}
 		else if (ans==42503) {
-			e.candidate_issue_score_json[7].fields.issue_score-=0.02
+			e.candidate_issue_score_json[7].fields.issue_score-=0.04
 			applySalience(112,0.03) 
 			party_unity+=0.1
 		}
 		else if (ans==42504) {
-			e.candidate_issue_score_json[5].fields.issue_score-=0.04 //sort of attacking him for being pro-corporate
-			e.candidate_issue_score_json[6].fields.issue_score+=0.04
+			e.candidate_issue_score_json[5].fields.issue_score-=0.08 //sort of attacking him for being pro-corporate
+			e.candidate_issue_score_json[6].fields.issue_score+=0.08
 			applySalience(111,0.06) 
 			applySalience(113,0.09) //watching the car crash
 			party_unity-=2
 			political_capital-=0.25
 		}
 		else if (ans==42601) {
-			e.candidate_issue_score_json[5].fields.issue_score-=0.04
+			e.candidate_issue_score_json[5].fields.issue_score-=0.08
 			applySalience(110,0.06) 
 			party_unity+=0.2
 		}
 		else if (ans==42602) {
-			e.candidate_issue_score_json[6].fields.issue_score+=0.04
+			e.candidate_issue_score_json[6].fields.issue_score+=0.08
 			applySalience(111,0.06) 
 			party_unity+=0.2
 			political_capital-=0.25
 		}
 		else if (ans==42603) {
-			e.candidate_issue_score_json[7].fields.issue_score-=0.04
+			e.candidate_issue_score_json[7].fields.issue_score-=0.08
 			applySalience(112,0.06) 
 			party_unity+=0.2
 		}
 		else if (ans==42604) {
-			e.candidate_issue_score_json[8].fields.issue_score-=0.02
+			e.candidate_issue_score_json[8].fields.issue_score-=0.04
 			applySalience(113,0.03) 
 			party_unity+=0.1
 		}
 		else if (ans==42701) {
-			e.candidate_issue_score_json[5].fields.issue_score-=0.04
+			e.candidate_issue_score_json[5].fields.issue_score-=0.08
 			applySalience(110,0.06) 
 			party_unity+=0.2
 		}
 		else if (ans==42702) {
-			e.candidate_issue_score_json[6].fields.issue_score+=0.04
+			e.candidate_issue_score_json[6].fields.issue_score+=0.08
 			applySalience(111,0.06) 
 			party_unity+=0.2
 			political_capital-=0.25
 		}
 		else if (ans==42703) {
-			e.candidate_issue_score_json[7].fields.issue_score-=0.04
+			e.candidate_issue_score_json[7].fields.issue_score-=0.08
 			applySalience(112,0.06) 
 			party_unity+=0.2
 		}
 		else if (ans==42704) {
-			e.candidate_issue_score_json[8].fields.issue_score=0.1 //moves his immigration score to 0.1
+			e.candidate_issue_score_json[8].fields.issue_score=0.2 //moves his immigration score to +0.2 (for immigration reform.)
 			applySalience(113,0.06) //watching the car crash as the pot calls the kettle black.
 			party_unity-=3
 		}
 		else if (ans==42801) { //Ramaswamy is also an easy punching bag, but you only get 1 question against him at most. (And Kamala doesn't even have time to go after her opponent.)
-			e.candidate_issue_score_json[5].fields.issue_score-=0.06 
+			e.candidate_issue_score_json[5].fields.issue_score-=0.12 
 			applySalience(110,0.09) 
 			party_unity+=1
 			party_unity+=0.3
 		}
 		else if (ans==42802) {
-			e.candidate_issue_score_json[6].fields.issue_score-=0.03 
+			e.candidate_issue_score_json[6].fields.issue_score-=0.06 
 			applySalience(111,0.045) 
 			political_capital+=0.25
 			party_unity+=0.15
 		}
 		else if (ans==42803) {
-			e.candidate_issue_score_json[7].fields.issue_score-=0.06 
+			e.candidate_issue_score_json[7].fields.issue_score-=0.12 
 			applySalience(112,0.09) 
 			party_unity+=0.3
 		}
 		else if (ans==42804) {
-			e.candidate_issue_score_json[5].fields.issue_score-=0.06 //you're basically attacking him for being pro-corporate.
+			e.candidate_issue_score_json[5].fields.issue_score-=0.12 //you're basically attacking him for being pro-corporate.
 			applySalience(113,0.18) //America's watching the car crash 
 			party_unity-=3
 		}
