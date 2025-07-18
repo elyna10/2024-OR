@@ -9069,7 +9069,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1104,
-				"state_multiplier": 1.32
+				"state_multiplier": 1.34
 			}
 		},
 		{
@@ -57651,7 +57651,7 @@
 		e.candidate_json[1].fields.first_name='Temporarily'
 		e.candidate_json[1].fields.last_name='Vacant'
 		
-		applyDrift(300,0.04,1104) //CA home state boost for Kamala
+		applyDrift(300,0.02,1104) //CA home state boost for Kamala
 		e.election_json[0].fields.advisor_url="https://i.imgur.com/R2FmZVf.jpeg"
 		campaignTrail_temp.candidate_image_url = "https://i.imgur.com/AvEct3B.jpeg";
 		campaignTrail_temp.running_mate_image_url = "https://i.imgur.com/hDLsVGF.jpeg"; //just a question mark
