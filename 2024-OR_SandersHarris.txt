@@ -20969,7 +20969,7 @@
 			"fields": {
 				"answer": 31103,
 				"issue": 113,
-				"issue_score": 0.5,
+				"issue_score": 0.2,
 				"issue_importance": 12
 			}
 		},
@@ -59746,11 +59746,13 @@
 			immigration_level=3 //immigrant flow increases
 		}
 		else if (ans==31103) {
-			//real-world values if you copy Biden exactly: 6.8 capital, 10 bipartisan, 6 r_radical and it still failed. Being nice and putting the threshold at 15 so that it just barely fails.
-			if (political_capital+bipartisan*2-r_radical*2>=15 && (e.player_answers.includes(26001) || e.player_answers.includes(26002) || e.player_answers.includes(26101) || e.player_answers.includes(261012))) { //player chose to arm Israel. 
+			//real-world values if you copy Biden exactly: 6.8 capital, 10 bipartisan, 6 r_radical and it still failed - values of 14.6.
+			//Toned down difficulty and improved this because it was essentially impossible beforehand, and not very rewarding for how absurdly hard it was.
+			if (political_capital+bipartisan*2-r_radical*2>=10 && (e.player_answers.includes(26001) || e.player_answers.includes(26002) || e.player_answers.includes(26101) || e.player_answers.includes(261012))) { //player chose to arm Israel. 
 				r_radical-=1 //less angry
+				political_capital+=2
 				party_unity+=2 //a win.
-				worker_approval+=0.5 //happy you're restricting the border
+				worker_approval+=1 //happy you're restricting the border
 				//the only option among these that does not lower Latino approval..
 				immigration_level=1 //with better enforcement funding, immigrant flow decreases
 			}
@@ -59761,7 +59763,7 @@
 				latino_approval-=1 //cutting the line
 				economy+=1
 				inflation+=0.25
-				applyMultiplier(300,-0.005) //you look ineffectual
+				applyMultiplier(300,-0.015) //you look ineffectual
 			}
 			party_social_progressive-=1
 			bipartisan+=1 //you still tried 
