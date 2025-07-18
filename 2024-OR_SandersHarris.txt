@@ -6034,7 +6034,7 @@
 			"fields": {
 				"state": 1101,
 				"issue": 113,
-				"state_issue_score": -0.5,
+				"state_issue_score": -0.25,
 				"weight": 1
 			}
 		},
@@ -6084,7 +6084,7 @@
 			"fields": {
 				"state": 1102,
 				"issue": 113,
-				"state_issue_score": -0.5,
+				"state_issue_score": -0.1,
 				"weight": 1.5
 			}
 		},
@@ -6134,7 +6134,7 @@
 			"fields": {
 				"state": 1103,
 				"issue": 113,
-				"state_issue_score": -0.6,
+				"state_issue_score": -0.75,
 				"weight": 1.5
 			}
 		},
@@ -6234,7 +6234,7 @@
 			"fields": {
 				"state": 1105,
 				"issue": 113,
-				"state_issue_score": 0.25,
+				"state_issue_score": 0.15,
 				"weight": 1
 			}
 		},
@@ -6334,7 +6334,7 @@
 			"fields": {
 				"state": 1107,
 				"issue": 113,
-				"state_issue_score": 0.3,
+				"state_issue_score": 0.15,
 				"weight": 1
 			}
 		},
@@ -6384,7 +6384,7 @@
 			"fields": {
 				"state": 1108,
 				"issue": 113,
-				"state_issue_score": -0.2,
+				"state_issue_score": -0.4,
 				"weight": 1
 			}
 		},
@@ -6434,7 +6434,7 @@
 			"fields": {
 				"state": 1109,
 				"issue": 113,
-				"state_issue_score": -0.08,
+				"state_issue_score": -0.25,
 				"weight": 1
 			}
 		},
@@ -6534,7 +6534,7 @@
 			"fields": {
 				"state": 1111,
 				"issue": 113,
-				"state_issue_score": -0.6,
+				"state_issue_score": -0.8,
 				"weight": 1
 			}
 		},
@@ -7004,7 +7004,7 @@
 			"fields": {
 				"state": 1121,
 				"issue": 110,
-				"state_issue_score": 0.48,
+				"state_issue_score": 0.45,
 				"weight": 1.5
 			}
 		},
@@ -7034,7 +7034,7 @@
 			"fields": {
 				"state": 1121,
 				"issue": 113,
-				"state_issue_score": -0.3,
+				"state_issue_score": -0.1,
 				"weight": 1
 			}
 		},
@@ -7084,7 +7084,7 @@
 			"fields": {
 				"state": 1122,
 				"issue": 113,
-				"state_issue_score": -0.25,
+				"state_issue_score": 0.05,
 				"weight": 1
 			}
 		},
@@ -7184,7 +7184,7 @@
 			"fields": {
 				"state": 1124,
 				"issue": 113,
-				"state_issue_score": -0.5,
+				"state_issue_score": -0.35,
 				"weight": 1
 			}
 		},
@@ -7334,7 +7334,7 @@
 			"fields": {
 				"state": 1127,
 				"issue": 113,
-				"state_issue_score": 0.16,
+				"state_issue_score": -0.2,
 				"weight": 1.5
 			}
 		},
@@ -7434,7 +7434,7 @@
 			"fields": {
 				"state": 1129,
 				"issue": 113,
-				"state_issue_score": 0.25,
+				"state_issue_score": 0.15,
 				"weight": 1
 			}
 		},
@@ -7484,7 +7484,7 @@
 			"fields": {
 				"state": 1130,
 				"issue": 113,
-				"state_issue_score": -0.1,
+				"state_issue_score": 0.1,
 				"weight": 1.5
 			}
 		},
@@ -7534,7 +7534,7 @@
 			"fields": {
 				"state": 1131,
 				"issue": 113,
-				"state_issue_score": 0.3,
+				"state_issue_score": 0.2,
 				"weight": 1
 			}
 		},
@@ -7634,7 +7634,7 @@
 			"fields": {
 				"state": 1133,
 				"issue": 113,
-				"state_issue_score": -0.55,
+				"state_issue_score": -0.8,
 				"weight": 1
 			}
 		},
@@ -7734,7 +7734,7 @@
 			"fields": {
 				"state": 1135,
 				"issue": 113,
-				"state_issue_score": -0.7,
+				"state_issue_score": -0.8,
 				"weight": 1.25
 			}
 		},
@@ -7834,7 +7834,7 @@
 			"fields": {
 				"state": 1137,
 				"issue": 113,
-				"state_issue_score": -0.3,
+				"state_issue_score": -0.1,
 				"weight": 1
 			}
 		},
@@ -7984,7 +7984,7 @@
 			"fields": {
 				"state": 1140,
 				"issue": 113,
-				"state_issue_score": -0.55,
+				"state_issue_score": -0.6,
 				"weight": 1
 			}
 		},
@@ -8034,7 +8034,7 @@
 			"fields": {
 				"state": 1141,
 				"issue": 113,
-				"state_issue_score": -0.5,
+				"state_issue_score": -0.6,
 				"weight": 1
 			}
 		},
@@ -8084,7 +8084,7 @@
 			"fields": {
 				"state": 1142,
 				"issue": 113,
-				"state_issue_score": -0.5,
+				"state_issue_score": -0.4,
 				"weight": 2
 			}
 		},
@@ -8134,7 +8134,7 @@
 			"fields": {
 				"state": 1143,
 				"issue": 113,
-				"state_issue_score": -0.65,
+				"state_issue_score": -0.5,
 				"weight": 1
 			}
 		},
@@ -8184,7 +8184,7 @@
 			"fields": {
 				"state": 1144,
 				"issue": 113,
-				"state_issue_score": 0.5,
+				"state_issue_score": 0.6,
 				"weight": 1
 			}
 		},
@@ -8234,7 +8234,7 @@
 			"fields": {
 				"state": 1145,
 				"issue": 113,
-				"state_issue_score": 0.16,
+				"state_issue_score": 0.05,
 				"weight": 1
 			}
 		},
@@ -8434,7 +8434,7 @@
 			"fields": {
 				"state": 1149,
 				"issue": 113,
-				"state_issue_score": -0.3,
+				"state_issue_score": -0.05,
 				"weight": 1
 			}
 		},
@@ -8484,7 +8484,7 @@
 			"fields": {
 				"state": 1150,
 				"issue": 113,
-				"state_issue_score": -0.71,
+				"state_issue_score": -0.75,
 				"weight": 1
 			}
 		},
@@ -9042,7 +9042,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1101,
-				"state_multiplier": 0.91
+				"state_multiplier": 0.85
 			}
 		},
 		{
@@ -9051,7 +9051,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1102,
-				"state_multiplier": 0.952
+				"state_multiplier": 0.82
 			}
 		},
 		{
@@ -9060,7 +9060,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1103,
-				"state_multiplier": 1.64
+				"state_multiplier": 1.9
 			}
 		},
 		{
@@ -9069,7 +9069,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1104,
-				"state_multiplier": 1.3
+				"state_multiplier": 1.32
 			}
 		},
 		{
@@ -9078,7 +9078,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1105,
-				"state_multiplier": 1.055
+				"state_multiplier": 1.075
 			}
 		},
 		{
@@ -9096,7 +9096,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1107,
-				"state_multiplier": 1.085
+				"state_multiplier": 1.12
 			}
 		},
 		{
@@ -9105,7 +9105,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1108,
-				"state_multiplier": 0.851
+				"state_multiplier": 0.9
 			}
 		},
 		{
@@ -9114,7 +9114,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1109,
-				"state_multiplier": 1.82
+				"state_multiplier": 1.86
 			}
 		},
 		{
@@ -9132,7 +9132,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1111,
-				"state_multiplier": 0.72
+				"state_multiplier": 0.82
 			}
 		},
 		{
@@ -9141,7 +9141,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1112,
-				"state_multiplier": 1.11
+				"state_multiplier": 1.13
 			}
 		},
 		{
@@ -9222,7 +9222,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1121,
-				"state_multiplier": 1.08
+				"state_multiplier": 1.05
 			}
 		},
 		{
@@ -9231,7 +9231,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1122,
-				"state_multiplier": 1.1
+				"state_multiplier": 1.07
 			}
 		},
 		{
@@ -9249,7 +9249,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1124,
-				"state_multiplier": 1
+				"state_multiplier": 0.94
 			}
 		},
 		{
@@ -9276,7 +9276,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1127,
-				"state_multiplier": 1
+				"state_multiplier": 1.043
 			}
 		},
 		{
@@ -9294,7 +9294,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1129,
-				"state_multiplier": 1.18
+				"state_multiplier": 1.21
 			}
 		},
 		{
@@ -9303,7 +9303,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1130,
-				"state_multiplier": 1.12
+				"state_multiplier": 1.11
 			}
 		},
 		{
@@ -9312,7 +9312,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1131,
-				"state_multiplier": 1.21
+				"state_multiplier": 1.24
 			}
 		},
 		{
@@ -9330,7 +9330,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1133,
-				"state_multiplier": 0.72
+				"state_multiplier": 0.86
 			}
 		},
 		{
@@ -9348,7 +9348,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1135,
-				"state_multiplier": 0.76
+				"state_multiplier": 0.81
 			}
 		},
 		{
@@ -9366,7 +9366,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1137,
-				"state_multiplier": 1.05
+				"state_multiplier": 1.015
 			}
 		},
 		{
@@ -9393,7 +9393,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1140,
-				"state_multiplier": 0.87
+				"state_multiplier": 0.9
 			}
 		},
 		{
@@ -9402,7 +9402,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1141,
-				"state_multiplier": 1.62
+				"state_multiplier": 1.72
 			}
 		},
 		{
@@ -9411,7 +9411,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1142,
-				"state_multiplier": 0.95
+				"state_multiplier": 0.88
 			}
 		},
 		{
@@ -9420,7 +9420,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1143,
-				"state_multiplier": 0.645
+				"state_multiplier": 0.58
 			}
 		},
 		{
@@ -9429,7 +9429,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1144,
-				"state_multiplier": 1.82
+				"state_multiplier": 1.8
 			}
 		},
 		{
@@ -9438,7 +9438,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1145,
-				"state_multiplier": 2.12
+				"state_multiplier": 2.14
 			}
 		},
 		{
@@ -9474,7 +9474,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1149,
-				"state_multiplier": 1.05
+				"state_multiplier": 1.01
 			}
 		},
 		{
@@ -9483,7 +9483,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1150,
-				"state_multiplier": 0.57
+				"state_multiplier": 0.64
 			}
 		},
 		{
@@ -57651,7 +57651,7 @@
 		e.candidate_json[1].fields.first_name='Temporarily'
 		e.candidate_json[1].fields.last_name='Vacant'
 		
-		applyDrift(300,0.02,1104) //CA home state boost for Kamala
+		applyDrift(300,0.04,1104) //CA home state boost for Kamala
 		e.election_json[0].fields.advisor_url="https://i.imgur.com/R2FmZVf.jpeg"
 		campaignTrail_temp.candidate_image_url = "https://i.imgur.com/AvEct3B.jpeg";
 		campaignTrail_temp.running_mate_image_url = "https://i.imgur.com/hDLsVGF.jpeg"; //just a question mark
