@@ -61863,7 +61863,6 @@
 				if (immigration_level==3) { //de facto open borders; Texas takes matters into its own hands with Eagle Pass
 					party_social_progressive+=1
 					worker_approval-=1 //driving down wages
-					latino_approval-=1 //skipping the line
 					//no inflation effect as the immigration helps alleviate labor shortage
 					applySalience(113,0.3) //immigration is a big issue thanks to your decisions
 					e.questions_json[campaignTrail_temp.question_number+1] = tunnel(31000)
