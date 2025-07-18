@@ -471,7 +471,8 @@ quotes = ["''What happens in Congress in the next few months will determine the 
 customquote = quotes[Math.floor((Math.random() * quotes.length))]
 corrr=`\n<h2>OUR REVOLUTION</h2><font id='wittyquote' size='3' color='white'><em>`+customquote+`</em></font>`
 campaignTrail_temp.modBoxTheme = { "header_color": "#242d80", "header_image_url": "https://files.catbox.moe/1kkpbb.png", "header_text_color": "#ffffff", "description_text_color": "#000000", "description_background_color": "#4d82e3", "main_color": "#0650ac", "secondary_color": "#242d80", "ui_text_color": "#FFFFFF" }
-$("#dynamic-favicon").attr("href", "https://i.imgur.com/lBOui3k.jpeg");
+// Custom favicon
+$("#dynamic-favicon").attr("href", "https://files.catbox.moe/nv7m0s.png");
 
 const customStyling = document.createElement("style");
 customStyling.innerHTML = `#map_container {
