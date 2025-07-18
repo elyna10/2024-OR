@@ -138,7 +138,7 @@ campaignTrail_temp.election_json = [
 			<br>Scott/Trump Jr: -0.4/+0.3/-0.6/-0.5
 			<br>Ramaswamy/Trump: -0.3/-0.75/-0.7/-0.55
 			<br>Burgum/Rubio: -0.7/+0.4/-0.3/0
-			<br>Vance/Cotton: +0.2/-0.6/-0.4/-0.6
+			<br>Vance/Cotton: +0.2/-0.6/-0.45/-0.65
 			
 			<br><br>Vance/Cotton is probably the single hardest opponent. Burgum/Rubio, Burgum/Trump Jr, and Ramaswamy/Trump are probably the easiest opponents.</p> 
 			<p><b>If you are having trouble winning the game and would like help</b>, here is a set to a list of answers that should give you re-election with randomness off, without too many compromises on Bernie's part from his ideals. It is not the best electoral result you can get, but it will likely get you Medicare for All, and is an example in case it helps. Visit Missouri every time.
@@ -220,7 +220,7 @@ campaignTrail_temp.temp_election_list = [
  campaignTrail_temp.credits = "<button onclick='credits()'>Elyna</button>";
 
   window.credits = function() {
-    const creditsList = ["Mod mainly written and coded by Elyna (Seleucus on alternatehistory.com).", "", "Help from:", "TheNorthEast for ending slide #13 and the Left Opposition description.", "Tannenberg for achievement images (TBD).", "Skittie/C0SM0 for the Themes & for other Visual Help.", "Ronnie for advising writing revisions", "Pootmehoot for the Bernie Banner.", "mbierden for the Campaign Signs.", "u/ConsiderationOk3683 (burrito2045) for the candidate images (minus no running mate.)", "StrawberryMaster for visual design adjustments", "", "Various codes made by Mangolith, Thatchmaster, & DecStarG.", "", "Credit to the rest of the TCT community for assistance with the code and building a foundation of others to use."]
+    const creditsList = ["Mod mainly written and coded by Elyna (Seleucus on alternatehistory.com).", "", "Help from:", "TheNorthEast for ending slide #13 and the Left Opposition description.", "Tannenberg for achievement images (TBD).", "Skittie/C0SM0 for the Themes & for other Visual Help.", "Ronnie for advising writing revisions", "Pootmehoot for the Bernie Banner.", "mbierden for the Campaign Signs.", "u/ConsiderationOk3683 (burrito2045) for the candidate images (minus no running mate.)", "StrawberryMaster for visual design adjustments", "u/Macrohistorian for revised A24301 feedback", "", "Various codes made by Mangolith, Thatchmaster, & DecStarG.", "", "Credit to the rest of the TCT community for assistance with the code and building a foundation of others to use."]
     const text = "THOSE WHO HELPED CREATE OUR REVOLUTION:\n\n" + creditsList.join('\n');
 
   alert(text);
