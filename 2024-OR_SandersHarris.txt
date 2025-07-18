@@ -2069,7 +2069,7 @@
 			"pk": 17001,
 			"fields": {
 				"question": 17000,
-				"description": "The right to choose is under attack in a way we can't ignore, and we must push back. This is no time for compromises and half-measures; you will work with Schumer and Pelosi to fight for the Woman's Health Protection Act in Congress and codify the right to choose once and for all. You'll rally the Senate and the House, and if there are not 60 votes in the Senate, then the Senate must end the filibuster to pass it with 50 votes!"
+				"description": "The right to choose is under attack in a way we can't ignore, and we must push back. This is no time for compromises and half-measures; you will work with Schumer and Pelosi to fight for the Women's Health Protection Act in Congress and codify the right to choose once and for all. You'll rally the Senate and the House, and if there are not 60 votes in the Senate, then the Senate must end the filibuster to pass it with 50 votes!"
 			}
 		},
 		{
@@ -2077,7 +2077,7 @@
 			"pk": 17002,
 			"fields": {
 				"question": 17000,
-				"description": "As much as it pains you, you know the Woman's Health Protection Act won't pass. Working with Schumer and Pelosi, you'll push for votes on measures with broad public support - protecting abortion in the first trimester, in cases of rape and incest, securing travel for abortion, and guaranteeing birth control access. One vote at a time, you'll force Republicans to show America how out of touch they stand on women's rights."
+				"description": "As much as it pains you, you know the Women's Health Protection Act won't pass. Working with Schumer and Pelosi, you'll push for votes on measures with broad public support - protecting abortion in the first trimester, in cases of rape and incest, securing travel for abortion, and guaranteeing birth control access. One vote at a time, you'll force Republicans to show America how out of touch they stand on women's rights."
 			}
 		},
 		{
@@ -58853,6 +58853,7 @@
 			if (senate_lost==1) { //can't actually do the thing in the Senate
 				applyMultiplier(300,-0.01)
 			}
+			latino_approval-=1 //you're being more progressive on abortion than they prefer
 		}
 		else if (ans==17002) {
 			applySalience(111,-0.03)
@@ -58870,6 +58871,7 @@
 			applySalience(112,0.21) //attention goes from Ukraine to abortion 
 			party_unity+=1
 			political_capital-=1 //Manchin and Sinema don't like you insulting and going around them
+			latino_approval-=1 //you're being more progressive on abortion than they prefer
 		}
 		else if (ans==17004) {
 			applySalience(111,-0.03)
@@ -58880,6 +58882,7 @@
 			party_social_progressive+=1
 			r_radical+=1 //stacking the court
 			bipartisan-=1 //sort-of. 
+			latino_approval-=1 //you're being much more progressive on abortion than they prefer
 		}
 		else if (ans==18001) {
 			political_capital-=1 //you flubbed it publicly
@@ -60982,8 +60985,8 @@
 			party_econ_progressive+=1
 			party_social_progressive+=1
 			political_capital-=1
-			worker_approval+=1 //progressive labor policy
-			latino_approval+=1 //progressive immigration 
+			worker_approval+=2 //progressive labor policy
+			latino_approval+=2 //progressive immigration 
 			ReplaceFeedback(3002,"AG Vanita Gupta translates your request into action, appointing Jack Smith as a special counsel to urgently investigate and prosecute Trump for the insurrection. The eruption from the right is as fierce as it's expected - calling you a Communist dictator, a tyrant locking up your political enemies. <i>Though the heavens fall, let justice be done.</i>") //enables Trump prosecution route
 		}
 		if (ans>2000 && ans<=2004 && cabinet_foreign_progressive==0) {
@@ -61881,7 +61884,6 @@
 				else { //LATAM immigrants protest that you denied asylum.
 					party_social_progressive-=1
 					worker_approval+=1 //wages up
-					latino_approval-=1 //stopping relatives from entering
 					//no inflation effect as the lack of migration exacerbates labor shortage
 					if (e.player_answers.includes(13104)) { //Sembrando Vida - i.e. you didn't crack down directly on refugees, you worked with AMLO to do so.
 						ReplaceQuestion(31200,"Morning breaks with the sound of chanting outside. \"You promised dignity, not deportation\", the voices cry outside the White House. Tens of thousands who once believed in you are burning their <i>Tio Bernie</i> shirts in piles. They call you a xenophobe in leftist clothing who conspired with AMLO against their countrymen to appease racists. What can you do to regain their trust?")
