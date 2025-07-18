@@ -6054,7 +6054,7 @@
 			"fields": {
 				"state": 1102,
 				"issue": 110,
-				"state_issue_score": -0.2,
+				"state_issue_score": -0.1,
 				"weight": 1
 			}
 		},
@@ -6134,7 +6134,7 @@
 			"fields": {
 				"state": 1103,
 				"issue": 113,
-				"state_issue_score": -0.6,
+				"state_issue_score": -0.75,
 				"weight": 1.5
 			}
 		},
@@ -6534,7 +6534,7 @@
 			"fields": {
 				"state": 1111,
 				"issue": 113,
-				"state_issue_score": -0.6,
+				"state_issue_score": -0.8,
 				"weight": 1
 			}
 		},
@@ -7484,7 +7484,7 @@
 			"fields": {
 				"state": 1130,
 				"issue": 113,
-				"state_issue_score": -0.1,
+				"state_issue_score": 0.1,
 				"weight": 1.5
 			}
 		},
@@ -7634,7 +7634,7 @@
 			"fields": {
 				"state": 1133,
 				"issue": 113,
-				"state_issue_score": -0.55,
+				"state_issue_score": -0.8,
 				"weight": 1
 			}
 		},
@@ -7734,7 +7734,7 @@
 			"fields": {
 				"state": 1135,
 				"issue": 113,
-				"state_issue_score": -0.7,
+				"state_issue_score": -0.8,
 				"weight": 1.25
 			}
 		},
@@ -7984,7 +7984,7 @@
 			"fields": {
 				"state": 1140,
 				"issue": 113,
-				"state_issue_score": -0.55,
+				"state_issue_score": -0.6,
 				"weight": 1
 			}
 		},
@@ -8034,7 +8034,7 @@
 			"fields": {
 				"state": 1141,
 				"issue": 113,
-				"state_issue_score": -0.5,
+				"state_issue_score": -0.6,
 				"weight": 1
 			}
 		},
@@ -8484,7 +8484,7 @@
 			"fields": {
 				"state": 1150,
 				"issue": 113,
-				"state_issue_score": -0.71,
+				"state_issue_score": -0.75,
 				"weight": 1
 			}
 		},
@@ -9060,7 +9060,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1103,
-				"state_multiplier": 1.64
+				"state_multiplier": 1.9
 			}
 		},
 		{
@@ -9069,7 +9069,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1104,
-				"state_multiplier": 1.3
+				"state_multiplier": 1.32
 			}
 		},
 		{
@@ -9132,7 +9132,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1111,
-				"state_multiplier": 0.72
+				"state_multiplier": 0.82
 			}
 		},
 		{
@@ -9141,7 +9141,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1112,
-				"state_multiplier": 1.11
+				"state_multiplier": 1.13
 			}
 		},
 		{
@@ -9303,7 +9303,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1130,
-				"state_multiplier": 1.12
+				"state_multiplier": 1.11
 			}
 		},
 		{
@@ -9330,7 +9330,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1133,
-				"state_multiplier": 0.72
+				"state_multiplier": 0.86
 			}
 		},
 		{
@@ -9348,7 +9348,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1135,
-				"state_multiplier": 0.76
+				"state_multiplier": 0.81
 			}
 		},
 		{
@@ -9393,7 +9393,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1140,
-				"state_multiplier": 0.87
+				"state_multiplier": 0.9
 			}
 		},
 		{
@@ -9402,7 +9402,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1141,
-				"state_multiplier": 1.62
+				"state_multiplier": 1.72
 			}
 		},
 		{
@@ -9483,7 +9483,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1150,
-				"state_multiplier": 0.57
+				"state_multiplier": 0.64
 			}
 		},
 		{
@@ -21899,7 +21899,7 @@
 			"fields": {
 				"answer": 36003,
 				"issue": 111,
-				"issue_score": -0.25,
+				"issue_score": -0.2,
 				"issue_importance": 8
 			}
 		},
@@ -21929,7 +21929,7 @@
 			"fields": {
 				"answer": 36002,
 				"issue": 110,
-				"issue_score": 0.3,
+				"issue_score": 0.35,
 				"issue_importance": 4
 			}
 		},
@@ -21959,7 +21959,7 @@
 			"fields": {
 				"answer": 44001,
 				"issue": 110,
-				"issue_score": 0.5,
+				"issue_score": 0.48,
 				"issue_importance": 5
 			}
 		},
@@ -21969,7 +21969,7 @@
 			"fields": {
 				"answer": 44001,
 				"issue": 111,
-				"issue_score": -0.25,
+				"issue_score": -0.2,
 				"issue_importance": 5
 			}
 		},
@@ -21979,7 +21979,7 @@
 			"fields": {
 				"answer": 44002,
 				"issue": 110,
-				"issue_score": 0.3,
+				"issue_score": 0.35,
 				"issue_importance": 5
 			}
 		},
@@ -22009,7 +22009,7 @@
 			"fields": {
 				"answer": 44003,
 				"issue": 112,
-				"issue_score": -0.16,
+				"issue_score": -0.29,
 				"issue_importance": 5
 			}
 		},
@@ -22029,7 +22029,7 @@
 			"fields": {
 				"answer": 44004,
 				"issue": 112,
-				"issue_score": -0.1,
+				"issue_score": -0.26,
 				"issue_importance": 5
 			}
 		},
@@ -22039,7 +22039,7 @@
 			"fields": {
 				"answer": 44101,
 				"issue": 110,
-				"issue_score": 0.3,
+				"issue_score": 0.35,
 				"issue_importance": 3
 			}
 		},
@@ -22049,7 +22049,7 @@
 			"fields": {
 				"answer": 44101,
 				"issue": 111,
-				"issue_score": -0.25,
+				"issue_score": -0.35,
 				"issue_importance": 3
 			}
 		},
@@ -22089,7 +22089,7 @@
 			"fields": {
 				"answer": 44103,
 				"issue": 111,
-				"issue_score": 0.4,
+				"issue_score": 0.3,
 				"issue_importance": 3
 			}
 		},
@@ -22119,7 +22119,7 @@
 			"fields": {
 				"answer": 44102,
 				"issue": 110,
-				"issue_score": -0.2,
+				"issue_score": -0.1,
 				"issue_importance": 3
 			}
 		},
@@ -22179,7 +22179,7 @@
 			"fields": {
 				"answer": 44104,
 				"issue": 112,
-				"issue_score": -0.1,
+				"issue_score": -0.26,
 				"issue_importance": 3
 			}
 		},
@@ -22189,7 +22189,7 @@
 			"fields": {
 				"answer": 44104,
 				"issue": 113,
-				"issue_score": -0.25,
+				"issue_score": -0.3,
 				"issue_importance": 3
 			}
 		},
@@ -57651,7 +57651,7 @@
 		e.candidate_json[1].fields.first_name='Temporarily'
 		e.candidate_json[1].fields.last_name='Vacant'
 		
-		applyDrift(300,0.02,1104) //CA home state boost for Kamala
+		applyDrift(300,0.04,1104) //CA home state boost for Kamala
 		e.election_json[0].fields.advisor_url="https://i.imgur.com/R2FmZVf.jpeg"
 		campaignTrail_temp.candidate_image_url = "https://i.imgur.com/AvEct3B.jpeg";
 		campaignTrail_temp.running_mate_image_url = "https://i.imgur.com/hDLsVGF.jpeg"; //just a question mark
@@ -61863,7 +61863,6 @@
 				if (immigration_level==3) { //de facto open borders; Texas takes matters into its own hands with Eagle Pass
 					party_social_progressive+=1
 					worker_approval-=1 //driving down wages
-					latino_approval-=1 //skipping the line
 					//no inflation effect as the immigration helps alleviate labor shortage
 					applySalience(113,0.3) //immigration is a big issue thanks to your decisions
 					e.questions_json[campaignTrail_temp.question_number+1] = tunnel(31000)
