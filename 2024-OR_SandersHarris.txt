@@ -21929,7 +21929,7 @@
 			"fields": {
 				"answer": 36002,
 				"issue": 110,
-				"issue_score": 0.3,
+				"issue_score": 0.35,
 				"issue_importance": 4
 			}
 		},
@@ -21939,7 +21939,7 @@
 			"fields": {
 				"answer": 36002,
 				"issue": 113,
-				"issue_score": 0.16,
+				"issue_score": -0.2,
 				"issue_importance": 4
 			}
 		},
@@ -21959,7 +21959,7 @@
 			"fields": {
 				"answer": 44001,
 				"issue": 110,
-				"issue_score": 0.5,
+				"issue_score": 0.45,
 				"issue_importance": 5
 			}
 		},
@@ -21969,7 +21969,7 @@
 			"fields": {
 				"answer": 44001,
 				"issue": 111,
-				"issue_score": -0.25,
+				"issue_score": -0.2,
 				"issue_importance": 5
 			}
 		},
@@ -21979,7 +21979,7 @@
 			"fields": {
 				"answer": 44002,
 				"issue": 110,
-				"issue_score": 0.3,
+				"issue_score": 0.35,
 				"issue_importance": 5
 			}
 		},
@@ -21989,7 +21989,7 @@
 			"fields": {
 				"answer": 44002,
 				"issue": 113,
-				"issue_score": 0.16,
+				"issue_score": -0.2,
 				"issue_importance": 5
 			}
 		},
@@ -22009,7 +22009,7 @@
 			"fields": {
 				"answer": 44003,
 				"issue": 112,
-				"issue_score": -0.16,
+				"issue_score": -0.29,
 				"issue_importance": 5
 			}
 		},
@@ -22029,7 +22029,7 @@
 			"fields": {
 				"answer": 44004,
 				"issue": 112,
-				"issue_score": -0.1,
+				"issue_score": -0.26,
 				"issue_importance": 5
 			}
 		},
@@ -22039,7 +22039,7 @@
 			"fields": {
 				"answer": 44101,
 				"issue": 110,
-				"issue_score": 0.3,
+				"issue_score": 0.35,
 				"issue_importance": 3
 			}
 		},
@@ -22049,7 +22049,7 @@
 			"fields": {
 				"answer": 44101,
 				"issue": 111,
-				"issue_score": -0.25,
+				"issue_score": -0.35,
 				"issue_importance": 3
 			}
 		},
@@ -22059,7 +22059,7 @@
 			"fields": {
 				"answer": 44101,
 				"issue": 113,
-				"issue_score": 0.16,
+				"issue_score": -0.2,
 				"issue_importance": 3
 			}
 		},
@@ -22089,7 +22089,7 @@
 			"fields": {
 				"answer": 44103,
 				"issue": 111,
-				"issue_score": 0.4,
+				"issue_score": 0.3,
 				"issue_importance": 3
 			}
 		},
@@ -22129,7 +22129,7 @@
 			"fields": {
 				"answer": 44102,
 				"issue": 113,
-				"issue_score": -0.5,
+				"issue_score": -0.1,
 				"issue_importance": 3
 			}
 		},
@@ -22149,7 +22149,7 @@
 			"fields": {
 				"answer": 44103,
 				"issue": 113,
-				"issue_score": -0.08,
+				"issue_score": -0.25,
 				"issue_importance": 3
 			}
 		},
@@ -22179,7 +22179,7 @@
 			"fields": {
 				"answer": 44104,
 				"issue": 112,
-				"issue_score": -0.1,
+				"issue_score": -0.26,
 				"issue_importance": 3
 			}
 		},
@@ -22189,7 +22189,7 @@
 			"fields": {
 				"answer": 44104,
 				"issue": 113,
-				"issue_score": -0.25,
+				"issue_score": -0.1,
 				"issue_importance": 3
 			}
 		},
