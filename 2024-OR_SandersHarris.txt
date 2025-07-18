@@ -57495,11 +57495,11 @@
 			applySalience(112,-0.075) //social issues less important
 			applySalience(113,0.075) //immigration more important
 			worker_approval+=1.25 //ticket moves to right on econ 
-			latino_approval+=0.5 //ticket moves to right on immigration
+			latino_approval+=0.75 //ticket moves to right on immigration
 			e.candidate_json[2].fields.first_name="J.D."
 			e.candidate_json[2].fields.last_name="Vance" 
 			vpTable["J.D. Vance"]="Tom Cotton" 
-			//+0.2/-0.6/-0.4/-0.6 (D+1.3; D+14 EVs; PA D+1.0. House D+2.7; Tipping point: MT R+5.5)
+			//+0.2/-0.6/-0.45/-0.65 (D+2.3; D+16 EVs; PA D+2.3. House D+3.15; Tipping point: MT R+4.6)
 			e.candidate_json[2].fields.state="Ohio"
 			opponent_name="JD Vance"
 			opponent_vp_name="Tom Cotton"
@@ -57507,8 +57507,8 @@
 			opponent_vp_last_name="Cotton"
 			e.candidate_issue_score_json[5].fields.issue_score+=-0.25
 			e.candidate_issue_score_json[6].fields.issue_score+=0
-			e.candidate_issue_score_json[7].fields.issue_score+=0.2
-			e.candidate_issue_score_json[8].fields.issue_score+=-0.1
+			e.candidate_issue_score_json[7].fields.issue_score+=0.15
+			e.candidate_issue_score_json[8].fields.issue_score+=-0.15
 			applyDrift(301,-0.01,1124) //lose part of Hawley home state effect
 			applyDrift(301,0.01,1103) //Arkansas for Cotton home state effect
 			opponent_maga=true
