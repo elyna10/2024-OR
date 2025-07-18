@@ -57554,7 +57554,7 @@
 			CPolling = pop_vote.find(p=>p.candidate==305).percent //Centrists
 			if (boost_list[305][StateNum]>0) { //centrist boost in this specific state 
 				if (RPolling>CPolling*8 && DPolling>CPolling*8) {
-					applyMinorBoost(305,-0.012*boost_list[305][StateNum],1100+StateNum)
+					applyMinorBoost(305,-0.12*boost_list[305][StateNum],1100+StateNum)
 				}
 				else if (RPolling>CPolling*4 && DPolling>CPolling*4) {
 					applyMinorBoost(305,-0.09*boost_list[305][StateNum],1100+StateNum)
