@@ -54868,7 +54868,7 @@
 				else { //Freedom plays for Kamala win
 					song_change_resolved=true 
 					const EndingSong = new Playlist();
-					const endSong = new Song("Freedom", "Beyonce", "https://i.imgur.com/x5ooa2m.jpeg", "https://audio.jukehost.co.uk/reeFJNaRCAEzYiHEzqKKLddZ7loq6S9K");
+					const endSong = new Song("Freedom", "Beyoncé", "https://i.imgur.com/x5ooa2m.jpeg", "https://audio.jukehost.co.uk/reeFJNaRCAEzYiHEzqKKLddZ7loq6S9K");
 					EndingSong.addSong(endSong);
 					changePlaylist(EndingSong);
 				}
@@ -62666,7 +62666,7 @@
 			}
 			e.global_parameter_json[0].fields.question_count = e.question_number+2 //end the game after next question.
 			const EndingSong = new Playlist();
-			const endSong = new Song("Star-Spangled Banner", "Jimmi Hendrix", "https://i.imgur.com/zykth93.jpeg", "https://audio.jukehost.co.uk/fdkvqrl1iZYmkiN8961JTkjQJZa1YVS6");
+			const endSong = new Song("Star-Spangled Banner", "Jimi Hendrix", "https://i.imgur.com/zykth93.jpeg", "https://audio.jukehost.co.uk/fdkvqrl1iZYmkiN8961JTkjQJZa1YVS6");
 			EndingSong.addSong(endSong);
 			changePlaylist(EndingSong);
 			quotes = ["''War, the human disease that has plagued mankind forever.'' ~ Bernie Sanders", ]
