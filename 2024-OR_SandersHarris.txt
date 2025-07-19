@@ -56990,6 +56990,7 @@
 			e.candidate_issue_score_json[22].fields.issue_score=0.6
 			e.candidate_issue_score_json[23].fields.issue_score=0.6
 			opponent_maga=true
+			e.candidate_json[2].fields.color_hex="#910c0c" //Trump color hex (also base hex) - resetting in case player has messed around with setting multiple opponents or something.
 		}
 		else if(OpponentValue==2) {
 			applySalience(110,0.075) //increases importance of econ in the election
@@ -57052,6 +57053,7 @@
 			applyMinorBoost(305,0.1,1120) //MA for Baker
 			applyMinorBoost(305,0.2) //nationwide
 			opponent_maga=true
+			e.candidate_json[2].fields.color_hex="#910c0c" //Trump color hex (also base hex) - resetting in case player has messed around with setting multiple opponents or something.
 		}
 		else if(OpponentValue==3) {
 			applySalience(111,0.075) //increases importance of globalism/foreign policy in the election
@@ -57113,6 +57115,7 @@
 			applyMinorBoost(305,0.1,1100) //give a boost in AL to counteract the Deep South Penalty (Rice's home base)
 			applyMinorBoost(305,0.2) //general boost
 			opponent_maga=true
+			e.candidate_json[2].fields.color_hex="#910c0c" //Trump color hex (also base hex) - resetting in case player has messed around with setting multiple opponents or something.
 		}
 		else if(OpponentValue==4) {
 			applySalience(112,0.075) //increases importance of social policy in the election
@@ -57174,6 +57177,7 @@
 			applyMinorBoost(305,0.01,1108) //At least Jolly is an actual politician.
 			applyMinorBoost(305,0.12) 
 			opponent_maga=true
+			e.candidate_json[2].fields.color_hex="#910c0c" //Trump color hex (also base hex) - resetting in case player has messed around with setting multiple opponents or something.
 		}
 		else if(OpponentValue==5) {
 			applySalience(111,0.15) //increases importance of globalism in the election
@@ -57236,6 +57240,7 @@
 			applyMinorBoost(305,0.02,1145) //Riggleman boost in Virginia
 			applyMinorBoost(305,0.12) 
 			opponent_maga=true
+			e.candidate_json[2].fields.color_hex="#730808" //Trump Jr color hex
 		}
 		else if(OpponentValue==6) {
 			applySalience(112,0.15) //increases importance of social issues in the election
@@ -57292,6 +57297,7 @@
 			applyMinorBoost(305,0.01,1131) //Boost Chavis in NY
 			applyMinorBoost(305,0.06) 
 			opponent_maga=false
+			e.candidate_json[2].fields.color_hex="#e1650d" //DeSantis color hex. Same as in DSA to reference it.
 		}
 		else if(OpponentValue==7) {
 			applySalience(111,0.075) //increases importance of globalism in the election
@@ -57349,6 +57355,7 @@
 			applyMinorBoost(305,0.1,1129) //Whitman boost in NJ
 			applyMinorBoost(305,0.12) 
 			opponent_maga=true
+			e.candidate_json[2].fields.color_hex="#bf5252" //Josh Hawley color hex
 		}
 		else if(OpponentValue==11) { //for assassination results, don't overwrite issue scores because keep the effect of previous attacks.
 			applySalience(111,0.15) //increases importance of globalism in the election
@@ -57373,6 +57380,7 @@
 			e.candidate_issue_score_json[8].fields.issue_score+=0.25
 			//home state effects don't change.
 			opponent_maga=true
+			e.candidate_json[2].fields.color_hex="#662828" //JD Vance color hex
 		}
 		else if(OpponentValue==12) {
 			applySalience(110,0.075) //econ more important
@@ -57398,6 +57406,7 @@
 			applyMinorBoost(302,rfk_boost*0.25) //hey what happened to our MAGA candidate?
 			//home state effects don't change.
 			opponent_maga=false
+			e.candidate_json[2].fields.color_hex="#a83232" //Burgum color hex
 		}
 		else if(OpponentValue==13) {
 			applySalience(112,0.075) //increases importance of social issues in the election
@@ -57421,6 +57430,7 @@
 			e.candidate_issue_score_json[8].fields.issue_score+=0.35
 			//home state effects don't change.
 			opponent_maga=false
+			e.candidate_json[2].fields.color_hex="#ba2323" //Rubio color hex
 		}
 		else if(OpponentValue==14) {
 			worker_approval+=1.25 //ticket moves to right on econ 
@@ -57444,6 +57454,7 @@
 			applyMinorBoost(302,rfk_boost*0.1) //hey what happened to our MAGA candidate?
 			//home state effects don't change.
 			opponent_maga=false
+			e.candidate_json[2].fields.color_hex="#d13838" //Scott color hex
 		}
 		else if(OpponentValue==15) {
 			worker_approval+=1.5 //ticket moves to right on econ 
@@ -57464,6 +57475,7 @@
 			e.candidate_issue_score_json[8].fields.issue_score+=0.05
 			//home state effects don't change.
 			opponent_maga=true
+			e.candidate_json[2].fields.color_hex="#c94040" //Ramaswamy color hex
 		}
 		else if(OpponentValue==16) {
 			applySalience(112,-0.15) //decrease importance of social issues in the election
@@ -57490,6 +57502,7 @@
 			//home state effects don't change.
 			applyMinorBoost(302,rfk_boost*0.25) //now they've gone even more establishment
 			opponent_maga=false
+			e.candidate_json[2].fields.color_hex="#a83232" //Burgum color hex
 		}
 		else if(OpponentValue==17) {
 			applySalience(112,-0.075) //social issues less important
@@ -57512,6 +57525,7 @@
 			applyDrift(301,-0.01,1124) //lose part of Hawley home state effect
 			applyDrift(301,0.01,1103) //Arkansas for Cotton home state effect
 			opponent_maga=true
+			e.candidate_json[2].fields.color_hex="#662828" //Vance color hex
 		}
 		
 		if (OpponentValue>=1 && OpponentValue<=7) {
@@ -57647,6 +57661,7 @@
 		e.candidate_json[0].fields.first_name='Kamala'
 		e.candidate_json[0].fields.last_name='Harris'
 		e.candidate_json[0].fields.state='California'
+		e.candidate_json[0].fields.color_hex="#2d1894" //Kamala color hex
 		
 		e.candidate_json[1].fields.first_name='Temporarily'
 		e.candidate_json[1].fields.last_name='Vacant'
