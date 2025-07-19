@@ -56945,7 +56945,7 @@
 			e.candidate_json[2].fields.first_name="Donald"
 			e.candidate_json[2].fields.last_name="Trump" 
 			vpTable["Donald Trump"]="JD Vance"
-			//-0.1/-0.5/-0.3/-0.75 (if running in 2020: D+4.3; D+16 EVs. Tipping point PA D+4.0. House tipping point D+3.8 Senate tipping point - MT R+2.4)
+			//-0.1/-0.5/-0.3/-0.75 (if running in 2020: D+4.3; D+16 EVs. Tipping point PA D+4.0. House tipping point D+3.7 Senate tipping point - MT R+2.8)
 			e.candidate_json[2].fields.state="Florida"
 			opponent_name="Donald Trump"
 			opponent_vp_name="JD Vance"
@@ -57004,7 +57004,7 @@
 			e.candidate_json[2].fields.first_name="Donald"
 			e.candidate_json[2].fields.last_name="Trump" 
 			vpTable["Donald Trump"]="Doug Burgum" 
-			//-0.4/-0.4/-0.3/-0.55 (if running in 2020: D+0.4, D+12 EVs. Tipping point NV: D+0.3; House D+2.1; Senate tipping point MT: R+1.6)
+			//-0.4/-0.4/-0.3/-0.55 (if running in 2020: D+0.8, D+12 EVs. Tipping point NV: D+0.3; House D+2.1; Senate tipping point MT: R+2.0)
 			e.candidate_json[2].fields.state="Florida"
 			opponent_name="Donald Trump"
 			opponent_vp_name="Doug Burgum"
@@ -57047,7 +57047,7 @@
 			e.candidate_issue_score_json[20].fields.issue_score=0
 			e.candidate_issue_score_json[21].fields.issue_score=0.4
 			e.candidate_issue_score_json[22].fields.issue_score=0.4
-			e.candidate_issue_score_json[23].fields.issue_score=0.2
+			e.candidate_issue_score_json[23].fields.issue_score=0
 			applyMinorBoost(305,0.05,1102) //AZ for Sinema
 			applyMinorBoost(305,0.1,1120) //MA for Baker
 			applyMinorBoost(305,0.2) //nationwide
@@ -57065,7 +57065,7 @@
 			e.candidate_json[2].fields.first_name="Donald"
 			e.candidate_json[2].fields.last_name="Trump" 
 			vpTable["Donald Trump"]="Marco Rubio" 
-			// -0.3/+0.2/-0.5/-0.55 (if running in 2020: D+0.4, D+26 EVs. Tipping point PA: D+1.4. House D+2.0; Tipping point Senate - AZ R+1.5)
+			// -0.3/+0.2/-0.5/-0.55 (if running in 2020: D+0.9, D+26 EVs. Tipping point PA: D+1.4. House D+2.1; Tipping point Senate - AZ R+1.3)
 			e.candidate_json[2].fields.state="Florida"
 			opponent_name="Donald Trump"
 			opponent_vp_name="Marco Rubio"
@@ -57104,7 +57104,7 @@
 			vpTable["Joe Manchin"]="Condoleezza Rice"
 			e.candidate_json[5].fields.state="West Virginia"
 			e.candidate_json[5].fields.party="No Labels"
-			e.candidate_issue_score_json[20].fields.issue_score=0.2
+			e.candidate_issue_score_json[20].fields.issue_score=0.4
 			e.candidate_issue_score_json[21].fields.issue_score=0
 			e.candidate_issue_score_json[22].fields.issue_score=0
 			e.candidate_issue_score_json[23].fields.issue_score=0
@@ -57126,7 +57126,7 @@
 			e.candidate_json[2].fields.first_name="Donald"
 			e.candidate_json[2].fields.last_name="Trump" 
 			vpTable["Donald Trump"]="Tim Scott" 
-			//  -0.15/+0.1/-0.5/-0.7 (if running in 2020: D+1.7, D+26 EVs. House D+2.6. Tipping point Pennsylvania D+1.1; Tipping point Senate AZ D+0.4.)
+			//  -0.15/+0.1/-0.5/-0.7 (if running in 2020: D+1.9, D+26 EVs. House D+2.5. Tipping point Pennsylvania D+1.9; Tipping point Senate AZ D+0.3.)
 			e.candidate_json[2].fields.state="Florida"
 			opponent_name="Donald Trump"
 			opponent_vp_name="Tim Scott"
@@ -57185,7 +57185,7 @@
 			e.candidate_json[2].fields.first_name="Donald"
 			e.candidate_json[2].fields.last_name="Trump Jr." 
 			vpTable["Donald Trump Jr."]="Vivek Ramaswamy" 
-			// 0/-0.7/-0.7/-0.6 (D+6.9; D+92 EVs; NE-02 D+9.1; House D+8.1; Senate tipping point Montana D+0.8)
+			// 0/-0.7/-0.7/-0.6 (D+7.2; D+148 EVs; NE-02 D+9.2; House D+8.3; Senate tipping point Montana D+0.4)
 			e.candidate_json[2].fields.state="Florida"
 			opponent_name="Donald Trump Jr."
 			opponent_vp_name="Vivek Ramaswamy"
@@ -57247,7 +57247,7 @@
 			e.candidate_json[2].fields.first_name="Ron"
 			e.candidate_json[2].fields.last_name="DeSantis" 
 			vpTable["Ron DeSantis"]="Doug Burgum" 
-			// -0.4/0.1/-0.7/-0.2 (D+6.1; D+148 EVs; ME-02 D+6.1; House tipping point D+3.8; Senate tipping point AZ D+4.8)
+			// -0.4/0.1/-0.7/-0.2 (D+6.0; D+116 EVs; ME-02 D+5.8; House tipping point D+3.6; Senate tipping point AZ D+5.3)
 			e.candidate_json[2].fields.state="Florida"
 			opponent_name="Ron DeSantis"
 			opponent_vp_name="Doug Burgum"
@@ -57304,7 +57304,7 @@
 			e.candidate_json[2].fields.first_name="Josh"
 			e.candidate_json[2].fields.last_name="Hawley" 
 			vpTable["Josh Hawley"]="JD Vance" 
-			//+0.45/-0.6/-0.6/-0.5 (D+2.1; D+80 EVs; NV D+2.0; House tipping point D+3.2; Senate tipping point MT R+2.4)
+			//+0.45/-0.6/-0.6/-0.5 (D+2.6; D+80 EVs; NV D+2.0; House tipping point D+3.2; Senate tipping point MT R+2.8)
 			e.candidate_json[2].fields.state="Missouri"
 			opponent_name="Josh Hawley"
 			opponent_vp_name="JD Vance"
@@ -57361,7 +57361,7 @@
 			e.candidate_json[2].fields.first_name="J.D."
 			e.candidate_json[2].fields.last_name="Vance" 
 			vpTable["J.D. Vance"]="Donald Trump Jr." 
-			//+0.15/-0.7/-0.5/-0.5 (D+4.4; D+80 EVs. PA D+5.58; House D+4.1; Senate tipping point MT R+4.5)
+			//+0.15/-0.7/-0.5/-0.5 (D+4.8; D+80 EVs. PA D+5.7; House D+4.3; Senate tipping point MT R+4.9)
 			e.candidate_json[2].fields.state="Ohio"
 			opponent_name="JD Vance"
 			opponent_vp_name="Donald Trump Jr."
@@ -57385,7 +57385,7 @@
 			e.candidate_json[2].fields.first_name="Doug"
 			e.candidate_json[2].fields.last_name="Burgum" 
 			vpTable["Doug Burgum"]="Donald Trump Jr." 
-			//-0.6/+0.3/-0.2/-0.2 (D+3.4; D+60 EVs. PA D+4.2; 51 Senate seats; House D+2.7; Senate tipping point MO D+1.8)
+			//-0.6/+0.3/-0.2/-0.2 (D+3.4; D+60 EVs. PA D+4.0; 51 Senate seats; House D+2.7; Senate tipping point MO D+1.5)
 			e.candidate_json[2].fields.state="North Dakota"
 			opponent_name="Doug Burgum"
 			opponent_vp_name="Donald Trump Jr."
@@ -57410,7 +57410,7 @@
 			e.candidate_json[2].fields.first_name="Marco"
 			e.candidate_json[2].fields.last_name="Rubio" 
 			vpTable["Marco Rubio"]="Donald Trump Jr." 
-			//-0.55/+0.4/-0.6/-0.2 (D+2.2; D+92 EVs; VA D+5, House D+4.5; 50 Senate seats - Senate tipping point AZ D+3.2%)
+			//-0.55/+0.4/-0.6/-0.2 (D+3.3; D+92 EVs; VA D+5, House D+4.6; 50 Senate seats - Senate tipping point AZ D+3.4%)
 			opponent_name="Marco Rubio"
 			opponent_vp_name="Donald Trump Jr."
 			opponent_last_name="Rubio"
@@ -57431,7 +57431,7 @@
 			e.candidate_json[2].fields.first_name="Tim"
 			e.candidate_json[2].fields.last_name="Scott" 
 			vpTable["Tim Scott"]="Donald Trump Jr." 
-			//-0.4/+0.3/-0.6/-0.5 (D+3.6; D+92 EVs; PA D+5.82; House D+2.4; Senate tipping point AZ R+0.9)
+			//-0.4/+0.3/-0.6/-0.5 (D+3.6; D+92 EVs; PA D+5.6; House D+2.4; Senate tipping point AZ R+0.8)
 			e.candidate_json[2].fields.state="South Carolina"
 			opponent_name="Tim Scott"
 			opponent_vp_name="Donald Trump Jr."
@@ -57452,7 +57452,7 @@
 			e.candidate_json[2].fields.first_name="Vivek"
 			e.candidate_json[2].fields.last_name="Ramaswamy" 
 			vpTable["Vivek Ramaswamy"]="Lara Trump" 
-			//-0.3/-0.75/-0.7/-0.55 (D+8.4; D+148 EVs; NE-02 D+10.8; House D+9.7; 50 Senate seats - Senate tipping point MT D+2.3)
+			//-0.3/-0.75/-0.7/-0.55 (D+8.7; D+148 EVs; NE-02 D+10.8; House D+9.7; 50 Senate seats - Senate tipping point MT D+1.9)
 			e.candidate_json[2].fields.state="Ohio"
 			opponent_name="Vivek Ramaswamy"
 			opponent_vp_name="Lara Trump"
@@ -57477,7 +57477,7 @@
 			e.candidate_json[2].fields.first_name="Doug"
 			e.candidate_json[2].fields.last_name="Burgum" 
 			vpTable["Doug Burgum"]="Marco Rubio" 
-			//-0.7/+0.4/-0.3/0 (D+7.3; D+112 EVs; PA D+9.1; House D+4.3; 51 Senate seats - tipping point MO D+3.2)
+			//-0.7/+0.4/-0.3/0 (D+7.3; D+112 EVs; PA D+8.9; House D+4.4; 51 Senate seats - tipping point MO D+2.9)
 			e.candidate_json[2].fields.state="North Dakota"
 			opponent_name="Doug Burgum"
 			opponent_vp_name="Marco Rubio"
@@ -57499,7 +57499,7 @@
 			e.candidate_json[2].fields.first_name="J.D."
 			e.candidate_json[2].fields.last_name="Vance" 
 			vpTable["J.D. Vance"]="Tom Cotton" 
-			//+0.2/-0.6/-0.45/-0.65 (D+2.3; D+16 EVs; PA D+2.3. House D+3.15; Tipping point: MT R+4.6)
+			//+0.2/-0.6/-0.45/-0.65 (D+2.8; D+16 EVs; PA D+2.7. House D+3.5; Tipping point: MT R+4.8)
 			e.candidate_json[2].fields.state="Ohio"
 			opponent_name="JD Vance"
 			opponent_vp_name="Tom Cotton"
