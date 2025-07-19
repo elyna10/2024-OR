@@ -1471,7 +1471,7 @@ campaignTrail_temp.achievements = {
         "description" : "Have the Vice Presidency sit empty for multiple years",
     },
     "Wait, What?" : {
-        "image" : "https://i.imgur.com/dILqtUZ.jpeg", //placeholder
+        "image" : "https://i.imgur.com/IotnMSf.jpeg",
         "description" : "Win the Senate but not the House in 2024",
     },
     "罢免独裁国贼习近平" : {
@@ -1483,15 +1483,15 @@ campaignTrail_temp.achievements = {
         "description" : "Ukraine ends the game with Crimea reconquered",
     },
     "Good politics, bad strategy" : { //done by making a show of force to intimidate China or get them to fire the first shot, and have that show of force destroyed
-        "image" : "https://i.imgur.com/gja4ZiA.jpeg", //placeholder
+        "image" : "https://i.imgur.com/bGhda4o.jpeg",
         "description" : "Have a show of force backfire",
     },
     "The Riskiest Game of Chicken" : {
-        "image" : "https://i.imgur.com/dzq0zWD.jpeg", //placeholder
+        "image" : "https://i.imgur.com/OMIhD4E.jpeg",
         "description" : "Careen over the debt ceiling",
     },
     "Definition of Insanity" : {
-        "image" : "https://i.imgur.com/p8Dqnis.jpeg", //placeholder
+        "image" : "https://i.imgur.com/5RYCBgH.jpeg",
         "description" : "Try to go over the debt ceiling a second time",
     },
     "Soak the Rich" : {
@@ -1579,7 +1579,7 @@ campaignTrail_temp.achievements = {
         "description" : "Defeat the Donald Trump/Marco Rubio ticket",
     },
     "Mr. Trump, Tear Down This Wall" : {
-        "image" : "https://i.imgur.com/U8qhFD7.jpeg", //placeholder
+        "image" : "https://i.imgur.com/Xe3ZG1H.jpeg", //placeholder
         "description" : "Defeat the Donald Trump/Tim Scott ticket",
     },
     "Like Father, Like Son" : {
