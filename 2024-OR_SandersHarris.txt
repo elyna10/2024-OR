@@ -57828,63 +57828,6 @@
 		ans = e.player_answers[e.player_answers.length-1];
 		noCounter += 1;
 		authenticity -=0.5; //Bernie checks out over time if he doesn't stay fired up.
-		if (party_unity>5 || party_unity<-5) { //soft cap
-			if (party_unity>5) {
-				party_unity=Math.max(party_unity*0.9,5)
-			}
-			else {
-				party_unity=Math.min(party_unity*0.9,-5)
-			}
-		}
-		if (political_capital>5 || political_capital<-5) {
-			if (political_capital>5) {
-				political_capital=Math.max(political_capital*0.9,5)
-			}
-			else {
-				political_capital=Math.min(political_capital*0.9,-5)
-			}
-		}
-		if (worker_approval>6 || worker_approval<-6) {
-			if (worker_approval>6) {
-				worker_approval=Math.max(worker_approval*0.95,6)
-			}
-			else {
-				worker_approval=Math.min(worker_approval*0.95,-6)
-			}
-		}
-		if (dove_approval>6 || dove_approval<-6) {
-			if (dove_approval>6) {
-				dove_approval=Math.max(dove_approval*0.95,6)
-			}
-			else {
-				dove_approval=Math.min(dove_approval*0.95,-6)
-			}
-		}
-		if (latino_approval>6 || latino_approval<-6) {
-			if (latino_approval>6) {
-				latino_approval=Math.max(latino_approval*0.95,6)
-			}
-			else {
-				latino_approval=Math.min(latino_approval*0.95,-6)
-			}
-		}
-		if (blob_approval>10 || blob_approval<-10) {
-			if (blob_approval>10) {
-				blob_approval=Math.max(blob_approval*0.95,10)
-			}
-			else {
-				blob_approval=Math.min(blob_approval*0.95,-10)
-			}
-		}
-		if (adversary_approval>10 || adversary_approval<-10) {
-			if (adversary_approval>10) {
-				adversary_approval=Math.max(adversary_approval*0.95,10)
-			}
-			else {
-				adversary_approval=Math.min(adversary_approval*0.95,-10)
-			}
-			adversary_approval*=0.95
-		}
 		applyInflation(inflation);
 		let pop_vote = e.current_results[0];
 		let DPolling = (pop_vote.find(p => p.pk === 300)).pvp
@@ -62603,6 +62546,63 @@
 		
 		if (opponent>0 && e.question_number>32) { //opponents have been selected
 			applyOpponentFade();
+		}
+		if (party_unity>5 || party_unity<-5) { //soft cap applying after other effects
+			if (party_unity>5) {
+				party_unity=Math.max(party_unity*0.9,5)
+			}
+			else {
+				party_unity=Math.min(party_unity*0.9,-5)
+			}
+		}
+		if (political_capital>5 || political_capital<-5) {
+			if (political_capital>5) {
+				political_capital=Math.max(political_capital*0.9,5)
+			}
+			else {
+				political_capital=Math.min(political_capital*0.9,-5)
+			}
+		}
+		if (worker_approval>6 || worker_approval<-6) {
+			if (worker_approval>6) {
+				worker_approval=Math.max(worker_approval*0.95,6)
+			}
+			else {
+				worker_approval=Math.min(worker_approval*0.95,-6)
+			}
+		}
+		if (dove_approval>6 || dove_approval<-6) {
+			if (dove_approval>6) {
+				dove_approval=Math.max(dove_approval*0.95,6)
+			}
+			else {
+				dove_approval=Math.min(dove_approval*0.95,-6)
+			}
+		}
+		if (latino_approval>6 || latino_approval<-6) {
+			if (latino_approval>6) {
+				latino_approval=Math.max(latino_approval*0.95,6)
+			}
+			else {
+				latino_approval=Math.min(latino_approval*0.95,-6)
+			}
+		}
+		if (blob_approval>10 || blob_approval<-10) {
+			if (blob_approval>10) {
+				blob_approval=Math.max(blob_approval*0.95,10)
+			}
+			else {
+				blob_approval=Math.min(blob_approval*0.95,-10)
+			}
+		}
+		if (adversary_approval>10 || adversary_approval<-10) {
+			if (adversary_approval>10) {
+				adversary_approval=Math.max(adversary_approval*0.95,10)
+			}
+			else {
+				adversary_approval=Math.min(adversary_approval*0.95,-10)
+			}
+			adversary_approval*=0.95
 		}
 		
 		
