@@ -42,7 +42,7 @@ campaignTrail_temp.election_json = [
 			
 			<br><br><b>Fervor</b> (internally called authenticity) - This goes up when Bernie gives in-character answers and goes down when he gives out-of-character answers; it also naturally decays over time. It's mainly checked on Q30 - you want to keep it at 8+ for that question. You really don't want it -8 or lower for Q30. Having it low can also result in a bad debate later - too many compromises makes Bernie bern out.
 			
-			<br><br><b>Political capital</b> - Affects your deal-making capability. This is limited to what your opposing party is willing to bargain on - no amount of political capital will convince Manchinema to remove the filibuster, or Rs to support things like the PRO Act, immigration reform, or M4A. Its utility usually goes down significantly starting in 2023, because Republicans are less willing to bargain with you - unless you go the full bipartisan route.
+			<br><br><b>Political capital</b> - Affects your deal-making capability. This is limited to what your opposing party is willing to bargain on - no amount of political capital will convince Manchinema to remove the filibuster, or Rs to support things like the PRO Act, immigration reform, or M4A. Its utility usually goes down significantly starting in 2023, because Republicans are less willing to bargain with you - unless you go the full bipartisan route. Full list of things you can get with it or that it contributes to: Minimum wage compromise with Rs (Q6), Medicare expansion to dental/vision (Q8), $600 billion in renewable investment in mini-GND (Q8), Bipartisan Infrastructure Law (Q10), not-IRA (Q18), rail worker compromise (Q20), compromise speaker with Rs (Q22) and potentially two grand bargains, bipartisan border bill (very hard), putting off TikTok ban until after election (also requires friendly House), and legislation (M4A, public option, codifying Roe) in the epilogue.
 			
 			<br><br><b>Party unity</b> - Primarily affects downballot results - each point gives +/- 0.5% margin-wise for downballot elections in non-presidential years. In 2024, each point will translate into a +/- 0.25% multiplier for you at the start of the campaign, and a +/-0.25% downballot effect at election. Party unity also affects how much support gets leeched from you to a strong Green Party or any third-party centrists, as well as the willingness of the party to support you if you try to get a Republican speaker.
 			
@@ -59,11 +59,11 @@ campaignTrail_temp.election_json = [
 			<br><p><b>Other mechanics</b>
 			
 			<br><br><b>The assassination</b> is conducted by Thomas Matthew Crooks, who shoots you as long as you show up in the greater Pittsburgh area for him to target (by campaigning in West Mifflin, PA.) Otherwise he shoots your opponent. From what we know of him - looking up public appearances of many prominent figures including both Biden and Trump - it seems clear that he was an equal-opportunity assassin who'd have targeted the first major-party candidate to show up near him. Being the assassination target will create a small backlash in favor of the victim, but this is intentionally small on both sides (up to a 2.5% margin swing) - partly because Trump's real-world one was small and partly because I did not want to incentivize the player to get Bernie killed.
-			<br><br>Surviving an assassination will help you recover from staying in after a bad debate (rally-to-the-flag effect); if you are the target of an assassination and replaced by Kamala, Kamala will get more political benefit from options that double down on supporting Bernie and it will cost her more to throw Bernie under the bus. Dying to an assassination after a bad debate, meanwhile, will fuel conspiracy theories that Kamala or the establishment was behind it, hurting the ticket.
+			<br><br>Surviving an assassination will help you recover from staying in after a bad debate (rally-to-the-flag effect); if you are the target of an assassination and replaced by Kamala, Kamala will get more political benefit from options that double down on supporting Bernie and it will cost her more to throw Bernie under the bus. Dying to an assassination after a bad debate, meanwhile, will fuel conspiracy theories that Kamala or the establishment was behind it, hurting the ticket and canceling out much of the sympathy boost.
 			
 			<br><br>The overall <b>2021 and 2022 election results</b> are determined by the national popular vote margin and party unity. Important state positions (both crucial governorship positions in 2022, state legislatures in 2022/2023, or each of the Senate races in 2024) are tracked behind the scenes and determined by local margins and party unity. They aren't publicly displayed because I realize that 99% of players do not care about who won the Virginia state legislature in 2023. It is impossible to do better than red ripple in the 2022 midterms - the Doylist explanation is that I did not want to write additional branching. The Watsonian explanation is that Bernie's voter base is akin to Obama's - intermittent and less willing to turn out in midterms.
 			
-			<br><br><b>Third party candidates</b> will see RFK Jr. disproportionately take votes from Republicans (however he will drop out and endorse any MAGA Republican), while centrists and Green Party candidates will predominately take votes from you. A viability mechanic means that third party candidates tend to fade over time (generally, 50% by the time of the election) so long as they are not serious candidates. However, if you do worse than a 3rd-party candidate in one state, they may start taking more votes instead - imagine that local figures see them as viable and begin endorsing them over time. Third-party votes do translate down into downballot votes too. 
+			<br><br><b>Third party candidates</b> will see RFK Jr. disproportionately take votes from Republicans (however he will drop out and endorse any MAGA Republican), while centrists and Green Party candidates will predominately take votes from you. A viability mechanic means that third party candidates tend to fade over time (generally, 2/3 by the time of the election) so long as they are not competitive candidates. However, if you do worse than a 3rd-party candidate in one state, they may start taking more votes instead - imagine that local figures see them as viable and begin endorsing them over time. Third-party votes do translate down into downballot votes too. 
 			
 			<br><br><b>Foreign interference</b> always occurs on Q40. The opinion of Russia+China towards the player are tracked over time, and depending on how strongly they feel, they may engage in anything from deepfakes to hacking (a la 2016) to social media interference from most to least impactful. Notably, banning Tiktok by the time foreign interference has happened (either getting it automatically banned via sanctions or war with the PRC, or getting it banned by Labor Day on the TikTok question) will roughly halve the impact of foreign interference. (I don't have any special knowledge about TikTok, but it's very clear that this is something that multiple world governments are very concerned about.)
 			
@@ -105,12 +105,12 @@ campaignTrail_temp.election_json = [
 			<br><br>Trump/Burgum: -0.4/-0.4/-0.3/-0.55
 			<br>Kennedy Jr/Ventura: 0.2/-0.6/0.4/0.6
 			<br>Stein/Benjamin: 0.6/-0.9/0.85/0.5
-			<br>Sinema/Baker: 0/0.4/0.4/0.2
+			<br>Sinema/Baker: 0/0.4/0.4/0
 			
 			<br><br>Trump/Rubio: -0.3/+0.2/-0.5/-0.55
 			<br>Baldwin/Broden: -0.8/-0.8/-0.8/-0.8
 			<br>Peltier/La Rivia: 0.9/-0.9/0.6/0.4
-			<br>Manchin/Rice: 0.2/0/0/0
+			<br>Manchin/Rice: 0.4/0/0/0
 			
 			<br><br>Trump/Scott: -0.15/+0.1/-0.5/-0.7
 			<br>Kennedy Jr/Rodgers: 0.6/-0.8/-0.2/-0.2
@@ -140,8 +140,8 @@ campaignTrail_temp.election_json = [
 			<br>Burgum/Rubio: -0.7/+0.4/-0.3/0
 			<br>Vance/Cotton: +0.2/-0.6/-0.45/-0.65
 			
-			<br><br>Vance/Cotton is probably the single hardest opponent. Burgum/Rubio, Burgum/Trump Jr, and Ramaswamy/Trump are probably the easiest opponents.</p> 
-			<p><b>If you are having trouble winning the game and would like help</b>, here is a set to a list of answers that should give you re-election with randomness off, without too many compromises on Bernie's part from his ideals. It is not the best electoral result you can get, but it will likely get you Medicare for All, and is an example in case it helps. Visit Missouri every time.
+			<br><br>Vance/Cotton is probably the single hardest opponent. Burgum/Rubio, Burgum/Trump Jr, Trump Jr/Ramaswamy, and Ramaswamy/Trump are probably the easiest opponents.</p> 
+			<p><b>If you are having trouble winning the game and would like help</b>, here is a set to a list of answers that should give you re-election with randomness off, without too many compromises on Bernie's part from his ideals. It is not the best electoral result you can get, but it will get you Medicare for All, and is an example in case it helps. Visit Missouri every time.
 			<li>1. People fought tooth and nail to elect you - some of them <i>died</i> for you. That sacrifice will not, <i>must not</i> be in vain. </li>
 			<li>2. You were elected as President of America first and foremost; a domestic cabinet of progressives will push the bold change you promised.</li>
 			<li>3. You swore a sacred oath to defend the Constitution of the United States against all enemies, foreign and domestic</li>
@@ -187,7 +187,7 @@ campaignTrail_temp.election_json = [
 			<li>43. You've let them down, and you owe it to them to try and make things right.</li>
 			<li>44. It's freezing in Green Bay, Wisconsin, but the people are warm, glad to see you listen and care.<li>
 			</p>
-			<p><b>If you want to do better than the above</b> and achieve the True Ending - passing Medicare for All on hard difficulty - here is a set of answer IDs that will usually get you that. It requires much more compromises than on normal due to the higher difficulty. Visit Missouri every time, and either turn off randomness or restart if Sinema changes parties or the Supreme Court rules against you on the debt ceiling (both of those are unlikely): 1001, 2002, 3002, 4004, 5002, 6003, 7001, 8004, 9001, 10103, 11003, 12003, 13002, 14002, 15101, 16001, 17002, 18002, 19001, 20001, 21001, 22101, 23002, 24101, 25102, 26001, 27201, 28001, 29301, 30001, 31101, 32001, 33002, 34502, 35301, 36004, 37003, 38401, 39102, 40202, 41002, 42501, 43201, 44003</p>
+			<p><b>If you want to do better than the above</b> and achieve the True Ending - passing Medicare for All on hard difficulty - here is a set of answer IDs that will get you that with randomness off. It requires much more compromises than on normal due to the higher difficulty. Visit Missouri every time: 1001, 2002, 3002, 4004, 5002, 6003, 7001, 8004, 9001, 10103, 11003, 12003, 13002, 14002, 15101, 16001, 17002, 18002, 19001, 20001, 21001, 22101, 23002, 24101, 25102, 26001, 27201, 28001, 29301, 30001, 31101, 32001, 33002, 34502, 35301, 36004, 37003, 38401, 39102, 40202, 41002, 42501, 43201, 44003</p>
 			<br><p><b>Author commentary</b>
 			
 			<br><br>Rationale for certain design decisions: 
@@ -437,9 +437,9 @@ jet_data = {
 }
 HistHexcolour=["#184794","#910c0c","#D3AF41","#4EAF41","#014d4e"];
 HistName=["Bernie Sanders","Doug Burgum","Robert F. Kennedy Jr.","Dean Phillips","Jill Stein"];
-HistEV=[315,223,0,0,0];
-HistPV=["73,559,216","69,597,074","21,156,735","3,359,140","1,418,860"];
-HistPVP=["43.5%","41.1%","12.5%","2.0%","0.8%"];
+HistEV=[329,209,0,0,0];
+HistPV=["80,700,126","71,688,651","13,073,789","2,951,431","1,118,653"];
+HistPVP=["47.6%","42.3%","7.7%","1.7%","0.7%"];
 
 
 //#startcode
