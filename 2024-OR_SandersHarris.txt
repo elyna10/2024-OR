@@ -5,7 +5,7 @@
 			"pk": 1000,
 			"fields": {
 				"priority": 0,
-				"description": "As you prepare to address the nation for the first time as President, the you feel the weight of history on your shoulders. This victory belongs to the millions who believed in you, who fought to elect you. You feel the anger and grief of a nation struggling to reconcile with itself after the divisive 2020 election and the tragedy of January 6. What speech did you choose to give?",
+				"description": "As you prepare to address the nation for the first time as President, you feel the weight of history on your shoulders. This victory belongs to the millions who believed in you, who fought to elect you. You feel the anger and grief of a nation struggling to reconcile with itself after the divisive 2020 election and the tragedy of January 6. What speech did you choose to give?",
 				"likelihood": 1
 			}
 		},
