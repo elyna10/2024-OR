@@ -724,6 +724,20 @@ document.head.appendChild(customStyling);
 	  "https://i.imgur.com/9jXjMLt.jpeg",
 	  "https://audio.jukehost.co.uk/RrWmyZRgRkFCE3ceDd7ym8zCl0g8xXA9"
 	);
+	
+	const Ksong8 = new Song(
+	  "We The People",
+	  "The Staple Singers",
+	  "https://i.imgur.com/dhWQr5O.jpeg",
+	  "https://audio.jukehost.co.uk/t6txpvU9hdEf5F1CsmvFQMfjJqvyRuU0"
+	);
+	
+	const Ksong9 = new Song(
+	  "If You Dare",
+	  "Jazmine Sullivan",
+	  "https://i.imgur.com/L6u1yYp.jpeg",
+	  "https://audio.jukehost.co.uk/zX2IJVH11Qv8KWOg2vHYFq0DUb52BKPt"
+	);
 	KPlaylist.addSong(Ksong1);
 	KPlaylist.addSong(Ksong2);
 	KPlaylist.addSong(Ksong3);
@@ -731,6 +745,8 @@ document.head.appendChild(customStyling);
 	KPlaylist.addSong(Ksong5);
 	KPlaylist.addSong(Ksong6);
 	KPlaylist.addSong(Ksong7);
+	KPlaylist.addSong(Ksong8);
+	KPlaylist.addSong(Ksong9);
   
     const playerContainer = document.createElement("div");
     playerContainer.id = "player";
