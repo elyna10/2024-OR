@@ -57309,7 +57309,7 @@
 			applyMinorBoost(305,0.01,1131) //Boost Chavis in NY
 			applyMinorBoost(305,0.06) 
 			opponent_maga=false
-			e.candidate_json[2].fields.color_hex="#e1650d" //DeSantis color hex. Same as in DSA to reference it.
+			e.candidate_json[2].fields.color_hex="#951633" //DeSantis color hex. Am told this is meant to reference RFK Jr's color in DSA.
 		}
 		else if(OpponentValue==7) {
 			applySalience(111,0.075) //increases importance of globalism in the election
