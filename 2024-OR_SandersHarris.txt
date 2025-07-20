@@ -53757,6 +53757,7 @@
 	stop_the_steal_loc=0
 	stop_the_steal_states=[]
 	faithless=false
+	left_angry=false //only for an ending song.
 	faithless_num=0
 	faithless_loc=0
 	faithless_states=[]
@@ -53790,6 +53791,9 @@
 				}
 				else if (!ending_2020) {
 					campaignTrail_temp.election_json[0].fields.advisor_url = "https://i.imgur.com/5BWx6ro.jpeg"; //happy Kamala
+				}
+				if (progressive_anger>=6) {
+					left_angry=true //setting here because 
 				}
 			}
 			else { //you lost, let's see if you should get blamed by someone for it.
@@ -54865,12 +54869,20 @@
 					EndingSong.addSong(endSong);
 					changePlaylist(EndingSong);
 				}
+				else if (left_angry) { //win as Kamala with left anger high
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("I Just Threw Out the Love of My Dreams", "Weezer", "https://i.imgur.com/OrYPX2K.jpeg", "https://audio.jukehost.co.uk/MuIgTg9Br8AWgPwcz3Kg2MhrjIi32PsO");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
 				else { //Freedom plays for Kamala win
 					song_change_resolved=true 
 					const EndingSong = new Playlist();
 					const endSong = new Song("Freedom", "Beyoncé", "https://i.imgur.com/x5ooa2m.jpeg", "https://audio.jukehost.co.uk/reeFJNaRCAEzYiHEzqKKLddZ7loq6S9K");
 					EndingSong.addSong(endSong);
 					changePlaylist(EndingSong);
+					console.log(progressive_anger)
 				}
 				
 				if (israel_embargo==1) {
@@ -62809,7 +62821,7 @@
 		if (ticket_status==1) {
 			authenticity_description=`
 		  <p><strong>
-			<span class="hover-value" data-tooltip="How much fire you've got in the belly">Fervor</span>: 
+			<span class="hover-value" data-tooltip="How much fire you've got in the belly. Thresholds are +8/-8">Fervor</span>: 
 			<span ${authenticity>=8 ? "style=\"color:#007D3E;\"" : authenticity<0 ? "style=\"color:#CC071E;\"" : ""} class="hover-value" data-tooltip="${
 			  authenticity <= -8 ? 'Burnt out and checked out' :
 			  authenticity <= 0 ? 'Frustrated and losing hope' :
@@ -62822,8 +62834,8 @@
 		else {
 			authenticity_description=`
 		  <p><strong>
-			<span class="hover-value" data-tooltip="How upset progressives are at you">Left anger</span>: 
-			<span ${progressive_anger<0 ? "style=\"color:#007D3E;\"" : progressive_anger>=3 ? "style=\"color:#CC071E;\"" : ""} class="hover-value" data-tooltip="${
+			<span class="hover-value" data-tooltip="How upset progressives are at you.">Left anger</span>: 
+			<span ${progressive_anger<=0 ? "style=\"color:#007D3E;\"" : progressive_anger>=3 ? "style=\"color:#CC071E;\"" : ""} class="hover-value" data-tooltip="${
 			  progressive_anger <= 0 ? 'Accepting' :
 			  progressive_anger <= 2 ? 'Resigned' :
 			  progressive_anger <= 4 ? 'Frustrated' :
@@ -62835,14 +62847,14 @@
 		//don't stop showing after election cycle begins because: Political capital still matters for epilogue (chance of M4A/etc.), party unity still matters for downballot results.
 		political_info=``
 		political_info+=`
-		  <p><strong><span class="hover-value" data-tooltip="How much the moderates are willing to give.">Political Capital</span>: 
+		  <p><strong><span class="hover-value" data-tooltip="How much the moderates are willing to give. Decays if more than +/-5">Political Capital</span>: 
 			<span ${political_capital>1 ? "style=\"color:#007D3E;\"" : political_capital<=-1 ? "style=\"color:#CC071E;\"" : "" } class="hover-value" data-tooltip="${
 			  political_capital<0 ? 'Owing the bastards' :
 			  political_capital==0 ? 'Hoping to bargain' :
 			  political_capital<=3 ? 'Got their ear' :
 			  'Holding the cards' 
 		}">${political_capital.toFixed(1)}</span></strong></p>`
-		political_info+=`<p><strong><span class="hover-value" data-tooltip="How much the party is unified.">Party Unity</span>: <span ${party_unity>2 ? "style=\"color:#007D3E;\"" : party_unity<=-2 ? "style=\"color:#CC071E;\"" : ""} class="hover-value" data-tooltip="${
+		political_info+=`<p><strong><span class="hover-value" data-tooltip="How much the party is unified. Decays if more than +/-5">Party Unity</span>: <span ${party_unity>2 ? "style=\"color:#007D3E;\"" : party_unity<=-2 ? "style=\"color:#CC071E;\"" : ""} class="hover-value" data-tooltip="${
 		  party_unity<=-5 ? 'Circular firing squad' :
 		  party_unity<=-2 ? 'Pulling different ways' :
 		  party_unity<=2 ? 'Fractures showing' :
@@ -62850,9 +62862,9 @@
 		  'With one voice' 
 		}">${party_unity.toFixed(1)}</span></strong></p>`
 		
-		base_support=`<p><strong><span class="hover-value" data-tooltip="How much your base approves.">Base support</span>:  `
+		base_support=`<p><strong><span class="hover-value" data-tooltip="How much your base approves. Decays of more than +/-6.">Base support</span>:  `
 		
-		base_support+=`<span class="hover-value" data-tooltip="America's conscience, demanding diplomacy over war." >Dove</span> <span ${dove_approval>=3+expectations ? "style=\"color:#007D3E;\"" : 			dove_approval<-3+expectations ? "style=\"color:#CC071E;\"" : "" } class="hover-value" data-tooltip="${
+		base_support+=`<span class="hover-value" data-tooltip="Peace activists. Support thresholds of +${3+expectations}/${-3+expectations}.">Dove</span> <span ${dove_approval>=3+expectations ? "style=\"color:#007D3E;\"" : 			dove_approval<-3+expectations ? "style=\"color:#CC071E;\"" : "" } class="hover-value" data-tooltip="${
 		  dove_approval>=3+expectations && dove_approval>=3 ? 'Fully satisfied' :
 		  dove_approval>=3 ? 'Expecting more' :
 		  dove_approval>=3+expectations ? 'Settling for you' :
@@ -62863,7 +62875,7 @@
 		  'Flat-out furious' 
 		}">${dove_approval.toFixed(1)}</span><br>`
 		
-		base_support+=`<span class="hover-value" data-tooltip="Working America's backbone of solidarity.">Worker</span> <span ${worker_approval>=3+expectations*2 ? "style=\"color:#007D3E;\"" : worker_approval<-3+expectations*2 ? "style=\"color:#CC071E;\"" : "" } class="hover-value" data-tooltip="${
+		base_support+=`<span class="hover-value" data-tooltip="Union workers. Support thresholds of +${3+expectations*2}/${-3+expectations*2}.">Worker</span> <span ${worker_approval>=3+expectations*2 ? "style=\"color:#007D3E;\"" : worker_approval<-3+expectations*2 ? "style=\"color:#CC071E;\"" : "" } class="hover-value" data-tooltip="${
 		  worker_approval>=3+expectations*2 && worker_approval>=3 ? 'Fully satisfied' :
 		  worker_approval>=3 ? 'Expecting more' : //would be satisfied but you promised big at the start 
 		  worker_approval>=3+expectations*2 ? 'Settling for you' : //would be neutral but you lowered expectations at the start.
@@ -62874,7 +62886,7 @@
 		  'Flat-out furious' 
 		}">${worker_approval.toFixed(1)}</span>/`
 		
-		base_support+=`<span class="hover-value" data-tooltip="Fighting for dignity, justice, and immigration reform.">Latino</span> <span ${latino_approval>=3+expectations*2 ? "style=\"color:#007D3E;\"" : latino_approval<-3+expectations*2 ? "style=\"color:#CC071E;\"" : "" } class="hover-value" data-tooltip="${
+		base_support+=`<span class="hover-value" data-tooltip="Hispanics and Latinos. Support thresholds of +${3+expectations*2}/${-3+expectations*2}.">Latino</span> <span ${latino_approval>=3+expectations*2 ? "style=\"color:#007D3E;\"" : latino_approval<-3+expectations*2 ? "style=\"color:#CC071E;\"" : "" } class="hover-value" data-tooltip="${
 		  latino_approval>=3+expectations*2 && latino_approval>=3 ? 'Fully satisfied' :
 		  latino_approval>=3 ? 'Expecting more' :
 		  latino_approval>=3+expectations*2 ? 'Settling for you' :
