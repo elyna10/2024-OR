@@ -56974,7 +56974,7 @@
 					ending+=` Maria Cantwell was narrowly re-elected by ${roundToDecimals(senate_close["WA"]*100,2)}% in Washington state`
 				}
 				else if (item=="WV") {
-					ending+=` Glen Elliott miraculously defeated Jim Justice in Manchin's open West Virginia seat by ${roundToDecimals(senate_close["WV"]*100,2)}%`
+					ending+=` Glenn Elliott miraculously defeated Jim Justice in Manchin's open West Virginia seat by ${roundToDecimals(senate_close["WV"]*100,2)}%`
 				}
 				else if (item=="WI") {
 					ending+=` Tammy Baldwin barely held on by ${roundToDecimals(senate_close["WI"]*100,2)}% in Wisconsin`
