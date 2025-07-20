@@ -6054,7 +6054,7 @@
 			"fields": {
 				"state": 1102,
 				"issue": 110,
-				"state_issue_score": -0.1,
+				"state_issue_score": 0.1,
 				"weight": 1
 			}
 		},
@@ -6064,7 +6064,7 @@
 			"fields": {
 				"state": 1102,
 				"issue": 111,
-				"state_issue_score": 0.4,
+				"state_issue_score": 0.32,
 				"weight": 1.25
 			}
 		},
@@ -6095,7 +6095,7 @@
 				"state": 1102,
 				"issue": 114,
 				"state_issue_score": 1,
-				"weight": 1
+				"weight": 0.9
 			}
 		},
 		{
@@ -7304,7 +7304,7 @@
 			"fields": {
 				"state": 1127,
 				"issue": 110,
-				"state_issue_score": 0.35,
+				"state_issue_score": 0.42,
 				"weight": 1.5
 			}
 		},
@@ -7314,7 +7314,7 @@
 			"fields": {
 				"state": 1127,
 				"issue": 111,
-				"state_issue_score": -0.35,
+				"state_issue_score": -0.47,
 				"weight": 1
 			}
 		},
@@ -7324,7 +7324,7 @@
 			"fields": {
 				"state": 1127,
 				"issue": 112,
-				"state_issue_score": 0.16,
+				"state_issue_score": 0.35,
 				"weight": 1
 			}
 		},
@@ -7334,7 +7334,7 @@
 			"fields": {
 				"state": 1127,
 				"issue": 113,
-				"state_issue_score": 0.16,
+				"state_issue_score": -0.15,
 				"weight": 1.5
 			}
 		},
@@ -7345,7 +7345,7 @@
 				"state": 1127,
 				"issue": 114,
 				"state_issue_score": 1,
-				"weight": 1.4
+				"weight": 1.0
 			}
 		},
 		{
@@ -7454,7 +7454,7 @@
 			"fields": {
 				"state": 1130,
 				"issue": 110,
-				"state_issue_score": 0.3,
+				"state_issue_score": 0.35,
 				"weight": 1.5
 			}
 		},
@@ -7464,7 +7464,7 @@
 			"fields": {
 				"state": 1130,
 				"issue": 111,
-				"state_issue_score": 0.2,
+				"state_issue_score": 0,
 				"weight": 1
 			}
 		},
@@ -7474,7 +7474,7 @@
 			"fields": {
 				"state": 1130,
 				"issue": 112,
-				"state_issue_score": 0.2,
+				"state_issue_score": 0.3,
 				"weight": 1
 			}
 		},
@@ -7495,7 +7495,7 @@
 				"state": 1130,
 				"issue": 114,
 				"state_issue_score": 1,
-				"weight": 1.5
+				"weight": 1.2
 			}
 		},
 		{
@@ -9051,7 +9051,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1102,
-				"state_multiplier": 0.952
+				"state_multiplier": 0.975
 			}
 		},
 		{
@@ -9303,7 +9303,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1130,
-				"state_multiplier": 1.11
+				"state_multiplier": 1.068
 			}
 		},
 		{
@@ -21929,7 +21929,7 @@
 			"fields": {
 				"answer": 36002,
 				"issue": 110,
-				"issue_score": 0.35,
+				"issue_score": 0.42,
 				"issue_importance": 4
 			}
 		},
@@ -21939,7 +21939,7 @@
 			"fields": {
 				"answer": 36002,
 				"issue": 113,
-				"issue_score": 0.16,
+				"issue_score": -0.15,
 				"issue_importance": 4
 			}
 		},
@@ -21979,7 +21979,7 @@
 			"fields": {
 				"answer": 44002,
 				"issue": 110,
-				"issue_score": 0.35,
+				"issue_score": 0.42,
 				"issue_importance": 5
 			}
 		},
@@ -21989,7 +21989,7 @@
 			"fields": {
 				"answer": 44002,
 				"issue": 113,
-				"issue_score": 0.16,
+				"issue_score": -0.15,
 				"issue_importance": 5
 			}
 		},
@@ -22039,7 +22039,7 @@
 			"fields": {
 				"answer": 44101,
 				"issue": 110,
-				"issue_score": 0.35,
+				"issue_score": 0.42,
 				"issue_importance": 3
 			}
 		},
@@ -22049,7 +22049,7 @@
 			"fields": {
 				"answer": 44101,
 				"issue": 111,
-				"issue_score": -0.35,
+				"issue_score": -0.47,
 				"issue_importance": 3
 			}
 		},
@@ -22059,7 +22059,7 @@
 			"fields": {
 				"answer": 44101,
 				"issue": 113,
-				"issue_score": 0.16,
+				"issue_score": -0.15,
 				"issue_importance": 3
 			}
 		},
@@ -22069,7 +22069,7 @@
 			"fields": {
 				"answer": 44102,
 				"issue": 111,
-				"issue_score": 0.4,
+				"issue_score": 0.32,
 				"issue_importance": 3
 			}
 		},
@@ -22109,7 +22109,7 @@
 			"fields": {
 				"answer": 44101,
 				"issue": 112,
-				"issue_score": 0.16,
+				"issue_score": 0.35,
 				"issue_importance": 3
 			}
 		},
@@ -22119,7 +22119,7 @@
 			"fields": {
 				"answer": 44102,
 				"issue": 110,
-				"issue_score": -0.1,
+				"issue_score": 0.1,
 				"issue_importance": 3
 			}
 		},
@@ -56957,7 +56957,7 @@
 			e.candidate_json[2].fields.first_name="Donald"
 			e.candidate_json[2].fields.last_name="Trump" 
 			vpTable["Donald Trump"]="JD Vance"
-			//-0.1/-0.5/-0.3/-0.75 (if running in 2020: D+4.3; D+16 EVs. Tipping point PA D+4.0. House tipping point D+3.7 Senate tipping point - MT R+2.8)
+			//-0.1/-0.5/-0.3/-0.75 (if running in 2020: D+4.5; D+16 EVs. Tipping point PA D+4.0. House tipping point D+3.9 Senate tipping point - MT R+2.8)
 			e.candidate_json[2].fields.state="Florida"
 			opponent_name="Donald Trump"
 			opponent_vp_name="JD Vance"
@@ -57017,7 +57017,7 @@
 			e.candidate_json[2].fields.first_name="Donald"
 			e.candidate_json[2].fields.last_name="Trump" 
 			vpTable["Donald Trump"]="Doug Burgum" 
-			//-0.4/-0.4/-0.3/-0.55 (if running in 2020: D+0.8, D+12 EVs. Tipping point NV: D+0.3; House D+2.1; Senate tipping point MT: R+2.0)
+			//-0.4/-0.4/-0.3/-0.55 (if running in 2020: D+0.8, D+12 EVs. Tipping point PA: D+0.3; House D+2.1; Senate tipping point MT: R+2.0)
 			e.candidate_json[2].fields.state="Florida"
 			opponent_name="Donald Trump"
 			opponent_vp_name="Doug Burgum"
@@ -57079,7 +57079,7 @@
 			e.candidate_json[2].fields.first_name="Donald"
 			e.candidate_json[2].fields.last_name="Trump" 
 			vpTable["Donald Trump"]="Marco Rubio" 
-			// -0.3/+0.2/-0.5/-0.55 (if running in 2020: D+0.9, D+26 EVs. Tipping point PA: D+1.4. House D+2.1; Tipping point Senate - AZ R+1.3)
+			// -0.3/+0.2/-0.5/-0.55 (if running in 2020: D+0.9, D+26 EVs. Tipping point PA: D+1.4. House D+2.1; Tipping point Senate - AZ D+0.1)
 			e.candidate_json[2].fields.state="Florida"
 			opponent_name="Donald Trump"
 			opponent_vp_name="Marco Rubio"
@@ -57141,7 +57141,7 @@
 			e.candidate_json[2].fields.first_name="Donald"
 			e.candidate_json[2].fields.last_name="Trump" 
 			vpTable["Donald Trump"]="Tim Scott" 
-			//  -0.15/+0.1/-0.5/-0.7 (if running in 2020: D+1.9, D+26 EVs. House D+2.5. Tipping point Pennsylvania D+1.9; Tipping point Senate AZ D+0.3.)
+			//  -0.15/+0.1/-0.5/-0.7 (if running in 2020: D+1.9, D+26 EVs. House D+2.5. Tipping point Pennsylvania D+1.9; Tipping point Senate AZ D+1.8.)
 			e.candidate_json[2].fields.state="Florida"
 			opponent_name="Donald Trump"
 			opponent_vp_name="Tim Scott"
@@ -57256,25 +57256,25 @@
 		}
 		else if(OpponentValue==6) {
 			applySalience(112,0.15) //increases importance of social issues in the election
-			worker_approval+=1.5 //normie Republican ticket 
+			worker_approval+=1.25 //normie Republican ticket 
 			dove_approval+=3 //normie Republican ticket
-			latino_approval-=2.75 //significant appeal to Latinos
+			latino_approval-=1.5 //significant appeal to Latinos
 			adversary_approval+=3 //you already look better in comparison
 			blob_approval-=3
 			e.candidate_json[2].fields.first_name="Ron"
 			e.candidate_json[2].fields.last_name="DeSantis" 
 			vpTable["Ron DeSantis"]="Doug Burgum" 
-			// -0.4/0.1/-0.7/-0.2 (D+6.0; D+116 EVs; ME-02 D+5.8; House tipping point D+3.6; Senate tipping point AZ D+5.3)
+			// -0.35/0.1/-0.7/-0.2 (D+6.0; D+116 EVs; PA D+7.4; House tipping point D+3.6; Senate tipping point AZ D+4.1)
 			e.candidate_json[2].fields.state="Florida"
 			opponent_name="Ron DeSantis"
 			opponent_vp_name="Doug Burgum"
 			opponent_last_name="DeSantis"
 			opponent_vp_last_name="Burgum"
 			opponent_slogan="Never Back Down!"
-			e.candidate_issue_score_json[5].fields.issue_score=-0.4
+			e.candidate_issue_score_json[5].fields.issue_score=-0.35
 			e.candidate_issue_score_json[6].fields.issue_score=+0.1
 			e.candidate_issue_score_json[7].fields.issue_score=-0.7
-			e.candidate_issue_score_json[8].fields.issue_score=-0.2
+			e.candidate_issue_score_json[8].fields.issue_score=-0.45
 			applyDrift(301,0.01,1108) //Florida
 			applyDrift(301,0.05,1133) //North Dakota
 			e.candidate_json[3].fields.first_name="Robert F."
@@ -57322,7 +57322,7 @@
 			e.candidate_json[2].fields.first_name="Josh"
 			e.candidate_json[2].fields.last_name="Hawley" 
 			vpTable["Josh Hawley"]="JD Vance" 
-			//+0.45/-0.6/-0.6/-0.5 (D+2.6; D+80 EVs; NV D+2.0; House tipping point D+3.2; Senate tipping point MT R+2.8)
+			//+0.45/-0.6/-0.6/-0.5 (D+2.6; D+80 EVs; PA D+1.7; House tipping point D+3.2; Senate tipping point MT R+2.8)
 			e.candidate_json[2].fields.state="Missouri"
 			opponent_name="Josh Hawley"
 			opponent_vp_name="JD Vance"
@@ -57405,7 +57405,7 @@
 			e.candidate_json[2].fields.first_name="Doug"
 			e.candidate_json[2].fields.last_name="Burgum" 
 			vpTable["Doug Burgum"]="Donald Trump Jr." 
-			//-0.6/+0.3/-0.2/-0.2 (D+3.4; D+60 EVs. PA D+4.0; 51 Senate seats; House D+2.7; Senate tipping point MO D+1.5)
+			//-0.6/+0.3/-0.2/-0.2 (D+3.4; D+60 EVs. PA D+4.0; 51 Senate seats; House D+2.7; Senate tipping point AZ D+2.4)
 			e.candidate_json[2].fields.state="North Dakota"
 			opponent_name="Doug Burgum"
 			opponent_vp_name="Donald Trump Jr."
@@ -57431,7 +57431,7 @@
 			e.candidate_json[2].fields.first_name="Marco"
 			e.candidate_json[2].fields.last_name="Rubio" 
 			vpTable["Marco Rubio"]="Donald Trump Jr." 
-			//-0.55/+0.4/-0.6/-0.2 (D+3.3; D+92 EVs; VA D+5, House D+4.6; 50 Senate seats - Senate tipping point AZ D+3.4%)
+			//-0.55/+0.4/-0.6/-0.2 (D+3.3; D+92 EVs; VA D+5, House D+4.6; 50 Senate seats - Senate tipping point AZ D+6.5%)
 			opponent_name="Marco Rubio"
 			opponent_vp_name="Donald Trump Jr."
 			opponent_last_name="Rubio"
@@ -57442,7 +57442,7 @@
 			e.candidate_issue_score_json[8].fields.issue_score+=0.35
 			//home state effects don't change.
 			opponent_maga=false
-			e.candidate_json[2].fields.color_hex="#fe1f34" //Rubio color hex
+			e.candidate_json[2].fields.color_hex="#bf1526" //Rubio color hex
 		}
 		else if(OpponentValue==14) {
 			worker_approval+=1.25 //ticket moves to right on econ 
@@ -57453,7 +57453,7 @@
 			e.candidate_json[2].fields.first_name="Tim"
 			e.candidate_json[2].fields.last_name="Scott" 
 			vpTable["Tim Scott"]="Donald Trump Jr." 
-			//-0.4/+0.3/-0.6/-0.5 (D+3.6; D+92 EVs; PA D+5.6; House D+2.4; Senate tipping point AZ R+0.8)
+			//-0.4/+0.3/-0.6/-0.5 (D+3.6; D+92 EVs; PA D+5.6; House D+2.4; Senate tipping point AZ D+0.7)
 			e.candidate_json[2].fields.state="South Carolina"
 			opponent_name="Tim Scott"
 			opponent_vp_name="Donald Trump Jr."
@@ -57493,24 +57493,24 @@
 			applySalience(112,-0.15) //decrease importance of social issues in the election
 			applySalience(110,0.075) //increases importance of econ issues in the election
 			applySalience(111,0.075) //increases importance of globalism in the election
-			worker_approval+=1.5 //ticket moves to right on econ 
+			worker_approval+=1.75 //ticket moves to right on econ 
 			dove_approval+=1.5 //ticket moves more globalist
-			latino_approval-=1 //ticket gets more moderate on immigration 
+			latino_approval-=2.25 //ticket gets more moderate on immigration 
 			adversary_approval+=1.5
 			blob_approval-=1.5
 			e.candidate_json[2].fields.first_name="Doug"
 			e.candidate_json[2].fields.last_name="Burgum" 
 			vpTable["Doug Burgum"]="Marco Rubio" 
-			//-0.7/+0.4/-0.3/0 (D+7.3; D+112 EVs; PA D+8.9; House D+4.4; 51 Senate seats - tipping point MO D+2.9)
+			//-0.7/+0.4/-0.3/0 (D+7.3; D+112 EVs; PA D+8.9; House D+4.4; 51 Senate seats - tipping point MD D+4.1)
 			e.candidate_json[2].fields.state="North Dakota"
 			opponent_name="Doug Burgum"
 			opponent_vp_name="Marco Rubio"
 			opponent_last_name="Burgum"
 			opponent_vp_last_name="Rubio"
-			e.candidate_issue_score_json[5].fields.issue_score+=-0.3
+			e.candidate_issue_score_json[5].fields.issue_score+=-0.35
 			e.candidate_issue_score_json[6].fields.issue_score+=0.3
 			e.candidate_issue_score_json[7].fields.issue_score+=0.4
-			e.candidate_issue_score_json[8].fields.issue_score+=0.2
+			e.candidate_issue_score_json[8].fields.issue_score+=0.45
 			//home state effects don't change.
 			applyMinorBoost(302,rfk_boost*0.25) //now they've gone even more establishment
 			opponent_maga=false
@@ -57558,7 +57558,7 @@
 		}
 	}
 	function roundToDecimals(n, decimals) {
-		var log10 = n ? Math.floor(Math.log10(n)) : 0; //taking the log10 is how we find the order of magnitude of the number for the purpose of decimal places 
+		var log10 = n ? Math.floor(Math.log10(Math.abs(n))) : 0; //taking the log10 is how we find the order of magnitude of the number for the purpose of decimal places 
 		if (log10>=0) {
 			divider=Math.pow(10, decimals); 
 		}
@@ -62862,7 +62862,7 @@
 		  'With one voice' 
 		}">${party_unity.toFixed(1)}</span></strong></p>`
 		
-		base_support=`<p><strong><span class="hover-value" data-tooltip="How much your base approves. Decays of more than +/-6.">Base support</span>:  `
+		base_support=`<p><strong><span class="hover-value" data-tooltip="How much your base approves. Decays if more than +/-6.">Base support</span>:  `
 		
 		base_support+=`<span class="hover-value" data-tooltip="Peace activists. Support thresholds of +${3+expectations}/${-3+expectations}.">Dove</span> <span ${dove_approval>=3+expectations ? "style=\"color:#007D3E;\"" : 			dove_approval<-3+expectations ? "style=\"color:#CC071E;\"" : "" } class="hover-value" data-tooltip="${
 		  dove_approval>=3+expectations && dove_approval>=3 ? 'Fully satisfied' :
