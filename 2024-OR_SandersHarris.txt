@@ -55104,15 +55104,88 @@
 					customquote = quotes[Math.floor((Math.random() * quotes.length))]
 					corrr=`\n<h2>OUR REVOLUTION</h2><font id='wittyquote' size='3' color='white'><em>`+customquote+`</em></font>`
 				}
-				if (opponent == 7) { //Elon DOGE ending song.
+				
+				if (ticket_status==1 && opponent == 1 && quickstats[0]>200) { //Bernie loses to Trump/Vance
+					const EndingSong = new Playlist();
+					const endSong = new Song("MAGA YMCA", "Mindy Robinson", "https://i.imgur.com/tKTmd6o.jpeg", "https://files.catbox.moe/kd4knj.mp3");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 && opponent == 2 && quickstats[0]>200) { //Bernie loses to Trump/Burgum
+					const EndingSong = new Playlist();
+					const endSong = new Song("America First", "Merle Haggard", "https://i.imgur.com/110F4wU.jpeg", "https://audio.jukehost.co.uk/DYVNHGjW3IHPbCkYHO9xc5TcOo0auXrZ");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 && opponent == 3 && quickstats[0]>200) { //Bernie loses to Trump/Rubio
+					const EndingSong = new Playlist();
+					const endSong = new Song("Born Free", "Kid Rock", "https://i.imgur.com/S4KeRWc.jpeg", "https://audio.jukehost.co.uk/IYPyvWhS9N4XOdyacceJDMAbq5JZXL2W");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 && opponent == 4 && quickstats[0]>200) { //Bernie loses to Trump/Scott
+					const EndingSong = new Playlist();
+					const endSong = new Song("Hold On, I'm Comin'", "Sam and Dave", "https://i.imgur.com/UUkHfjt.jpeg", "https://audio.jukehost.co.uk/KBY2foo1IBqIJ4cDDlk0lLHhRyrtsp4i");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 && opponent == 5 && quickstats[0]>200) { //Bernie loses to Trump Jr/Ramaswamy
+					const EndingSong = new Playlist();
+					const endSong = new Song("No More Mr. Nice Guy", "Alice Cooper", "https://i.imgur.com/Pnn6ct7.jpeg", "https://audio.jukehost.co.uk/UNQWfbb5LNNZoGxWWCIkPY8PiNIQy7iI");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 && opponent == 6 && quickstats[0]>200) { //Bernie loses to DeSantis/Burgum
+					const EndingSong = new Playlist();
+					const endSong = new Song("Nothin' But a Good Time", "Poison", "https://i.imgur.com/3pPafyD.jpeg", "https://audio.jukehost.co.uk/2AorboUTf5ASnFg5eHnyUamkvvn8jJOI");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 && opponent == 7 && quickstats[0]>200) { //Elon DOGE ending song.
 					const EndingSong = new Playlist();
 					const endSong = new Song("I've Never Met a Nice South African", "Andy Roberts", "https://i.imgur.com/j7MqgHO.jpeg", "https://audio.jukehost.co.uk/rAiXWHZEh0zqJRz1xmU0UmWowLE8muCN");
 					EndingSong.addSong(endSong);
 					changePlaylist(EndingSong);
 				}
-				else if (ticket_status==1 &&opponent==13) { //Bernie lost to Rubio
+				else if (ticket_status==1 &&opponent==11 && quickstats[0]>200) { //Bernie lost to Vance/Trump Jr
+					const EndingSong = new Playlist();
+					const endSong = new Song("You're Gonna Go Far, Kid", "The Offspring", "https://i.imgur.com/ev6Jaev.jpeg", "https://audio.jukehost.co.uk/PQbSlnfan3s8ac72h4LuvcLs1ZFLSLLN");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 &&opponent==12 && quickstats[0]>200) { //Bernie lost to Burgum/Trump Jr
+					const EndingSong = new Playlist();
+					const endSong = new Song("Every Small Town", "Ben Gallaher", "https://i.imgur.com/lad8czf.jpeg", "https://audio.jukehost.co.uk/H8kgLcmSKiZhe7ej5SwiywkX3fXo9E8l");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 &&opponent==13 && quickstats[0]>200) { //Bernie lost to Rubio
 					const EndingSong = new Playlist();
 					const endSong = new Song("Ángel para un Final", "Silvio Rodríguez", "https://i.imgur.com/WXuwsAg.jpeg", "https://audio.jukehost.co.uk/GVObhh3VQIhXn90uidph3406rxB5Z6ie");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 &&opponent==14 && quickstats[0]>200) { //Bernie lost to Scott
+					const EndingSong = new Playlist();
+					const endSong = new Song("Burn Rubber On Me", "The Gap Band", "https://i.imgur.com/D8G4Etr.jpeg", "https://audio.jukehost.co.uk/1hl6m7TIGmvhQUr0hAU25TW0K8vLNkzc");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 &&opponent==15 && quickstats[0]>200) { //Bernie lost to Ramaswamy
+					const EndingSong = new Playlist();
+					const endSong = new Song("Thunder", "Imagine Dragons", "https://i.imgur.com/mt5WGuD.jpeg", "https://audio.jukehost.co.uk/hjyrXrvVIkyIS0RBOAFJLfjVtAOuHoJa");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 &&opponent==16 && quickstats[0]>200) { //Bernie lost to Burgum/Rubio
+					const EndingSong = new Playlist();
+					const endSong = new Song("Only Here For A Little While", "Billy Dean", "https://i.imgur.com/kGnzJoo.jpeg", "https://audio.jukehost.co.uk/8oNxyjWMWLD5SyzDRtJ40H1TYOta58Lk");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 &&opponent==17 && quickstats[0]>200) { //Bernie lost to Vance/Cotton
+					const EndingSong = new Playlist();
+					const endSong = new Song("I Won't Back Down", "Tom Petty & The Heartbreakers", "https://i.imgur.com/4h7GzTD.jpeg", "https://audio.jukehost.co.uk/3JoxbOrKTrOCOorOerKxKOmizu49ZGlC");
 					EndingSong.addSong(endSong);
 					changePlaylist(EndingSong);
 				}
