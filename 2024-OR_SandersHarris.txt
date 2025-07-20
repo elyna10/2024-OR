@@ -57430,7 +57430,7 @@
 			e.candidate_issue_score_json[8].fields.issue_score+=0.35
 			//home state effects don't change.
 			opponent_maga=false
-			e.candidate_json[2].fields.color_hex="#ba2323" //Rubio color hex
+			e.candidate_json[2].fields.color_hex="#fe1f34" //Rubio color hex
 		}
 		else if(OpponentValue==14) {
 			worker_approval+=1.25 //ticket moves to right on econ 
@@ -57475,7 +57475,7 @@
 			e.candidate_issue_score_json[8].fields.issue_score+=0.05
 			//home state effects don't change.
 			opponent_maga=true
-			e.candidate_json[2].fields.color_hex="#c94040" //Ramaswamy color hex
+			e.candidate_json[2].fields.color_hex="#b21948" //Ramaswamy color hex
 		}
 		else if(OpponentValue==16) {
 			applySalience(112,-0.15) //decrease importance of social issues in the election
