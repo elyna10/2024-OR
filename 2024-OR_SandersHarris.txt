@@ -61818,7 +61818,7 @@
 				}
 			}
 			else if (e.question_number==29) { 
-				quotes = ["''I don’t think it’s appropriate for people to be coming across the border illegally'' ~ Bernie Sanders", ]
+				quotes = ["''I don’t think it’s appropriate for people to be coming across the border illegally.'' ~ Bernie Sanders", ]
 				customquote = quotes[Math.floor((Math.random() * quotes.length))]
 				corrr=`\n<h2>OUR REVOLUTION</h2><font id='wittyquote' size='3' color='white'><em>`+customquote+`</em></font>`
 				if (immigration_level==3) { //de facto open borders; Texas takes matters into its own hands with Eagle Pass
@@ -61942,7 +61942,7 @@
 					// replacing result of terrible debate with global multiplier
 					political_capital-=2
 					party_unity-=2
-					quotes = ["''A presidential election is not an entertainment contest. It does not begin or end with a 90-minute debate'' ~ Bernie Sanders", ]
+					quotes = ["''A presidential election is not an entertainment contest. It does not begin or end with a 90-minute debate.'' ~ Bernie Sanders", ]
 					customquote = quotes[Math.floor((Math.random() * quotes.length))]
 					corrr=`\n<h2>OUR REVOLUTION</h2><font id='wittyquote' size='3' color='white'><em>`+customquote+`</em></font>`
 				}
@@ -61986,13 +61986,13 @@
 			}
 			else if (e.question_number==35) {
 				if (ans==36001) { //Bernie campaigns in West Mifflin
-					quotes = ["''Political violence of any kind or shape or form is unacceptable. It is un-American'' ~ Bernie Sanders", ]
+					quotes = ["''Political violence of any kind or shape or form is unacceptable. It is un-American.'' ~ Bernie Sanders", ]
 					customquote = quotes[Math.floor((Math.random() * quotes.length))]
 					corrr=`\n<h2>OUR REVOLUTION</h2><font id='wittyquote' size='3' color='white'><em>`+customquote+`</em></font>`
 					e.questions_json[campaignTrail_temp.question_number+1] = tunnel(37200) //you get assassination attempt.
 				}
 				else if (ticket_status>1) {
-					quotes = ["''We must reject political violence, we must also embrace a robust discussion about what is at stake in this election,'' ~ Kamala Harris", ]
+					quotes = ["''We must reject political violence, we must also embrace a robust discussion about what is at stake in this election.'' ~ Kamala Harris", ]
 					customquote = quotes[Math.floor((Math.random() * quotes.length))]
 					corrr=`\n<h2>OUR REVOLUTION</h2><font id='wittyquote' size='3' color='white'><em>`+customquote+`</em></font>`
 					ReplaceFeedback(37101,`You speak with conviction, not just to calm the nation, but to remind them of the strength that comes from unity: not fear, not violence, but justice. Then news breaks - ${opponent_last_name} is largely unhurt - but that image, his fist raised in defiance over his bloodied face, goes viral. Its meaning as a symbol cuts deep, even as it fuels the fire of division.`)
@@ -62001,7 +62001,7 @@
 					e.questions_json[campaignTrail_temp.question_number+1] = tunnel(37100) //Kamala responds
 				}
 				else {
-					quotes = ["''Political violence of any kind or shape or form is unacceptable. It is un-American'' ~ Bernie Sanders", ]
+					quotes = ["''Political violence of any kind or shape or form is unacceptable. It is un-American.'' ~ Bernie Sanders", ]
 					customquote = quotes[Math.floor((Math.random() * quotes.length))]
 					corrr=`\n<h2>OUR REVOLUTION</h2><font id='wittyquote' size='3' color='white'><em>`+customquote+`</em></font>`
 					ReplaceQuestion(37000, `You're in transit, on the way to another rally when an aide bursts into the room, face pale. They hold up a live video on their phone as they speak - there's gunshots at ${opponent_last_name}'s rally near Pittsburgh, it's an assassination attempt. You see the chaos on screen, a bloody figure dragged from the podium by Secret Service as you sit in stunned silence.`)
@@ -62225,7 +62225,7 @@
 			}
 			else if (e.question_number==37) { //dove approval check; simple enough.
 				if (ticket_status==1) {
-					quotes = ["''I’m not going to answer the question because I don’t like people disrupting me'' ~ Bernie Sanders", ]
+					quotes = ["''I’m not going to answer the question because I don’t like people disrupting me.'' ~ Bernie Sanders", ]
 					customquote = quotes[Math.floor((Math.random() * quotes.length))]
 					corrr=`\n<h2>OUR REVOLUTION</h2><font id='wittyquote' size='3' color='white'><em>`+customquote+`</em></font>`
 					if (dove_approval>=3+expectations) {
@@ -62381,7 +62381,7 @@
 			}
 			else if (e.question_number==40) {
 				if (ticket_status>=2) { //What would you have done differently from Bernie, Kamala?
-					quotes = ["''What can be, unburdened by what has been'' ~ Kamala Harris", ]
+					quotes = ["''What can be, unburdened by what has been.'' ~ Kamala Harris", ]
 					customquote = quotes[Math.floor((Math.random() * quotes.length))]
 					corrr=`\n<h2>OUR REVOLUTION</h2><font id='wittyquote' size='3' color='white'><em>`+customquote+`</em></font>`
 					e.questions_json[campaignTrail_temp.question_number+1] = tunnel(42900)
@@ -62422,7 +62422,7 @@
 			}
 			else if (e.question_number==41) { //Latino approval check
 				if (ticket_status==1) {
-					quotes = ["''This is the most consequential election in our lifetimes.... we cannot sit this election out. '' ~ Bernie Sanders", ]
+					quotes = ["''This is the most consequential election in our lifetimes.... we cannot sit this election out.'' ~ Bernie Sanders", ]
 					customquote = quotes[Math.floor((Math.random() * quotes.length))]
 					corrr=`\n<h2>OUR REVOLUTION</h2><font id='wittyquote' size='3' color='white'><em>`+customquote+`</em></font>`
 					if (latino_approval>=3+expectations*2) {
