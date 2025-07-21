@@ -54865,7 +54865,7 @@
 				else if (taiwan_war==1) { //win and PRC defeated via war, regardless of who you're playing as (i.e. Xi Jinping forced to resign. PRC future unspecified.)
 					song_change_resolved=true
 					const EndingSong = new Playlist();
-					const endSong = new Song("The Internationale", "唐朝", "https://i.imgur.com/wHhypAp.jpeg", "https://audio.jukehost.co.uk/xNDmj2kGMscSe3wE1rMs0SfdlFtUC0tE");
+					const endSong = new Song("国际歌", "唐朝", "https://i.imgur.com/wHhypAp.jpeg", "https://audio.jukehost.co.uk/xNDmj2kGMscSe3wE1rMs0SfdlFtUC0tE");
 					//Mandarin version of the Internationale is politically neutral in mainland PRC - used both by government at official events and by opposition (both at Tiananmen & at more recent lockdown/democracy protests.) Obviously the latter is why it gets picked. Picked the 唐朝 version as it wouldn't have pro-government vibes like many of the high-quality recordings.
 					//besides it feels appropriate to have at least one rendition of The Internationale in this mod. I don't think Bernie himself has made significant comment about the song, but it's likely he sung it regularly along the other kibbutz members at Sha'ar HaAmakim
 					EndingSong.addSong(endSong);
@@ -58474,7 +58474,7 @@
 		}
 		else if (ans == 1002) {
 			party_unity +=1 //vaguely unifying
-			
+
 		}
 		else if (ans == 1003) {
 			expectations -=1
@@ -62134,7 +62134,12 @@
 					worker_approval+=1 //wages up
 					//no inflation effect as the lack of migration exacerbates labor shortage
 					if (e.player_answers.includes(13104)) { //Sembrando Vida - i.e. you didn't crack down directly on refugees, you worked with AMLO to do so.
-						ReplaceQuestion(31200,"Morning breaks with the sound of chanting outside. \"You promised dignity, not deportation\", the voices cry outside the White House. Tens of thousands who once believed in you are burning their <i>Tio Bernie</i> shirts in piles. They call you a xenophobe in leftist clothing who conspired with AMLO against their countrymen to appease racists. What can you do to regain their trust?")
+						if (e.tooltips_on) {
+							ReplaceQuestion(31200,"Morning breaks with the sound of chanting outside. \"You promised dignity, not deportation\", the voices cry outside the White House. Tens of thousands who once believed in you are burning their <i>Tio Bernie</i> shirts in piles. They call you a xenophobe in leftist clothing who <span class=\'mytooltip\' style=\'background-color:darkblue;color:white;\'>conspired with AMLO against their countrymen to appease racists.<span class=\'mytooltiptext\'><img src=https://i.imgur.com/hiNxeaA.jpeg><br><b>You received this question due to convincing Mexico to stem the flow of migrants.</b><br><i>.</i></span></span>  What can you do to regain their trust?")
+						}
+						else {
+							ReplaceQuestion(31200,"Morning breaks with the sound of chanting outside. \"You promised dignity, not deportation\", the voices cry outside the White House. Tens of thousands who once believed in you are burning their <i>Tio Bernie</i> shirts in piles. They call you a xenophobe in leftist clothing who conspired with AMLO against their countrymen to appease racists. What can you do to regain their trust?")
+						}
 					}
 					e.questions_json[campaignTrail_temp.question_number+1] = tunnel(31200)
 				}
