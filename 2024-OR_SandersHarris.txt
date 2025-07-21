@@ -54842,17 +54842,21 @@
 					corrr=`\n<h2>OUR REVOLUTION</h2><font id='wittyquote' size='3' color='white'><em>`+customquote+`</em></font>`
 				}
 				if (e.final_overall_results.find(p=>p.candidate==300).electoral_votes>=269 && won_house && senate_seats>=50 && senate_seats+party_econ_progressive+political_capital*0.5>=60) { //special music if you've gotten M4A done
-					song_change_resolved=true
-					const EndingSong = new Playlist();
 					if (e.difficulty_level_id>=5) {
 						ctsAchievement("The True Ending")
+						song_change_resolved=true
+						const EndingSong = new Playlist();
 						const endSong = new Song("Our Revolution", "Tony Tig", "https://i.imgur.com/vqwDsSE.jpeg", "https://audio.jukehost.co.uk/2VoDciGuogTI5lDlhTkQP6W3ptAgn2Y8");
+						EndingSong.addSong(endSong);
+						changePlaylist(EndingSong);
 					}
 					else {
+						song_change_resolved=true
+						const EndingSong = new Playlist();
 						const endSong = new Song("We Shall Overcome", "Harlem Boys Choir", "https://i.imgur.com/icevzpN.jpeg", "https://audio.jukehost.co.uk/YVfOVAH1vVW5eEYCcPP90sk8GXaIv6W5");
+						EndingSong.addSong(endSong);
+						changePlaylist(EndingSong);
 					}
-					EndingSong.addSong(endSong);
-					changePlaylist(EndingSong);
 					ctsAchievement("The Holy Grail")
 					if (more_medicare_for_some) {
 						ctsAchievement("The Holier Grail")
