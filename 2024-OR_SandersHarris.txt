@@ -54844,15 +54844,18 @@
 				if (e.final_overall_results.find(p=>p.candidate==300).electoral_votes>=269 && won_house && senate_seats>=50 && senate_seats+party_econ_progressive+political_capital*0.5>=60) { //special music if you've gotten M4A done
 					song_change_resolved=true
 					const EndingSong = new Playlist();
-					const endSong = new Song("We Shall Overcome", "Harlem Boys Choir", "https://i.imgur.com/icevzpN.jpeg", "https://audio.jukehost.co.uk/YVfOVAH1vVW5eEYCcPP90sk8GXaIv6W5");
+					if (e.difficulty_level_id>=5) {
+						ctsAchievement("The True Ending")
+						const endSong = new Song("Our Revolution", "Tony Tig", "https://i.imgur.com/vqwDsSE.jpeg", "https://audio.jukehost.co.uk/2VoDciGuogTI5lDlhTkQP6W3ptAgn2Y8");
+					}
+					else {
+						const endSong = new Song("We Shall Overcome", "Harlem Boys Choir", "https://i.imgur.com/icevzpN.jpeg", "https://audio.jukehost.co.uk/YVfOVAH1vVW5eEYCcPP90sk8GXaIv6W5");
+					}
 					EndingSong.addSong(endSong);
 					changePlaylist(EndingSong);
 					ctsAchievement("The Holy Grail")
 					if (more_medicare_for_some) {
 						ctsAchievement("The Holier Grail")
-					}
-					if (e.difficulty_level_id>=5) {
-						ctsAchievement("The True Ending")
 					}
 				}
 				else if (ticket_status==1 &&opponent==13) { //Bernie defeated Rubio
@@ -55125,7 +55128,7 @@
 				}
 				else if (ticket_status==1 && opponent == 4 && quickstats[0]>200) { //Bernie loses to Trump/Scott
 					const EndingSong = new Playlist();
-					const endSong = new Song("Hold On, I'm Comin'", "Sam and Dave", "https://i.imgur.com/UUkHfjt.jpeg", "https://audio.jukehost.co.uk/KBY2foo1IBqIJ4cDDlk0lLHhRyrtsp4i");
+					const endSong = new Song("Hold On, I'm Comin'", "Sam and Dave", "https://i.imgur.com/UUkHfjt.jpeg", "https://files.catbox.moe/ps1cgs.mp3");
 					EndingSong.addSong(endSong);
 					changePlaylist(EndingSong);
 				}
@@ -55149,7 +55152,7 @@
 				}
 				else if (ticket_status==1 &&opponent==11 && quickstats[0]>200) { //Bernie lost to Vance/Trump Jr
 					const EndingSong = new Playlist();
-					const endSong = new Song("You're Gonna Go Far, Kid", "The Offspring", "https://i.imgur.com/ev6Jaev.jpeg", "https://audio.jukehost.co.uk/PQbSlnfan3s8ac72h4LuvcLs1ZFLSLLN");
+					const endSong = new Song("You're Gonna Go Far, Kid", "The Offspring", "https://i.imgur.com/ev6Jaev.jpeg", "https://files.catbox.moe/u4so2i.mp3");
 					EndingSong.addSong(endSong);
 					changePlaylist(EndingSong);
 				}
@@ -55186,6 +55189,12 @@
 				else if (ticket_status==1 &&opponent==17 && quickstats[0]>200) { //Bernie lost to Vance/Cotton
 					const EndingSong = new Playlist();
 					const endSong = new Song("I Won't Back Down", "Tom Petty & The Heartbreakers", "https://i.imgur.com/4h7GzTD.jpeg", "https://audio.jukehost.co.uk/3JoxbOrKTrOCOorOerKxKOmizu49ZGlC");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (quickstats[0]<=38) { //you won 38 or fewer EVs; opponents won 500+
+					const EndingSong = new Playlist();
+					const endSong = new Song("The Ghost of Tom Joad", "Bruce Springsteen", "https://i.imgur.com/fjK9oFx.jpeg", "https://audio.jukehost.co.uk/7yt5Gab4oTaAy24laMqlFr2PPd75m10N");
 					EndingSong.addSong(endSong);
 					changePlaylist(EndingSong);
 				}
