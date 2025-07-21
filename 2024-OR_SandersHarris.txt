@@ -56888,12 +56888,12 @@
 		else {
 			ending+=`</p><p>In addition, ${Object.keys(senate_close).length} `
 			if (Object.keys(senate_close).length==1) {
-				ending+=` seat`
+				ending+=` seat that did not change parties was`
 			}
 			else {
-				ending+=` seats`
+				ending+=` seats that did not change parties were`
 			}
-			ending+=` that did not change parties were decided by 5% or less:`
+			ending+=` decided by 5% or less:`
 			Object.keys(senate_close).forEach((item,index)=>{
 				if(item=="AZ" && !senate_lost) {//technically this condition checks for AZ SoS loss, not AZ governors loss (which should occur more often.) But Kari Lake is only mentioned as Governor if Mark Finchem is SoS, and mentioning either is mutually exclusive.
 					ending+=` Ruben Gallego barely defeated ${maga_trifecta.includes(1102) ? "Blake Masters" : "Kari Lake"} by ${roundToDecimals(senate_close["AZ"]*100,2)}% in Sinema's open Arizona seat`
