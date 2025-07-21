@@ -6815,7 +6815,7 @@
 				"state": 1117,
 				"issue": 111,
 				"state_issue_score": -0.45,
-				"weight": 0.75
+				"weight": 1
 			}
 		},
 		{
@@ -7104,7 +7104,7 @@
 			"fields": {
 				"state": 1123,
 				"issue": 110,
-				"state_issue_score": -0.1,
+				"state_issue_score": -0.2,
 				"weight": 0.75
 			}
 		},
@@ -9186,7 +9186,7 @@
 			"fields": {
 				"candidate": 300,
 				"state": 1117,
-				"state_multiplier": 1.82
+				"state_multiplier": 1.86
 			}
 		},
 		{
