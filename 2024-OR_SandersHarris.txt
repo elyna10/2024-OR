@@ -55292,7 +55292,7 @@
 				}
 				else if (taiwan_conquered==1) { //Loses after surrendering Taiwan. Great job, player. Recommended by Irrintzi.
 					const EndingSong = new Playlist();
-					const endSong = new Song("王傑", "亞細亞的孤兒", "https://i.imgur.com/RUCGYzM.jpeg", "https://audio.jukehost.co.uk/YK8kah1tnucgGOs30b5bsoBglSXYI2wy");
+					const endSong = new Song("王傑", "亞細亞的孤兒", "https://i.imgur.com/ZYZgIdi.jpeg", "https://audio.jukehost.co.uk/YK8kah1tnucgGOs30b5bsoBglSXYI2wy");
 					//orphan of Asia, about Taiwan's identity crisis
 					EndingSong.addSong(endSong);
 					changePlaylist(EndingSong);
@@ -58474,7 +58474,7 @@
 		}
 		else if (ans == 1002) {
 			party_unity +=1 //vaguely unifying
-
+			
 		}
 		else if (ans == 1003) {
 			expectations -=1
