@@ -54858,10 +54858,125 @@
 						ctsAchievement("The Holier Grail")
 					}
 				}
-				else if (ticket_status==1 &&opponent==13) { //Bernie defeated Rubio
+				else if (taiwan_war==1) { //win and PRC defeated via war, regardless of who you're playing as (i.e. Xi Jinping forced to resign. PRC future unspecified.)
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("The Internationale", "唐朝", "https://i.imgur.com/wHhypAp.jpeg", "https://audio.jukehost.co.uk/xNDmj2kGMscSe3wE1rMs0SfdlFtUC0tE");
+					//Mandarin version of the Internationale is politically neutral in mainland PRC - used both by government at official events and by opposition (both at Tiananmen & at more recent lockdown/democracy protests.) Obviously the latter is why it gets picked. Picked the 唐朝 version as it wouldn't have pro-government vibes like many of the high-quality recordings.
+					//besides it feels appropriate to have at least one rendition of The Internationale in this mod. I don't think Bernie himself has made significant comment about the song, but it's likely he sung it regularly along the other kibbutz members at Sha'ar HaAmakim
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				//opponent-specific songs picked by Skittie unless specified otherwise
+				else if (ticket_status==1 && ukraine_strength>=24) { //win as Bernie and Ukraine liberated
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("Seven Nation Army", "The White Stripes", "https://i.imgur.com/DhPVaGe.jpeg", "https://audio.jukehost.co.uk/S3m4rEjTKppwNLnFdWG7Hx4kolZelXH1");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ukraine_strength>=24) { //win as Kamala and Ukraine liberated
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("Ще не вмерла України і слава, і воля", "Олекса́ндр Пономарьо́в", "https://i.imgur.com/RDeIdYI.jpeg", "https://audio.jukehost.co.uk/Cn7fyOoPmNil43g73mox9eYoS9R3gUqU"); //Slava Ukraini
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 && opponent==1 && quickstats[0]<=320) { //Bernie defeated Trump/Vance but with 320 EVs or fewer
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("Power To The People", "John Lennon", "https://i.imgur.com/QkQImcd.jpeg", "https://audio.jukehost.co.uk/hHlwkbJWO3gBQO0n3gfMOch6re4b1JKI");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 && opponent==2 && quickstats[0]<=320) { //Bernie defeated Trump/Burgum but with 320 EVs or fewer
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("Better World A-Comin'", "Woody Guthrie", "https://i.imgur.com/m5ytWBi.jpeg", "https://audio.jukehost.co.uk/G9VTxwld2sA78mUjMqOeJ5IVa9AUBFf2");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 && opponent==3 && quickstats[0]<=320) { //Bernie defeated Trump/Rubio but with 320 EVs or fewer
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("Turn! Turn! Turn!", "The Byrds", "https://i.imgur.com/EG818zH.jpeg", "https://audio.jukehost.co.uk/K4TNSKNyqDTaZab7NpbVfExMCAlVRe5I");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 && opponent==4 && quickstats[0]<=320) { //Bernie defeated Trump/Scott but with 320 EVs or fewer
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("What's Going On", "Martin Gaye", "https://i.imgur.com/8EQ3zTJ.jpeg", "https://audio.jukehost.co.uk/YdrtvuvnbkyVSWeFpVidibuOjmixbhbJ");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 && opponent==5 && quickstats[0]<=320) { //Bernie defeated Trump Jr/Ramaswamy but with 320 EVs or fewer
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("Revolution", "The Beatles", "https://i.imgur.com/zFQUkSF.jpeg", "https://audio.jukehost.co.uk/iQNRnKfRnXGjjDZVUL7mTDupc4C9LQJ9");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 && opponent==6 && quickstats[0]<=320) { //Bernie defeated DeSantis/Burgum but with 320 EVs or fewer
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("People Got To Be Free", "The Rascals", "https://i.imgur.com/mbURIlu.jpeg", "https://audio.jukehost.co.uk/QgrF7lZAkMbpNzguY5S0vwzMWCBlxWOr");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 && opponent==7 && quickstats[0]<=320) { //Bernie defeated Hawley/Vance but with 320 EVs or fewer
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("Working Class Hero", "John Lennon", "https://i.imgur.com/fC85CrN.jpeg", "https://audio.jukehost.co.uk/hFxQ3OvAkbpBPlscL36fZCSTFNLNyxgE");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 && opponent==11 && quickstats[0]<=320) { //Bernie defeated Vance/Trump Jr but with 320 EVs or fewer
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("Imagine", "John Lennon", "https://i.imgur.com/JL2GDoS.jpeg", "https://audio.jukehost.co.uk/epWTjw9BvBZ9d1JbcL6DedEdnbYRThet");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 && opponent==12 && quickstats[0]<=320) { //Bernie defeated Burgum/Trump Jr but with 320 EVs or fewer
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("The Times They Are A Changin'", "Bob Dylan", "https://i.imgur.com/xT5PC4T.jpeg", "https://audio.jukehost.co.uk/rN85OrFQM8sFrEOzti0FB464gWPb01VR");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 && opponent==13 && quickstats[0]<=320) { //Bernie defeated Rubio but with 320 EVs or fewer. Recommended by Tannenberg.
 					song_change_resolved=true
 					const EndingSong = new Playlist();
 					const endSong = new Song("Como la Cigarra", "Mercedes Sosa", "https://i.imgur.com/JJMLvQv.jpeg", "https://audio.jukehost.co.uk/kYmLX7ut4E04C0hQE5tHmMQ5cPyA1eZ4");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 && opponent==14 && quickstats[0]<=320) { //Bernie defeated Scott but with 320 EVs or fewer
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("A Change Is Gonna Come", "Sam Cooke", "https://i.imgur.com/Zax9ei3.jpeg", "https://audio.jukehost.co.uk/kFZKljqFbo3xxUkZoT0shkQAumVPssTn");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 && opponent==15 && quickstats[0]<=320) { //Bernie defeated Ramaswamy but with 320 EVs or fewer
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("Give the People What They Want", "The O'Jays", "https://i.imgur.com/wfijaB4.jpeg", "https://audio.jukehost.co.uk/Id5hCiqwfrolISTvpcvDhUEdLaJUSc8V");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 && opponent==16 && quickstats[0]<=320) { //Bernie defeated Burgum/Rubio but with 320 EVs or fewer
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("The Revolution Starts Now", "Steve Earle", "https://i.imgur.com/QTTKtun.jpeg", "https://audio.jukehost.co.uk/C99Mt5f3cGhjdrLnkkQMXznQT1YUixGi");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status==1 && opponent==17 && quickstats[0]<=320) { //Bernie defeated Vance/Cotton but with 320 EVs or fewer
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("Do You Hear The People Sing?", "Michael Maguire", "https://i.imgur.com/jOTyT2E.jpeg", "https://audio.jukehost.co.uk/8wvpydfEalQxIsMUD0BglQPbFMr2TA0h");
 					EndingSong.addSong(endSong);
 					changePlaylist(EndingSong);
 				}
@@ -54872,10 +54987,77 @@
 					EndingSong.addSong(endSong);
 					changePlaylist(EndingSong);
 				}
-				else if (left_angry) { //win as Kamala with left anger high
+				else if (left_angry) { //win as Kamala with left anger high. Recommended by Skittie.
 					song_change_resolved=true
 					const EndingSong = new Playlist();
 					const endSong = new Song("I Just Threw Out the Love of My Dreams", "Weezer", "https://i.imgur.com/OrYPX2K.jpeg", "https://audio.jukehost.co.uk/MuIgTg9Br8AWgPwcz3Kg2MhrjIi32PsO");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				
+				//these opponent-specific ones recommended by Skittie, unless specified otherwise
+				else if (ticket_status>=2 && opponent>=1 && opponent<=4 && quickstats[0]<=320) { //Kamala defeated any Trump variation but with 320 EVs or fewer
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("Not Like Us", "Kendrick Lamar", "https://i.imgur.com/u4HTyxW.jpeg", "https://audio.jukehost.co.uk/rP0VFH05YAV6MvIIjXveLxsdylMGNB4z");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status>=2 && opponent==5 && quickstats[0]<=320) { //Kamala defeats Trump Jr with 320 EVs or fewer
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("The Edge of Glory", "Lady Gaga", "https://i.imgur.com/CDfctSb.jpeg", "https://audio.jukehost.co.uk/CuwUcy63mkNgOsRnn4yZzI4R19rWQ7Zl");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status>=2 && opponent==6 && quickstats[0]<=320) { //Kamala defeats DeSantis with 320 EVs or fewer
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("Survivor", "Destiny's Child", "https://i.imgur.com/221kb7z.jpeg", "https://audio.jukehost.co.uk/vrVBpMQ3hzQCF81e6cq7MnmDLpnCsqN1");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status>=2 && opponent==7 && quickstats[0]<=320) { //Kamala defeats Hawley with 320 EVs or fewer
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("Unstoppable", "Sia", "https://i.imgur.com/z8BJidM.jpeg", "https://audio.jukehost.co.uk/ET2LFuhIlsk1cwPcAcg5jilwQD0B7Zvf");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status>=2 && (opponent==11 || opponent==17) && quickstats[0]<=320) { //Kamala defeats any Vance with 320 EVs or fewer
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("Karma", "Taylor Swift", "https://i.imgur.com/xJqXxC6.jpeg", "https://audio.jukehost.co.uk/J8vmX8E8LEnBeSXydPRV0p1gLegTmKzj");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status>=2 && (opponent==12 || opponent==16) && quickstats[0]<=320) { //Kamala defeats any Burgum with 320 EVs or fewer
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("Signed, Sealed, Delivered", "Stevie Wonder", "https://i.imgur.com/Mxxgdu8.jpeg", "https://audio.jukehost.co.uk/3ShqoHz4tORFurip60chBr95LagZfaGG");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status>=2 && opponent==13 && quickstats[0]<=320) { //Kamala defeats Rubio with 320 EVs or fewer
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("California Dreamin'", "The Beach Boys", "https://i.imgur.com/l8RZrKS.jpeg", "https://audio.jukehost.co.uk/28krTJHaljlfXUZaooYoMmK7m41BCmvR");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status>=2 && opponent==14 && quickstats[0]<=320) { //Kamala defeats Scott with 320 EVs or fewer
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("Ain't No Mountain High Enough", "Play", "https://i.imgur.com/orOkKXI.jpeg", "https://audio.jukehost.co.uk/tRQ7M74IP1VLGlaVTXLkBzc6kIFH4OiD");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status>=2 && opponent==15 && quickstats[0]<=320) { //Kamala defeats Vivek Ramaswamy with 320 EVs or fewer. Song picked by me.
+					song_change_resolved=true
+					const EndingSong = new Playlist();
+					const endSong = new Song("Singappenney", "A. R. Rahman", "https://i.imgur.com/Nm5Hsge.jpeg", "https://audio.jukehost.co.uk/qy0i9Xi4jLML9Y0NgEoXuuRJxYk71coG");
+					//I wanted a Tamil song because both are Tamil-speaking second-generation immigrants with at least one Tamil Brahmin parent. Kamala's mother was from Tamil Nadu; Ramaswamy's parents are from Kerala (but Tamil-speaking.)
+					//I am not familiar with any Tamil songs Kamala has specifically mentioned liking; I ended up going with a song by A.R. Rahman who's a giant in India - he endorsed her with a concert including it - and dedicated it specifically to her - in 2024. He'd definitely support her over Vivek (Ramaswamy, that is. Funnily enough, the song was actually written by Vivek... Vivek Velmurugan that is.)
 					EndingSong.addSong(endSong);
 					changePlaylist(EndingSong);
 				}
@@ -55003,7 +55185,7 @@
 				e.executable.push([0, (() => {e.image = e.image = 'https://i.imgur.com/ZPpAcX6.jpeg'})])
 			}
 		}
-		else if (quickstats[0]<270 && e.final_overall_results.find(p=>p.candidate==301).electoral_votes<270) { //you didn't win, your opponent didn't win (likely 269 tie; offhand chance of third-party winning votes.
+		else if (quickstats[0]<270 && e.final_overall_results.find(p=>p.candidate==301).electoral_votes<270) { //you didn't win, your opponent didn't win (likely 269 tie; offhand chance of third-party winning votes. Faithless electors is a separate ending.
 			if (!song_change_resolved) {
 				song_change_resolved=true
 				if (ticket_status==1) {
@@ -55016,19 +55198,8 @@
 					customquote = quotes[Math.floor((Math.random() * quotes.length))]
 					corrr=`\n<h2>OUR REVOLUTION</h2><font id='wittyquote' size='3' color='white'><em>`+customquote+`</em></font>`
 				}
-				if (opponent == 7) { //Elon DOGE ending song.
-					const EndingSong = new Playlist();
-					const endSong = new Song("I've Never Met a Nice South African", "Andy Roberts", "https://i.imgur.com/j7MqgHO.jpeg", "https://audio.jukehost.co.uk/rAiXWHZEh0zqJRz1xmU0UmWowLE8muCN");
-					EndingSong.addSong(endSong);
-					changePlaylist(EndingSong);
-				}
-				else if (ticket_status==1 &&opponent==13) { //Bernie lost to Rubio
-					const EndingSong = new Playlist();
-					const endSong = new Song("Ángel para un Final", "Silvio Rodríguez", "https://i.imgur.com/WXuwsAg.jpeg", "https://audio.jukehost.co.uk/GVObhh3VQIhXn90uidph3406rxB5Z6ie");
-					EndingSong.addSong(endSong);
-					changePlaylist(EndingSong);
-				}
-				else if (ticket_status>=2) { //Kamala lost
+				//no opponent-specific music here.
+				if (ticket_status>=2) { //Kamala lost
 					const EndingSong = new Playlist();
 					const endSong = new Song("Ain't No Way", "Aretha Franklin", "https://i.imgur.com/WMaFd14.jpeg", "https://audio.jukehost.co.uk/7MJsEjk1M8wT6QyEGqHCqA15r8ba1F9I");
 					EndingSong.addSong(endSong);
@@ -55108,7 +55279,22 @@
 					corrr=`\n<h2>OUR REVOLUTION</h2><font id='wittyquote' size='3' color='white'><em>`+customquote+`</em></font>`
 				}
 				
-				if (ticket_status==1 && opponent == 1 && quickstats[0]>200) { //Bernie loses to Trump/Vance
+				if (taiwan_war==1) { //Loses after defeating PRC at war. Recommended by Irrintzi.
+					const EndingSong = new Playlist();
+					const endSong = new Song("團結的人民永遠不被擊敗", "再一次拒絕長大劇團", "https://i.imgur.com/GAUu3Xx.jpeg", "https://audio.jukehost.co.uk/yULHCFUV1zi3pF42h3OsLQjfEGnPatpr");
+					//Taiwanese protest song; very appropriate vibes.
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (taiwan_conquered==1) { //Loses after surrendering Taiwan. Great job, player. Recommended by Irrintzi.
+					const EndingSong = new Playlist();
+					const endSong = new Song("王傑", "亞細亞的孤兒", "https://i.imgur.com/RUCGYzM.jpeg", "https://audio.jukehost.co.uk/YK8kah1tnucgGOs30b5bsoBglSXYI2wy");
+					//orphan of Asia, about Taiwan's identity crisis
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				//opponent-specific songs picked by Skittie unless specified otherwise
+				else if (ticket_status==1 && opponent == 1 && quickstats[0]>200) { //Bernie loses to Trump/Vance
 					const EndingSong = new Playlist();
 					const endSong = new Song("MAGA YMCA", "Mindy Robinson", "https://i.imgur.com/tKTmd6o.jpeg", "https://files.catbox.moe/kd4knj.mp3");
 					EndingSong.addSong(endSong);
@@ -55144,7 +55330,7 @@
 					EndingSong.addSong(endSong);
 					changePlaylist(EndingSong);
 				}
-				else if (ticket_status==1 && opponent == 7 && quickstats[0]>200) { //Elon DOGE ending song.
+				else if (ticket_status==1 && opponent == 7 && quickstats[0]>200) { //Elon DOGE ending song. Picked by me.
 					const EndingSong = new Playlist();
 					const endSong = new Song("I've Never Met a Nice South African", "Andy Roberts", "https://i.imgur.com/j7MqgHO.jpeg", "https://audio.jukehost.co.uk/rAiXWHZEh0zqJRz1xmU0UmWowLE8muCN");
 					EndingSong.addSong(endSong);
@@ -55162,7 +55348,7 @@
 					EndingSong.addSong(endSong);
 					changePlaylist(EndingSong);
 				}
-				else if (ticket_status==1 &&opponent==13 && quickstats[0]>200) { //Bernie lost to Rubio
+				else if (ticket_status==1 &&opponent==13 && quickstats[0]>200) { //Bernie lost to Rubio. Picked by Tannenberg.
 					const EndingSong = new Playlist();
 					const endSong = new Song("Ángel para un Final", "Silvio Rodríguez", "https://i.imgur.com/WXuwsAg.jpeg", "https://audio.jukehost.co.uk/GVObhh3VQIhXn90uidph3406rxB5Z6ie");
 					EndingSong.addSong(endSong);
@@ -55192,9 +55378,15 @@
 					EndingSong.addSong(endSong);
 					changePlaylist(EndingSong);
 				}
-				else if (quickstats[0]<=38) { //you won 38 or fewer EVs; opponents won 500+
+				else if (quickstats[0]<=38) { //you won 38 or fewer EVs; opponents won 500+. Recommended by Skittie.
 					const EndingSong = new Playlist();
 					const endSong = new Song("The Ghost of Tom Joad", "Bruce Springsteen", "https://i.imgur.com/fjK9oFx.jpeg", "https://audio.jukehost.co.uk/7yt5Gab4oTaAy24laMqlFr2PPd75m10N");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
+				else if (ticket_status>=2 && quickstats[0]>200) { //Kamala lost but not a landslide. Recommended by Skittie.
+					const EndingSong = new Playlist();
+					const endSong = new Song("For What It's Worth", "Billy Porter", "https://i.imgur.com/scqNhpc.jpeg", "https://audio.jukehost.co.uk/qDG2PbP47m9i26djXIJjshZ5xNakNhhd");
 					EndingSong.addSong(endSong);
 					changePlaylist(EndingSong);
 				}
