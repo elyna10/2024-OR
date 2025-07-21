@@ -55388,6 +55388,12 @@
 					EndingSong.addSong(endSong);
 					changePlaylist(EndingSong);
 				}
+				else if (ticket_status>=2 && opponent==1 && e.final_overall_results.find(p=>p.candidate==301).electoral_votes==312) { //Kamala lost to Trump/Vance; Trump/Vance has 312 EVs. Not necessarily wake-up-as-Kamala ending (maybe she's still stuck dreaming...). Not checking Kamala EVs because might have faithless electors.
+					const EndingSong = new Playlist();
+					const endSong = new Song("Donald Trump - Macarena", "Vek (AI generated)", "https://i.imgur.com/9EH6G2Y.jpeg", "https://audio.jukehost.co.uk/p8vmnW2EVTPQN0e2Q9qJ4tbxFlX71Rtr");
+					EndingSong.addSong(endSong);
+					changePlaylist(EndingSong);
+				}
 				else if (ticket_status>=2 && quickstats[0]>200) { //Kamala lost but not a landslide. Recommended by Skittie.
 					const EndingSong = new Playlist();
 					const endSong = new Song("For What It's Worth", "Billy Porter", "https://i.imgur.com/scqNhpc.jpeg", "https://audio.jukehost.co.uk/qDG2PbP47m9i26djXIJjshZ5xNakNhhd");
@@ -61615,7 +61621,7 @@
 						if (Math.ceil(Math.random() *100)<=25 && e.random_on) {
 							q24403_bad=1
 							if (e.tooltips_on) {
-								ReplaceFeedback(24403,`<span class=\'mytooltip\' style="background-color:darkblue;color:white">Beijing refuses to renounce conquest<span class=\'mytooltiptext\'><img src=https://i.imgur.com/UUyfVsl.jpeg><br><b>The PRC has a 25% chance to reject peace and escalate if asked to renounce reunification by force; 50% if also asked to return the Penghus. If randomness is off, this will never trigger.</b><br><i>Beaten and bloodied, the PRC refuses to submit to yet another Unequal Treaty - while beneath, the people rise, crying for an end to the madness.</i></span></span> of Taiwan, clinging to their pride even as the blockade strangles their ports. In the streets, young people rise in protest - demanding jobs, dignity, a future - and when the PLA is ordered to fire, the soldiers refuse and join the people. And for once, you dare to hope that a new China is being born from the ashes of the old.`)
+								ReplaceFeedback(24403,`<span class=\'mytooltip\' style="background-color:darkblue;color:white">Beijing refuses to renounce conquest<span class=\'mytooltiptext\'><img src=https://i.imgur.com/dGsQMq0.jpeg><br><b>The PRC has a 25% chance to reject peace and escalate if asked to renounce reunification by force; 50% if also asked to return the Penghus. If randomness is off, this will never trigger.</b><br><i>Beaten and bloodied, the PRC refuses to submit to yet another Unequal Treaty - while beneath, the people rise, crying for an end to the madness.</i></span></span> of Taiwan, clinging to their pride even as the blockade strangles their ports. In the streets, young people rise in protest - demanding jobs, dignity, a future - and when the PLA is ordered to fire, the soldiers refuse and join the people. And for once, you dare to hope that a new China is being born from the ashes of the old.`)
 							}
 							else {
 								ReplaceFeedback(24403,`Beijing refuses to renounce conquest of Taiwan, clinging to their pride even as the blockade strangles their ports. In the streets, young people rise in protest - demanding jobs, dignity, a future - and when the PLA is ordered to fire, the soldiers refuse and join the people. And for once, you dare to hope that a new China is being born from the ashes of the old.`)
@@ -61638,7 +61644,7 @@
 						if (Math.ceil(Math.random() *100)<=25 && e.random_on) {
 							q24503_bad=1
 							if (e.tooltips_on) {
-								ReplaceFeedback(24503,`<span class=\'mytooltip\' style="background-color:darkblue;color:white">Beijing refuses to renounce conquest<span class=\'mytooltiptext\'><img src=https://i.imgur.com/UUyfVsl.jpeg><br><b>The PRC has a 25% chance to reject peace and escalate if asked to renounce reunification by force; 50% if also asked to return the Penghus. If randomness is off, this will never trigger.</b><br><i>Beaten and bloodied, the PRC refuses to submit to yet another Unequal Treaty - while beneath, the people rise, crying for an end to the madness.</i></span></span> of Taiwan, clinging to their pride even as the blockade strangles their ports. In the streets, young people rise in protest - demanding jobs, dignity, a future - and when the PLA is ordered to fire, the soldiers refuse and join the people. And for once, you dare to hope that a new China is being born from the ashes of the old.`)
+								ReplaceFeedback(24503,`<span class=\'mytooltip\' style="background-color:darkblue;color:white">Beijing refuses to renounce conquest<span class=\'mytooltiptext\'><img src=https://i.imgur.com/dGsQMq0.jpeg><br><b>The PRC has a 25% chance to reject peace and escalate if asked to renounce reunification by force; 50% if also asked to return the Penghus. If randomness is off, this will never trigger.</b><br><i>Beaten and bloodied, the PRC refuses to submit to yet another Unequal Treaty - while beneath, the people rise, crying for an end to the madness.</i></span></span> of Taiwan, clinging to their pride even as the blockade strangles their ports. In the streets, young people rise in protest - demanding jobs, dignity, a future - and when the PLA is ordered to fire, the soldiers refuse and join the people. And for once, you dare to hope that a new China is being born from the ashes of the old.`)
 							}
 							else {
 								ReplaceFeedback(24403,`Beijing refuses to renounce conquest of Taiwan, clinging to their pride even as the blockade strangles their ports. In the streets, young people rise in protest - demanding jobs, dignity, a future - and when the PLA is ordered to fire, the soldiers refuse and join the people. And for once, you dare to hope that a new China is being born from the ashes of the old.`)
