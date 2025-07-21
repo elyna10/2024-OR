@@ -596,7 +596,7 @@ document.head.appendChild(customStyling);
       "https://audio.jukehost.co.uk/m578B1oFyTzSjaxiXpbBfZN7I5RHpeBi"
     );
   
-    const song3 = new Song(
+    const song3 = new Song( //recommended by Skittie
       "Bread And Roses",
       "Judy Collins",
       "https://i.imgur.com/FFyGJFl.jpeg",
@@ -631,7 +631,7 @@ document.head.appendChild(customStyling);
       "https://audio.jukehost.co.uk/eOuTV1mb4d0t7vhHqSEv7UArns2UKUHO"
     );
 	
-    const song8 = new Song(
+    const song8 = new Song( //recommended by Tannenberg
       "Masters Of War",
       "Bob Dylan",
       "https://files.catbox.moe/7zvbve.jpg",
@@ -652,14 +652,14 @@ document.head.appendChild(customStyling);
       "https://audio.jukehost.co.uk/BS0xqlokE9fZPQfEIdMVOzjmf43QWHEQ"
     );
 	
-    const song11 = new Song(
+    const song11 = new Song( //recommended by Tannenberg
       "Diamonds And Rust",
       "Joan Baez",
       "https://i.imgur.com/TiMajND.jpeg",
       "https://audio.jukehost.co.uk/YZ8150OYHEFp6jmmSX8rFdimeijOf99p"
     );
   
-    const song12 = new Song(
+    const song12 = new Song( //this version recommended by Skittie (previously Seeger.)
       "Solidarity Forever",
       "Tom Morello",
       "https://i.imgur.com/HMzKtUt.jpeg",
@@ -710,7 +710,7 @@ document.head.appendChild(customStyling);
 	  "https://i.imgur.com/ATV9Mq4.jpeg",
 	  "https://audio.jukehost.co.uk/MfK4n21okxhZK7m9Nn9VYu8SvvzgFHVO"
 	);
-	const Ksong5 = new Song(
+	const Ksong5 = new Song( //recommended by sailor_neptune_9
 	  "Von Dutch",
 	  "Charli XCX",
 	  "https://i.imgur.com/jqXerdq.jpeg",
@@ -730,14 +730,14 @@ document.head.appendChild(customStyling);
 	  "https://audio.jukehost.co.uk/RrWmyZRgRkFCE3ceDd7ym8zCl0g8xXA9"
 	);
 	
-	const Ksong8 = new Song(
+	const Ksong8 = new Song( //recommended by Skittie.
 	  "We The People",
 	  "The Staple Singers",
 	  "https://i.imgur.com/dhWQr5O.jpeg",
 	  "https://audio.jukehost.co.uk/t6txpvU9hdEf5F1CsmvFQMfjJqvyRuU0"
 	);
 	
-	const Ksong9 = new Song(
+	const Ksong9 = new Song( //recommended by Skittie.
 	  "If You Dare",
 	  "Jazmine Sullivan",
 	  "https://i.imgur.com/L6u1yYp.jpeg",
