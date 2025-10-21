@@ -54431,6 +54431,7 @@
 			if (senate_results["UT"]>0) { 
 				senate_seats+=1
 				senate_gains["UT"]=senate_results["UT"]
+				ctsAchievement("The White Horse")
 			}
 			else if (senate_results["UT"]>-0.05) {
 				senate_close["UT"]=senate_results["UT"]
@@ -55243,6 +55244,9 @@
 				if (cumulative_inflation>=40) {
 					ctsAchievement("True Populist")
 				}
+				if (economy<=-9.95) { //giving a bit of buffer for what if it rounds to -10 and player thinks they should get the achievement (even if it doesn't have the correct mouseover.)
+					ctsAchievement("The Vibes Election")
+				}
 				if ((e.player_answers.includes(39201) || e.player_answers.includes(39202) || e.player_answers.includes(39203) || e.player_answers.includes(39204) || e.player_answers.includes(39501) || e.player_answers.includes(39502) || e.player_answers.includes(39503) || e.player_answers.includes(39504)) && (e.player_answers.includes(41201) || e.player_answers.includes(41202) || e.player_answers.includes(41203) || e.player_answers.includes(41501) || e.player_answers.includes(41502) || e.player_answers.includes(41503) || e.player_answers.includes(41504)) && (e.player_answers.includes(43201) || e.player_answers.includes(43202) || e.player_answers.includes(43501) || e.player_answers.includes(43502)) ) {
 					ctsAchievement("Didn't need them") 
 				}
@@ -55888,7 +55892,7 @@
 				e.executable.push([2, (() => {e.image = e.image = 'https://i.imgur.com/VxJ3upZ.jpeg'})])
 			}
 			else if (e.final_overall_results.find(p=>p.candidate==300).electoral_votes>269) { 
-				e.pages.push(`<p><b>Netanyahu declares "Mission Accomplished", agrees to Gaza withdrawal in hostage deal</b></p><p>Israeli Prime Minister declared "Mission Accomplished" today, as he announced the complete dismantling of Hamas' military infrastructure and leadership in the Gaza Strip, hailing what he characterized as "a decisive victory over terror." In a televised address, Netanyahu confirmed that Israel would begin a full withdrawal from Gaza and allow Palestinian refugees to return to their Gaza homes - many reduced to rubble - in exchange for the release of the last Israeli refugees. The agreement, brokered through Egyptian and Qatari mediators, marks an end to a brutal one and a half year campaign that devastated Gaza and drew international condemnation.</p><p>While Netanyahu portrayed the withdrawal as a voluntary decision following total victory, analysts suggest it was a strategic retreat forced by geopolitical realities. "If Bibi had his way, Gaza would be emptied and annexed", one senior diplomat stated under condition of anonymity. "But with President ${ticket_status<2 ?"Sanders" : "Harris"} in office and international patience exhausted, the risk of permanent occupation or ethnic cleansing became too high for him to consider." Israeli National Security minister Itamar Ben-Gvir resigned from the Cabinet in protest over the agreement, while many in Israel celebrated at the return of the hostages. Hundreds of thousands of displaced Palestinians are expected to begin returning to their homes in northern Gaza in the coming weeks, though reconstruction efforts remain uncertain amid a near-total infrastructure collapse in Gaza.</p><br> Ending Slide #32 `)
+				e.pages.push(`<p><b>Netanyahu declares "Mission Accomplished", agrees to Gaza withdrawal in hostage deal</b></p><p>Israeli Prime Minister declared "Mission Accomplished" today, as he announced the complete dismantling of Hamas' military infrastructure and leadership in the Gaza Strip, hailing what he characterized as "a decisive victory over terror." In a televised address, Netanyahu confirmed that Israel would begin a full withdrawal from Gaza and allow Palestinian refugees to return to their Gaza homes - many reduced to rubble - in exchange for the release of the last Israeli hostages. The agreement, brokered through Egyptian and Qatari mediators, marks an end to a brutal one and a half year campaign that devastated Gaza and drew international condemnation.</p><p>While Netanyahu portrayed the withdrawal as a voluntary decision following total victory, analysts suggest it was a strategic retreat forced by geopolitical realities. "If Bibi had his way, Gaza would be emptied and annexed", one senior diplomat stated under condition of anonymity. "But with President ${ticket_status<2 ?"Sanders" : "Harris"} in office and international patience exhausted, the risk of permanent occupation or ethnic cleansing became too high for him to consider." Israeli National Security minister Itamar Ben-Gvir resigned from the Cabinet in protest over the agreement, while many in Israel celebrated at the return of the hostages. Hundreds of thousands of displaced Palestinians are expected to begin returning to their homes in northern Gaza in the coming weeks, though reconstruction efforts remain uncertain amid a near-total infrastructure collapse in Gaza.</p><br> Ending Slide #32 `)
 				e.executable.push([2, (() => {e.image = e.image = 'https://i.imgur.com/TBxFSPV.jpeg'})])
 			}
 			else if (party_social_progressive>=10) {
@@ -57407,7 +57411,7 @@
 					ending+=` Amy Klobuchar won re-election by only ${roundToDecimals(senate_close["MN"]*100,2)}% in Minnesota`
 				}
 				else if(item=="MS"){
-					ending+=` Roger Wicker was narrowly re-elected by ${roundToDecimals(senate_gains["MS"]*100,2)}% in Mississippi`
+					ending+=` Roger Wicker was narrowly re-elected by ${roundToDecimals(-1*senate_close["MS"]*100,2)}% in Mississippi`
 				}
 				else if (item=="MO") {
 					ending+=` Josh Hawley was narrowly re-elected by ${roundToDecimals(-1*senate_close["MO"]*100,2)}% in Missouri`
@@ -57419,7 +57423,7 @@
 					ending+=` Deb Fischer saw re-election by only ${roundToDecimals(-1*senate_close["NE"]*100,2)}% in Nebraska`
 				}
 				else if (item=="NE-Special") {
-					ending+=` Pete Ricketts faced a shockingly close race for Nebraska's Class 2 Senate seat in the special election and won by only ${roundToDecimals(senate_gains["NE-Special"]*100,2)}%`
+					ending+=` Pete Ricketts faced a shockingly close race for Nebraska's Class 2 Senate seat in the special election and won by only ${roundToDecimals(-1*senate_close["NE-Special"]*100,2)}%`
 				}
 				else if (item=="NV") {
 					ending+=` Jacky Rosen won re-election in Nevada by only ${roundToDecimals(senate_close["NV"]*100,2)}%`
@@ -57434,7 +57438,7 @@
 					ending+=` Kirsten Gillibrand was re-elected by only ${roundToDecimals(senate_close["NY"]*100,2)}% in New York`
 				}
 				else if (item=="ND") {
-					ending+=` Kevin Cranmer fought through divine intervention to win re-election by ${roundToDecimals(senate_gains["ND"]*100,2)}% in North Dakota`
+					ending+=` Kevin Cranmer fought through divine intervention to win re-election by ${roundToDecimals(-1*senate_close["ND"]*100,2)}% in North Dakota`
 				} //this can't even be close without cheating 
 				else if (item=="OH") {
 					ending+=` Sherrod Brown narrowly hung on by ${roundToDecimals(senate_close["OH"]*100,2)}% in Ohio`
@@ -57446,19 +57450,19 @@
 					ending+=` Sheldon Whitehouse faced a shockingly close race to win re-election by only ${roundToDecimals(senate_close["RI"]*100,2)}% in Rhode Island`
 				}
 				else if (item=="TN") {
-					ending+=` Marsha Blackburn faced a shockingly close race and was re-elected by only ${roundToDecimals(senate_gains["TN"]*100,2)}% in Tennessee`
+					ending+=` Marsha Blackburn faced a shockingly close race and was re-elected by only ${roundToDecimals(-1*senate_close["TN"]*100,2)}% in Tennessee`
 				}
 				else if (item=="TX") {
 					ending+=` Ted Cruz was re-elected by only ${roundToDecimals(-1*senate_close["TX"]*100,2)}% in Texas`
 				}
 				else if (item=="UT") {
-					ending+=` ${opponent_last_name} was so utterly unpopular that John Curtis only won Utah's open seat by ${roundToDecimals(senate_gains["UT"]*100,2)}%`
+					ending+=` ${opponent_last_name} was so utterly unpopular that John Curtis only won Utah's open seat by ${roundToDecimals(-1*senate_close["UT"]*100,2)}%`
 				}
 				else if (item=="VA") {
 					ending+=` Tim Kaine was re-elected by only ${roundToDecimals(senate_close["VA"]*100,2)}% in Virginia`
 				}
 				else if (item=="VT") {
-					ending+=` David Zuckerman barely survived the red tsunami by ${roundToDecimals(-1*senate_losses["VT"]*100,2)}% in ${ticket_status==1 ? "your" : "Bernie's"} old Vermont seat`
+					ending+=` David Zuckerman barely survived the red tsunami by ${roundToDecimals(senate_close["VT"]*100,2)}% in ${ticket_status==1 ? "your" : "Bernie's"} old Vermont seat`
 				} //maybe it's possible for this to be close in a Disaster self-sabotaging run, so I won't mention divine intervention.
 				else if (item=="WA") {
 					ending+=` Maria Cantwell was narrowly re-elected by ${roundToDecimals(senate_close["WA"]*100,2)}% in Washington state`
@@ -57470,7 +57474,7 @@
 					ending+=` Tammy Baldwin barely held on by ${roundToDecimals(senate_close["WI"]*100,2)}% in Wisconsin`
 				}
 				else if (item=="WY") {
-					ending+=` John Barrasso fought through divine intervention to win re-election by ${roundToDecimals(senate_gains["WY"]*100,2)}% in Wyoming`
+					ending+=` John Barrasso fought through divine intervention to win re-election by ${roundToDecimals(-1*senate_close["WY"]*100,2)}% in Wyoming`
 				} //this can't even be close without cheating 
 				if(Object.keys(senate_close).length>=3 && index<Object.keys(senate_close).length-1) {
 					ending+=`,`
@@ -62556,7 +62560,7 @@
 				}
 				else {
 					e.questions_json[campaignTrail_temp.question_number+1] = tunnel(35000) //Trump debate
-					if (e.candidate_issue_score_json[5].fields.issue_score<=-0.34) { //Trump is vulnerable on economics
+					if (e.candidate_issue_score_json[5].fields.issue_score<=-0.3) { //Trump is vulnerable on economics. Text was not firing properly for Trump/Rubio due to rounding issues so lowered the threshold.
 						ReplaceFeedback(35001,`You tore into Trump on stage, laying bare every giveaway to the 1%. He blusters back about prices and ending taxes on tips and overtime - but then you strike: If you care about workers, why'd you pick a ${opponent==2 ? "billionaire McKinsey man" : "neocon privatizer"} as your VP? For a moment, he struggles to respond - and America sees it. For once, the myth starts to crack.`) //effect still works the same, it just gives feedback that the attack was effective.
 					}
 					if (e.candidate_issue_score_json[6].fields.issue_score>0) { //Trump is running with positive globalism. Therefore this attack's result is less effective.
