@@ -11737,7 +11737,7 @@
 				"answer": 2004,
 				"candidate": 300,
 				"affected_candidate": 302,
-				"global_multiplier": 0.05
+				"global_multiplier": 0.025
 			}
 		},
 		{
@@ -11747,7 +11747,7 @@
 				"answer": 1001,
 				"candidate": 300,
 				"affected_candidate": 305,
-				"global_multiplier": 0.025
+				"global_multiplier": 0.01
 			}
 		},
 		{
@@ -11767,7 +11767,7 @@
 				"answer": 1003,
 				"candidate": 300,
 				"affected_candidate": 305,
-				"global_multiplier": 0.025
+				"global_multiplier": 0.01
 			}
 		},
 		{
@@ -11787,7 +11787,7 @@
 				"answer": 2001,
 				"candidate": 300,
 				"affected_candidate": 305,
-				"global_multiplier": 0.025
+				"global_multiplier": 0.02
 			}
 		},
 		{
@@ -13397,7 +13397,7 @@
 				"answer": 16001,
 				"candidate": 300,
 				"affected_candidate": 305,
-				"global_multiplier": 0.075
+				"global_multiplier": 0.05
 			}
 		},
 		{
@@ -13417,7 +13417,7 @@
 				"answer": 16004,
 				"candidate": 300,
 				"affected_candidate": 305,
-				"global_multiplier": 0.05
+				"global_multiplier": 0.025
 			}
 		},
 		{
@@ -13797,7 +13797,7 @@
 				"answer": 18103,
 				"candidate": 300,
 				"affected_candidate": 305,
-				"global_multiplier": 0.075
+				"global_multiplier": 0.05
 			}
 		},
 		{
@@ -13897,7 +13897,7 @@
 				"answer": 12003,
 				"candidate": 300,
 				"affected_candidate": 305,
-				"global_multiplier": 0.05
+				"global_multiplier": 0.025
 			}
 		},
 		{
@@ -13937,7 +13937,7 @@
 				"answer": 12103,
 				"candidate": 300,
 				"affected_candidate": 305,
-				"global_multiplier": 0.05
+				"global_multiplier": 0.025
 			}
 		},
 		{
@@ -14267,7 +14267,7 @@
 				"answer": 22202,
 				"candidate": 300,
 				"affected_candidate": 305,
-				"global_multiplier": 0.025
+				"global_multiplier": 0.05
 			}
 		},
 		{
@@ -14277,7 +14277,7 @@
 				"answer": 22201,
 				"candidate": 300,
 				"affected_candidate": 305,
-				"global_multiplier": 0.075
+				"global_multiplier": 0.025
 			}
 		},
 		{
@@ -14347,7 +14347,7 @@
 				"answer": 22302,
 				"candidate": 300,
 				"affected_candidate": 305,
-				"global_multiplier": 0.075
+				"global_multiplier": 0.05
 			}
 		},
 		{
@@ -14357,7 +14357,7 @@
 				"answer": 22301,
 				"candidate": 300,
 				"affected_candidate": 305,
-				"global_multiplier": 0.05
+				"global_multiplier": 0.025
 			}
 		},
 		{
@@ -14537,7 +14537,7 @@
 				"answer": 23203,
 				"candidate": 300,
 				"affected_candidate": 305,
-				"global_multiplier": 0.0375
+				"global_multiplier": 0.075
 			}
 		},
 		{
@@ -14567,7 +14567,7 @@
 				"answer": 23204,
 				"candidate": 300,
 				"affected_candidate": 305,
-				"global_multiplier": 0.15
+				"global_multiplier": 0.1
 			}
 		},
 		{
@@ -15207,7 +15207,7 @@
 				"answer": 24601,
 				"candidate": 300,
 				"affected_candidate": 305,
-				"global_multiplier": 0.05
+				"global_multiplier": 0.015
 			}
 		},
 		{
@@ -15247,7 +15247,7 @@
 				"answer": 24602,
 				"candidate": 300,
 				"affected_candidate": 305,
-				"global_multiplier": 0.05
+				"global_multiplier": 0.03
 			}
 		},
 		{
@@ -16677,7 +16677,7 @@
 				"answer": 36101,
 				"candidate": 300,
 				"affected_candidate": 305,
-				"global_multiplier": 0.125
+				"global_multiplier": 0.05
 			}
 		},
 		{
@@ -24481,7 +24481,7 @@
 			"pk": 46287,
 			"fields": {
 				"answer": 6002,
-				"state": 1148,
+				"state": 1102,
 				"candidate": 300,
 				"affected_candidate": 300,
 				"state_multiplier": -0.01
@@ -56990,7 +56990,7 @@
 	
 	function applyMinorBoost(candidateId, boostAmount,stateId) { //works on 3rd party candidates while also tracking the general numbers of the boost given in each state (so as to.
 		if (candidateId==302) {
-			ceiling=0.5
+			ceiling=0.4 //nerfbat from 0.5
 		}
 		else if (candidateId==305) {
 			ceiling=0.4
