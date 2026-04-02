@@ -56976,6 +56976,9 @@
 	
 	function applyMultiplier(candidateId, multiplier, StateId) { //while Nina's drift logic is useful, it isn't a precise multiplier - it has more of an impact where the state multiplier is smaller and vice versa when larger.
 		if (StateId === undefined || StateId.length === 0) { //applies everywhere
+			if (candidateId==301 && poll_adjust !=0) {
+				poll_adjust*=(1+multiplier) //needed for tracking. Otherwise you get slight changes due to variables being subject to addition, multiplication, and subtraction sequentially.
+			}
 			for (let StateNum = 1100; StateNum<1156; StateNum++ ) {
 				current_multiplier=e.candidate_state_multiplier_json.find(p=>p.fields.state==StateNum&& p.fields.candidate==candidateId).fields.state_multiplier
 				applyDrift(candidateId,current_multiplier*multiplier,StateNum) //apply that multiplier in that state.
